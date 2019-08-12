@@ -1,0 +1,233 @@
+# This file contains the order and numbering for all sections in the book.
+#
+# It is a sample TOC file to help you get started. Fill it out with entries
+# for your own content.
+#
+# Each entry has the following schema:
+#
+# - title: mytitle   # Title of chapter or section
+#   url: /myurl  # URL of section relative to the /content/ folder.
+#   sections:  # Contains a list of more entries that make up the chapter's sections
+#   not_numbered: true  # if the section shouldn't have a number in the sidebar
+#     (e.g. Introduction or appendices)
+#   expand_sections: true  # if you'd like the sections of this chapter to always
+#     be expanded in the sidebar.
+#   external: true  # Whether the URL is an external link or points to content in the book
+#
+# Below are some special values that trigger specific behavior:
+# - search: true  # Will provide a link to a search page
+# - divider: true  # Will insert a divider in the sidebar
+# - header: My Header  # Will insert a header with no link in the sidebar
+#
+# See the links below for an example.
+
+# Top-level page
+- title: 目录声明
+  url: /intro
+  not_numbered: true
+
+# External link
+- title: 课程链接
+  url: https://github.com/jupyter/jupyter-book
+  external: true
+  not_numbered: true
+
+# Adds a searchbar link
+- title: 查询
+  search: true
+
+# Divider for meta-pages and content page
+- divider: true
+
+# Add a header and sample content section
+- header: 书籍内容
+
+# A chapter w/ a collection of sections beneath it
+- title: 第1章 机器学习介绍
+  url: /01/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 01-01 机器学习导论
+    url: /01/01
+    not_numbered: true
+  - title: 01-02 我们为什么需要去学习机器学习
+    url: /01/02
+    not_numbered: true
+    
+- title: 第2章 回归模型
+  url: /02/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 02-01 线性回归案例
+    url: /02/01
+    not_numbered: true
+  - title: 02-02 梯度下降法实战
+    url: /02/02
+    not_numbered: true
+  - title: 02-03 误差分析
+    url: /02/03
+    not_numbered: true
+  - title: 02-04 梯度下降法
+    url: /02/04
+    not_numbered: true
+  - title: 02-05 梯度下降法
+    url: /02/05
+    not_numbered: true
+  - title: 02-06 梯度下降法
+    url: /02/06
+    not_numbered: true
+  - title: 02-07  作业介绍
+    url: /02/07
+    not_numbered: true
+    
+- title: 第3章 分类模型
+  url: /03/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 03-01 分类
+    url: /03/01
+    not_numbered: true
+  - title: 03-02 逻辑回归
+    url: /03/02
+    not_numbered: true
+  - title: 03-03 作业介绍
+    url: /03/03
+    not_numbered: true
+  
+- title: 第4章 回归模型
+  url: /04/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 04-01 介绍深度学习
+    url: /04/01
+    not_numbered: true
+  - title: 04-02 反向传播
+    url: /04/02
+    not_numbered: true
+  - title: 04-03 基于Keras实现的深度学习Hello World
+    url: /04/03
+    not_numbered: true
+  - title: 04-04 Keras2.0 实现手写数字识别
+    url: /04/04
+    not_numbered: true
+  - title: 04-05 Keras demo1
+    url: /04/05
+    not_numbered: true
+  - title: 04-06 DNN训练技巧
+    url: /04/06
+    not_numbered: true
+  - title: 04-07  Keras demo1
+    url: /04/07
+    not_numbered: true
+  - title: 04-08  Fizz Buzz in TensorFlow
+    url: /04/08
+    not_numbered: true
+
+- title: 第5章 卷积神经网路
+  url: /05/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 05-01 卷积神经网络
+    url: /05/01
+    not_numbered: true
+  - title: 05-02 深度学习的原因
+    url: /05/02
+    not_numbered: true
+   
+- title: 第6章 半监督学习
+  url: /06/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 06-01 半监督学习
+    url: /06/01
+    not_numbered: true
+ 
+    
+- title: 第7章 无监督学习
+  url: /07/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 07-01 线性降维
+    url: /07/01
+    not_numbered: true
+  - title: 07-02 词嵌入
+    url: /07/02
+    not_numbered: true
+  - title: 07-03 邻域嵌套
+    url: /07/03
+    not_numbered: true
+  - title: 07-04 深度自动编码
+    url: /07/04
+    not_numbered: true
+  - title: 07-05 生成器1
+    url: /07/05
+    not_numbered: true
+  - title: 07-06 生成器2
+    url: /07/06
+    not_numbered: true
+    
+- title: 第8章 迁移学习
+  url: /02/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 08-01 迁移学习
+    url: /08/01
+    not_numbered: true
+    
+- title: 第9章 结构化学习
+  url: /09/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 09-01 支持向量机
+    url: /09/01
+    not_numbered: true
+  - title: 09-02 结构化学习
+    url: /09/02
+    not_numbered: true
+  - title: 09-03 结构化学习线性模型
+    url: /09/03
+    not_numbered: true
+  - title: 09-04 结构化学习支持向量机
+    url: /09/04
+    not_numbered: true
+  - title: 09-05 序列标记
+    url: /09/05
+    not_numbered: true
+
+    
+- title: 第10章 RNN与集成学习
+  url: /10/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 10-01 循环神经网络1
+    url: /10/01
+    not_numbered: true
+  - title: 10-02 循环神经网络2
+    url: /10/02
+    not_numbered: true
+  - title: 10-03 集成学习
+    url: /10/03
+    not_numbered: true
+  - title: 10-04 深度强化学习浅析
+    url: /10/04
+    not_numbered: true
+      
+- title: 第11章 总结与展望
+  url: /11/features
+  not_numbered: true
+  expand_sections: true
+  sections:
+  - title: 11-01 机器学习的下一步
+    url: /11/01
+    not_numbered: true
+ 

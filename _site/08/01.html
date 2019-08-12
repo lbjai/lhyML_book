@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>08-01 迁移学习</title>
+  <meta name="description" content="这一节我们主要学习  介绍迁移学习  迁移学习的分类  模型微调（Model Fine-tuning）  多任务学习（Multitask Learning）  领域对抗训练（Domain-adversarial training）  零样本学习（Zero-shot Learning）1.介绍迁移学习  迁移学习是...">
+
+  <link rel="canonical" href="http://0.0.0.0:4000//08/01.html">
+  <link rel="alternate" type="application/rss+xml" title="李宏毅机器学习" href="http://0.0.0.0:4000//feed.xml">
+
+  <meta property="og:url"         content="http://0.0.0.0:4000//08/01.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="08-01 迁移学习" />
+<meta property="og:description" content="这一节我们主要学习  介绍迁移学习  迁移学习的分类  模型微调（Model Fine-tuning）  多任务学习（Multitask Learning）  领域对抗训练（Domain-adversarial training）  零样本学习（Zero-shot Learning）1.介绍迁移学习  迁移学习是..." />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://0.0.0.0:4000//08/01.html",
+  "headline":
+    "08-01 迁移学习",
+  "datePublished":
+    "2019-08-11T22:03:14-05:00",
+  "dateModified":
+    "2019-08-11T22:03:14-05:00",
+  "description":
+    "这一节我们主要学习  介绍迁移学习  迁移学习的分类  模型微调（Model Fine-tuning）  多任务学习（Multitask Learning）  领域对抗训练（Domain-adversarial training）  零样本学习（Zero-shot Learning）1.介绍迁移学习  迁移学习是...",
+  "author": {
+    "@type": "Person",
+    "name": "小莫团队"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://0.0.0.0:4000/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://0.0.0.0:4000/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
+    <img src="/assets/images/edit-button.svg" alt="Start interactive mode">
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script type="text/x-thebe-config">
+    {
+      requestKernel: true,
+      binderOptions: {
+        repo: 'lbjsnower/mlbookbylhy',
+        ref: 'master',
+      },
+      codeMirrorConfig: {
+        theme: "abcdef"
+      },
+      kernelOptions: {
+        name: 'python3',
+      }
+    }
+</script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script>
+    /**
+     * Add attributes to Thebelab blocks
+     */
+
+    const initThebelab = () => {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all code cells, replace with Thebelab interactive code cells
+            const codeCells = document.querySelectorAll('.input_area pre')
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // Figure out the language it uses and add this too
+                var parentDiv = codeCell.parentElement.parentElement;
+                var arrayLength = parentDiv.classList.length;
+                for (var ii = 0; ii < arrayLength; ii++) {
+                    var parts = parentDiv.classList[ii].split('language-');
+                    if (parts.length === 2) {
+                        // If found, assign dataLanguage and break the loop
+                        var dataLanguage = parts[1];
+                        break;
+                    }
+                }
+                codeCell.setAttribute('data-language', dataLanguage)
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale
+            const outputs = document.querySelectorAll('.output *, .output')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
+    }
+
+    // Initialize Thebelab
+    initFunction(initThebelab);
+</script>
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  
+<script>
+/**
+Add buttons to hide code cells
+*/
+
+
+var setCodeCellVisibility = function(inputField, kind) {
+    // Update the image and class for hidden
+    var id = inputField.getAttribute('data-id');
+    var codeCell = document.querySelector(`#${id} div.highlight`);
+
+    if (kind === "visible") {
+        codeCell.classList.remove('hidden');
+        inputField.checked = true;
+    } else {
+        codeCell.classList.add('hidden');
+        inputField.checked = false;
+    }
+}
+
+var toggleCodeCellVisibility = function (event) {
+    // The label is clicked, and now we decide what to do based on the input field's clicked status
+    if (event.target.tagName === "LABEL") {
+        var inputField = event.target.previousElementSibling;
+    } else {
+        // It is the span inside the target
+        var inputField = event.target.parentElement.previousElementSibling;
+    }
+
+    if (inputField.checked === true) {
+        setCodeCellVisibility(inputField, "visible");
+    } else {
+        setCodeCellVisibility(inputField, "hidden");
+    }
+}
+
+
+// Button constructor
+const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+var addHideButton = function () {
+  // If a hide button is already added, don't add another
+  if (document.querySelector('div.hidecode input') !== null) {
+      return;
+  }
+
+  // Find the input cells and add a hide button
+  document.querySelectorAll('div.input_area').forEach(function (item, index) {
+    if (!item.classList.contains("hidecode")) {
+        // Skip the cell if it doesn't have a hidecode class
+        return;
+    }
+
+    const id = codeCellId(index)
+    item.setAttribute('id', id);
+    // Insert the button just inside the end of the next div
+    item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+    // Set up the visibility toggle
+    hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+    hideLink.addEventListener('click', toggleCodeCellVisibility)
+  });
+}
+
+
+// Initialize the hide buttos
+var initHiddenCells = function () {
+    // Add hide buttons to the cells
+    addHideButton();
+
+    // Toggle the code cells that should be hidden
+    document.querySelectorAll('div.hidecode input').forEach(function (item) {
+        setCodeCellVisibility(item, 'hidden');
+        item.checked = true;
+    })
+}
+
+initFunction(initHiddenCells);
+
+</script>
+
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("http://0.0.0.0:4000") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://jupyter.org/jupyter-book/"><img src="/images/logo/lhyml.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">李宏毅机器学习</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/intro.html"
+        >
+          
+          目录声明
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/jupyter/jupyter-book"
+        >
+          
+          课程链接
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">查询</a></li>
+        
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+        <li><h2 class="c-sidebar__title">书籍内容</li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/01/features.html"
+        >
+          
+          第1章 机器学习介绍
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/01/01.html"
+                >
+                  
+                  01-01 机器学习导论
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/01/02.html"
+                >
+                  
+                  01-02 我们为什么需要去学习机器学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/02/features.html"
+        >
+          
+          第2章 回归模型
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/01.html"
+                >
+                  
+                  02-01 线性回归案例
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/02.html"
+                >
+                  
+                  02-02 梯度下降法实战
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/03.html"
+                >
+                  
+                  02-03 误差分析
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/04.html"
+                >
+                  
+                  02-04 梯度下降法
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/05.html"
+                >
+                  
+                  02-05 梯度下降法
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/06.html"
+                >
+                  
+                  02-06 梯度下降法
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/07.html"
+                >
+                  
+                  02-07  作业介绍
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/03/features.html"
+        >
+          
+          第3章 分类模型
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/03/01.html"
+                >
+                  
+                  03-01 分类
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/03/02.html"
+                >
+                  
+                  03-02 逻辑回归
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/03/03.html"
+                >
+                  
+                  03-03 作业介绍
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/04/features.html"
+        >
+          
+          第4章 回归模型
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/01.html"
+                >
+                  
+                  04-01 介绍深度学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/02.html"
+                >
+                  
+                  04-02 反向传播
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/03.html"
+                >
+                  
+                  04-03 基于Keras实现的深度学习Hello World
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/04.html"
+                >
+                  
+                  04-04 Keras2.0 实现手写数字识别
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/05.html"
+                >
+                  
+                  04-05 Keras demo1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/06.html"
+                >
+                  
+                  04-06 DNN训练技巧
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/07.html"
+                >
+                  
+                  04-07  Keras demo1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/08.html"
+                >
+                  
+                  04-08  Fizz Buzz in TensorFlow
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/05/features.html"
+        >
+          
+          第5章 卷积神经网路
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/05/01.html"
+                >
+                  
+                  05-01 卷积神经网络
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/05/02.html"
+                >
+                  
+                  05-02 深度学习的原因
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/06/features.html"
+        >
+          
+          第6章 半监督学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/06/01.html"
+                >
+                  
+                  06-01 半监督学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/07/features.html"
+        >
+          
+          第7章 无监督学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/01.html"
+                >
+                  
+                  07-01 线性降维
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/02.html"
+                >
+                  
+                  07-02 词嵌入
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/03.html"
+                >
+                  
+                  07-03 邻域嵌套
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/04.html"
+                >
+                  
+                  07-04 深度自动编码
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/05.html"
+                >
+                  
+                  07-05 生成器1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/06.html"
+                >
+                  
+                  07-06 生成器2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/02/features.html"
+        >
+          
+          第8章 迁移学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/08/01.html"
+                >
+                  
+                  08-01 迁移学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/09/features.html"
+        >
+          
+          第9章 结构化学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/01.html"
+                >
+                  
+                  09-01 支持向量机
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/02.html"
+                >
+                  
+                  09-02 结构化学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/03.html"
+                >
+                  
+                  09-03 结构化学习线性模型
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/04.html"
+                >
+                  
+                  09-04 结构化学习支持向量机
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/05.html"
+                >
+                  
+                  09-05 序列标记
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/10/features.html"
+        >
+          
+          第10章 RNN与集成学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/01.html"
+                >
+                  
+                  10-01 循环神经网络1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/02.html"
+                >
+                  
+                  10-02 循环神经网络2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/03.html"
+                >
+                  
+                  10-03 集成学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/04.html"
+                >
+                  
+                  10-04 深度强化学习浅析
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/11/features.html"
+        >
+          
+          第11章 总结与展望
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/01.html"
+                >
+                  
+                  09-01 机器学习的下一步
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="http://www.momodel.cn:8899/classroom">Jupyter Book</a></p>
+</nav>
+
+      
+      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+      <aside class="sidebar__right">
+          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+          <nav class="onthispage">
+          </nav>
+      </aside>
+      
+      <main class="c-textbook__page" tabindex="-1">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+<div class="buttons">
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/lbjsnower/mlbookbylhy/master?filepath=content%2FD%3A%5CZU_workplace%5C08_book%5ClhyMachineLearning%5ClhyML%5Ccontent%5C08%2F01.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+</div>
+
+
+            <div class="c-textbook__content">
+              <h3 id="这一节我们主要学习">这一节我们主要学习</h3>
+<ul>
+  <li>介绍迁移学习</li>
+  <li>迁移学习的分类</li>
+  <li>模型微调（Model Fine-tuning）</li>
+  <li>多任务学习（Multitask Learning）</li>
+  <li>领域对抗训练（Domain-adversarial training）</li>
+  <li>零样本学习（Zero-shot Learning）</li>
+</ul>
+
+<h3 id="1介绍迁移学习">1.介绍迁移学习</h3>
+
+<ul>
+  <li>迁移学习是一种利用已有的解决某种问题的模型（知识）来解决其他不同但是相关问题的方法。<br /></li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_01_TL.png" alt="" /></p>
+
+<p>迁移学习要解决的问题是：假设我们现在手上有与任务不直接相关的数据，这些数据能否帮助我们完成任务呢？<br /></p>
+
+<p>例如，我们现在要做猫和狗的分类器，现在我们手上有一堆和猫狗不是直接相关的数据：</p>
+<ul>
+  <li>大量的在自然界拍摄的老虎和大象的图片；</li>
+  <li>大量的猫和狗的卡通图片。</li>
+</ul>
+
+<p>这些数据都和现实世界中的猫狗图片有一定的关联性，但同时也有较大的差别。<br />
+我们需要将利用这些数据训练得到的模型运用到猫狗分类的问题上，这就是迁移学习。<br /></p>
+
+<p><img src="http://imgbed.momodel.cn/30_02_TL.png" alt="" /></p>
+
+<p>当我们只拥有少量的符合任务要求的目标数据，但类似的源数据却很多的时候，<br />
+我们可以考虑使用迁移学习，比如以下情况。<br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>目标领域</th>
+      <th>目标任务</th>
+      <th>不相关的数据</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>语音识别</td>
+      <td>对台湾语做识别</td>
+      <td>从 youtube 上爬取英文、中文语音数据训练模型来迁移学习</td>
+    </tr>
+    <tr>
+      <td>图像分类</td>
+      <td>医疗数据极度缺乏，做医疗诊断时</td>
+      <td>使用已有的海量图像数据（ coco , imagenet 等）</td>
+    </tr>
+    <tr>
+      <td>文本分析</td>
+      <td>特定领域，比如法律文件分析</td>
+      <td>可以从其他领域的文本分析迁移</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="http://imgbed.momodel.cn/30_03_TL.png" alt="" /></p>
+
+<p><br /></p>
+
+<h3 id="2迁移学习的分类">2.迁移学习的分类</h3>
+
+<p><img src="http://imgbed.momodel.cn/30_04_TL.png" alt="" /></p>
+
+<p>迁移学习中： 目标数据有有标签和无标签两种情况；源数据也有有标签和无标签两种情况。<br />
+所以一共有如上图所示的四种情况，分别对应不同的迁移学习的方法：</p>
+<ul>
+  <li>Target Data: labelled,Source Data: labelled——Model Fine-tuning,Multitask Learning.</li>
+  <li>Target Data: labelled,Source Data: unlabelled——Self-taught learning.</li>
+  <li>Target Data: unlabelled, Source Data: labelled——Domain-adversarial training, Zero-shot learning.</li>
+  <li>Target Data: unlabelled, Source Data: unlabelled——Self-taught Clustering.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="3模型微调model-fine-tuning">3.模型微调（Model Fine-tuning）</h3>
+
+<p><img src="http://imgbed.momodel.cn/30_05_TL.png" alt="" /></p>
+
+<p>当我们的特定任务所拥有的数据集非常少,但是非相关的数据集很多时，这种问题我们称之为一次性学习（one-shot learning）。<br /></p>
+
+<p>例如，当我们要对某个人的语音进行语音辨识的时候，那个人的语音音数据特别少。但是我们有很多来自其他人的语音数据。<br />
+这时，我们需要使用迁移学习的方法：用许多人的语音数据训练模型，然后再用特定人选的语音数据对模型进行微调。<br /></p>
+
+<p>处理该类问题的时候需要注意的地方：由于目标数据很少，在用目标数据进行训练的时候要防止过拟合。<br /></p>
+
+<h4 id="31-迁移学习技巧保守训练">3.1 迁移学习技巧:保守训练</h4>
+
+<p><img src="http://imgbed.momodel.cn/30_06_TL.png" alt="" /></p>
+
+<p>假设，我们已经有大量的源语音数据以及少量的目标数据集，我们先使用源数据训练出一个模型，<br />
+然后在原模型的基础之上，我们再使用目标数据对模型进行训练，得到的新模型可能发生过拟合而产生较大偏差。<br /></p>
+
+<p>因此，我们需要在训练新模型的时候，需要给模型添加一些限制，使得训练完成之后，前后两次模型不要差太多。<br />
+例如，当输入相同时，我们希望前后两个模型的输出不要相差太多。<br />
+在训练新的模型的时候，我们可以将旧模型的参数作为正则项加进去，使得新模型的参数与旧模型参数不会相差太大。<br /></p>
+
+<h4 id="32-迁移学习技巧层转移">3.2 迁移学习技巧：层转移</h4>
+
+<p><img src="http://imgbed.momodel.cn/30_07_TL.png" alt="" /></p>
+
+<p>我们在训练新模型的时候可以对参数做一些限制，只需要调整某一些网络层的参数。<br />
+当我们使用源数据训练好一个模型的时候，<br />
+如果我们只有少量的目标数据，我们可以将原模型中的某些层的参数直接复制到新的网络中，我们只需要训练余下层的参数；<br />
+如果目标数据较多，我们也可以在原模型的基础之上调整整个网络的参数得到新的模型。<br /></p>
+
+<p><img src="http://imgbed.momodel.cn/30_08_TL.png" alt="" /></p>
+
+<p>在不同的任务之中，需要转移的网络层不同。<br />
+<br /></p>
+<ul>
+  <li>语音识别中，通常只复制最后几层网络，然后重新训练输入层网络。<br />
+  语音识别的结果，应该跟发音者没有关系的，所以最后几层是可以被复制的。<br />
+  而不同的地方在于，从声音信号到发音方式，每个人都不一样。<br />
+<br /></li>
+  <li>在图像任务中。通常只复制前面几层，而训练最后几层。<br />
+  通常前几层做的就是检测图像中有没有简单的几层图形，<br />
+  而这些是可以迁移到其他任务中。<br />
+  而通常最后几层通常是比较特异化的，这些是需要训练的。<br /></li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_09_TL.png" alt="" /></p>
+
+<ul>
+  <li>网络层迁移学习的实验结果(图像任务)<br />
+Image在 Layer Transfer 上的实验，出自 Bengio 在 NIPS2014 的论文。<br />
+ImageNet的数据120万图像分为 source 和 target ，<br />
+按照分类数量划分，其中500个分类作为 source ，另外500个为 target。<br /></li>
+</ul>
+
+<p>co-adaptation：相互适应</p>
+
+<p>feature representation：特征表示</p>
+
+<ul>
+  <li>
+    <p>横坐标表明网络从第n层开始重新训练；纵坐标表明 Top-1 准确率；结果表明：</p>
+
+    <ul>
+      <li>
+        <p>可以发现，当我们只复制前面几个网络层时，效果有提升，但是复制得太多效果就开始变差。<br /></p>
+      </li>
+      <li>
+        <p>曲线5表明，Layer Transfer + Fine-tuning 在所有情况下，accuracy均有提高。<br />
+  这一结果的惊人之处在于，这里的target data已经非常多（ImageNet的一半），<br />
+  但是再加上Source data（ImageNet的另一半）仍然有所帮助。<br /></p>
+      </li>
+      <li>
+        <p>曲线2表示，如果用target domain训练出一个模型，固定住前几个layer，<br />
+  再用target domain训练后几个layer，结果可能坏掉。<br /></p>
+      </li>
+      <li>
+        <p>曲线3表明，在曲线2基础上fine-tune，结果会恢复。<br /></p>
+      </li>
+      <li>
+        <p>综上：前面几层都学习到的是通用的特征（general feature），随着网络的加深，后面的网络更偏重于学习特定的特征（specific feature）</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_10_TL.png" alt="" /></p>
+
+<p>随着可迁移层数的增加，模型性能下降。但是，前3层仍然还是可以迁移的！同时，与随机初始化所有权重比较，迁移学习的精度是很高的!</p>
+
+<p><strong>牛刀小试</strong><br />
+微调的使用情况有哪些？</p>
+
+<p><span class="md-hint-alone-link pop 0">查看答案</span></p>
+
+<p><br /></p>
+
+<h3 id="4多任务学习multitask-learning">4.多任务学习（Multitask Learning）</h3>
+
+<ul>
+  <li>多任务学习：当我们有多个任务需要完成时，我们希望能够同时训练多个任务而得到较好的结果。</li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_11_TL.png" alt="" /></p>
+
+<ul>
+  <li>当两个任务可以共用同一组特征，我们就可以采用左边的网络结构，让两个任务共用前面几个网络层，<br />
+在某一个网络层产生分支，一个分支用于解决任务 A，另一个分支用于解决任务 B。<br /></li>
+  <li>当两个任务不能共用特征的时候，我们就可以采用右边的网络结构，对两组特征做一些特征转换，<br />
+然后再输入到同一个网络结构中训练，最后再产生分支分别用于解决任务 A 和任务 B。</li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_12_TL.png" alt="" /></p>
+
+<ul>
+  <li>多种语言的语音识别的例子：<br />
+ 不论何种语言，它们的声音信号都是一样的，所以可以使用相同的网络层结构对声音信号进行特征提取；<br />
+ 当到达某一个特定的隐藏层的时候，网络结构开始产生分支处理不同的任务，然后同时进行训练。<br />
+ 最后得到的多种语言语音识别的效果比某种单一语言语音识别的效果更好。<br /></li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_13_TL.png" alt="" />
+如图，横坐标表示训练样本的数量，纵坐标表示错误率</p>
+
+<ul>
+  <li>蓝色曲线表示做单一中文语音识别时中文语音识别的错误率。<br /></li>
+  <li>红色曲线表示将中文同其他欧洲语言一起做语音识别时中文语音识别的错误率。<br /></li>
+  <li>对比两曲线我们可以发现，将中文和其他欧洲语言放在一起进行语音识别训练的训练效果比单一训练中文时的训练效果更好。<br /></li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_14_TL.png" alt="" /></p>
+
+<p>先训练一个解决任务 1 的网络模型 1，训练完成之后，固定该模型的参数；再去训练一个任务 2 的网络模型 2，它的每个隐藏层都会去接收模型 1 的隐藏层输出。<br />
+它的好处是，即便任务 1 和任务 2 完全不像，任务 2 的数据也不会影响到模型 1 的参数，<br />
+所以迁移的结果一定不会更差，最糟糕的情况就是直接训练任务 2 的模型(此时网络模型 1 的输出设置为 0)。 <br /></p>
+
+<p><a href="https://caoxiaoqing.github.io/2018/12/26/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%BB%BC%E8%BF%B0/">博客参考</a></p>
+
+<p><br /></p>
+
+<h3 id="5领域对抗训练domain-adversarial-training">5.领域对抗训练（Domain-adversarial training）</h3>
+
+<p><img src="http://imgbed.momodel.cn/30_15_TL.png" alt="" /></p>
+
+<p>当源数据集有标签、目标数据集无标签的时候，我们应该如何处理该问题呢？<br />
+其中一种做法是，将源数据视作训练集数据，将目标数据当做测试集数据来进行预测。<br />
+这种做法的问题在于源数据集和目标数据集的分布可能完全不同，出现不匹配的情况。<br />
+此时，我们需要采用<strong>领域对抗训练</strong>的方法。<br /></p>
+
+<ul>
+  <li>领域对抗可以看做是 GAN 模型的一种，目的是把源数据和目标数据的特征转换到同一个领域中，<br />
+使得源数据和目标数据服从类似的分布。<br /></li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_16_TL.png" alt="" /></p>
+
+<p>如果我们不靠源数据和目标数据不匹配的问题的，不对数据特征做任何处理，<br />
+可能会得到如上图所示的数据分布：蓝色点表示源数据的分布；红色点表示目标数据的分布。<br />
+<br />
+我们可以看出蓝色点的分布是一个一个的集群，但是红色的数据点堆积在一起，源数据和目标数据的特征分布完全不一样。<br />
+若我们无法将源数据和特征数据的分布转换到同一领域上的相同分布，我们就不能使用分类器将目标数据很好的分类。<br /></p>
+
+<ul>
+  <li>我们使用特征提取器来消除源数据集和目标数据集的领域特性，让它们数据的特征服从同一分布。<br /></li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_17_TL.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>具体做法：<br />
+我们需要在特征提取器后面增加一个领域分类器。<br />
+特征提取器的目标是：由它提取出来的数据特征能够让领域分类器无法分辨该数据来自哪个领域，<br />
+从而消除源数据集和目标数据集的领域特性，使这些数据特征服从同一分布。<br /></p>
+  </li>
+  <li>
+    <p>存在的问题：<br />
+仅仅增加一个领域分类器并不能达到预期的效果，只要特征提取器每次输出一个特定的值，就可以骗过领域分类器。<br />
+因此，我们需要给特征提取器增加另外一个限制。</p>
+  </li>
+  <li>
+    <p>特征提取器除了要消除数据特征的领域特性之外，还需要提高标签预测的准确率。</p>
+  </li>
+</ul>
+
+<p><img src="http://imgbed.momodel.cn/30_18_TL.png" alt="" /></p>
+
+<p>整个网络结构如上图所示，领域分类器想要判断数据特征来自哪个领域，标签预测器想要尽可能准确地预测出数据的标签，<br />
+而特征提取器希望提取出来的数据特征尽可能满足标签预测器的要求，而使领域分类器失效。<br />
+那么具体应该怎么做来达到上面的要求呢？<br /></p>
+
+<p><img src="http://imgbed.momodel.cn/30_19_TL.png" alt="" /></p>
+
+<p>领域分类器和标签预测器都会使用梯度下降的方法使自己的损失函数最小，<br />
+但关键点在于特征提取器会尽量满足标签预测器的要求而反对领域分类器的做法。<br />
+因此，当反向传播的梯度经过特征提取器的时候，标签预测器的梯度会保持原来的方向，而领域分类器的梯度方向会朝着相反的方向向后传递。<br />
+由于领域分类器的的输入数据是由特征分类器来提取输出的数据特征，所以最终的结果会是领域分类器无法判断数据特征来自哪一个领域。<br /></p>
+
+<p>因此，上述的网络模型能够很好的消除源数据和目标数据的领域特性，使它们服从同一分布；<br />
+同时满足了标签预测器的要求，能够很好的对数据进行预测分类。<br /></p>
+
+<p><img src="http://imgbed.momodel.cn/30_20_TL.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>实验结果：<br />
+第一行（SOURCE ONLY）是将源数据作为训练集数据目标数据作为测试集数据的实验结果，可以看出模型的表现比较差；<br />
+最后一行（TRAIN TARGET）是直接使用目标数据来训练的实验结果，效果较好；<br />
+第三行（PROPOSED APPROACH）是使用领域对抗训练的实验结果，效果介于两者之间。<br /></p>
+  </li>
+  <li>
+    <p>结论:<br />
+当源数据和目标数据不匹配但需要完成的任务相同的时候，使用领域对抗训练的方法可以让模型的表现更好。</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="6-零样本学习zero-shot-learning">6. 零样本学习（Zero-shot Learning）</h3>
+
+<p><img src="http://imgbed.momodel.cn/30_21_TL.png" alt="" /></p>
+
+<p>当源数据集（有标签）和目标数据集（无标签）处理的问题不同时，我们需要运用零样本学习的方法来处理问题。<br />
+例如，当源数据集都是猫和狗的图片的时候，我们需要识别的目标数据集都是草泥马的图片，我们应该怎么处理？<br /></p>
+
+<p>先看看语音识别的例子：我们在进行语音识别的时候，机器可能遇到从来没有见过的单词，我们如何处理这种情况呢？<br />
+实际上，机器识别的不是一个单词的发音，而是识别每个单词的各个音标，再根据音标和词汇的关系库判断出是哪个单词。<br /></p>
+
+<figure class="half">
+![](http://imgbed.momodel.cn/30_22_TL.png)</figure>
+
+<p>在图像问题上，我们把图像的类别用类的属性表示。如上图中的 Database 所示，<br />
+当类的属性足够丰富可以代表一个类的时候，我们可以直接通过判断图像拥有哪些属性来判断图片所属的类别。<br />
+当我们在识别目标数据集的数据的时候，我们就可以直接通过图片的属性来判断图片的类别。</p>
+
+<p><img src="http://imgbed.momodel.cn/30_24_TL.png" alt="" /></p>
+
+<p>当图像的属性维度较高时，我们可以建立一个属性嵌入空间，将训练集中的每张图片变成嵌入空间中的一个点。<br />
+函数 $f$ 和 $g$ 都表示神经网络，它们将图片和属性的特征转换成嵌入空间中的一个点，<br />
+如果两个点比较接近的话，说明该图片具有该属性，再根据属性和类的关系判断图片的属性。<br /></p>
+
+<p><img src="http://imgbed.momodel.cn/30_26_TL.png" alt="" /></p>
+
+<p>首先，我们想到是的使 $f(x)$ 和 $g(x)$ 的空间距离较小，但是仅仅这个约束还不能满足要求；<br />
+我们需要添加另外一个约束条件：图片和对应属性的数据特征的内积要比其他不对应的属性的内积要大一个间隔 $K$。<br />
+这样我们就可以使图片和对应属性点之间的距离尽可能的小，且对应点与不对应的点之间有一个明显的分界。<br /></p>
+
+<p><img src="http://imgbed.momodel.cn/30_25_TL.png" alt="" /></p>
+
+<p>如果我们没有类和属性的关系数据库，我们可以通过单词嵌入，将属性转换成单词向量。</p>
+
+<p><img src="http://imgbed.momodel.cn/30_27_TL.png" alt="" /></p>
+
+<p>语义嵌入的凸结合是处理零样本学习的一个更简单的方法，它不需要我们来训练模型；<br />
+我们可以根据原有的模型的得到一个分类的输出结果，再在单词嵌入空间中找到和输出结果（图中的黑色点）最接近的一个数据点（liger 点）。<br />
+论文:https://arxiv.org/pdf/1312.5650v3.pdf</p>
+
+<p><img src="http://imgbed.momodel.cn/30_28_TL.png" alt="" /></p>
+
+<p>当我们要把日文翻译成韩文的时候，由于我们没有日文到韩文的数据样本，我们需要使用零样本学习的方法来解决这个问题。<br />
+由于我们有将英文翻译成韩文、英文翻译成日文的例子，我们可以将英文、日文、韩文都对应到一个属性的样本空间上，<br />
+因此，即使没有日文到韩文的数据样本，我们也可以实现日文到韩文的文本翻译。<br /></p>
+
+<p><img src="http://imgbed.momodel.cn/30_29_TL.png" alt="" /></p>
+
+<p>根据学习好的编码器，把各种语言的词汇映射到空间中的向量，会出现上图的结果：<br />
+不同颜色代表不同语言，处于相同位置的代表意义相同。<br /></p>
+
+<p><br /></p>
+
+<h3 id="7-自我学习">7. 自我学习</h3>
+
+<p><img src="http://imgbed.momodel.cn/30_30_TL.png" alt="" /></p>
+
+<p>自我学习适用于目标数据带标签而源数据不带标签的情况。<br />
+自我学习的做法是，如果现在的源数据足够多的，可以训练得到一个特征提取器，<br />
+然后用这个特征提取器在目标数据上提取数据特征。<br /></p>
+
+<p><br /></p>
+
+<h3 id="8-总结">8. 总结</h3>
+
+<p>本章主要介绍了模型微调（Model Fine-tuning）、多任务学习（Multitask Learning）、领域对抗训练（Domain-adversarial training）、零样本学习（Zero-shot learning）、自我学习（Self-taught Learning）等多种迁移学习的方法及其具体的适用情况。</p>
+
+
+              <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/02/features">
+      〈 <span class="u-margin-right-tiny"></span> 第8章 迁移学习
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/09/features">
+      第9章 结构化学习 <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>
