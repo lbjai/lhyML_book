@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Search the site</title>
+  <meta name="description" content="中文世界最好的机器学习课程！">
+
+  <link rel="canonical" href="http://0.0.0.0:4000//search">
+  <link rel="alternate" type="application/rss+xml" title="李宏毅机器学习" href="http://0.0.0.0:4000//feed.xml">
+
+  <meta property="og:url"         content="http://0.0.0.0:4000//search" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Search the site" />
+<meta property="og:description" content="中文世界最好的机器学习课程！" />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://0.0.0.0:4000//search",
+  "headline":
+    "Search the site",
+  "datePublished":
+    "2019-08-12T01:48:30-05:00",
+  "dateModified":
+    "2019-08-12T01:48:30-05:00",
+  "description":
+    "中文世界最好的机器学习课程！",
+  "author": {
+    "@type": "Person",
+    "name": "小莫团队"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://0.0.0.0:4000/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://0.0.0.0:4000/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
+    <img src="/assets/images/edit-button.svg" alt="Start interactive mode">
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script type="text/x-thebe-config">
+    {
+      requestKernel: true,
+      binderOptions: {
+        repo: 'lbjsnower/mlbookbylhy',
+        ref: 'master',
+      },
+      codeMirrorConfig: {
+        theme: "abcdef"
+      },
+      kernelOptions: {
+        name: 'python3',
+      }
+    }
+</script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script>
+    /**
+     * Add attributes to Thebelab blocks
+     */
+
+    const initThebelab = () => {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all code cells, replace with Thebelab interactive code cells
+            const codeCells = document.querySelectorAll('.input_area pre')
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // Figure out the language it uses and add this too
+                var parentDiv = codeCell.parentElement.parentElement;
+                var arrayLength = parentDiv.classList.length;
+                for (var ii = 0; ii < arrayLength; ii++) {
+                    var parts = parentDiv.classList[ii].split('language-');
+                    if (parts.length === 2) {
+                        // If found, assign dataLanguage and break the loop
+                        var dataLanguage = parts[1];
+                        break;
+                    }
+                }
+                codeCell.setAttribute('data-language', dataLanguage)
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale
+            const outputs = document.querySelectorAll('.output *, .output')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
+    }
+
+    // Initialize Thebelab
+    initFunction(initThebelab);
+</script>
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  
+<script>
+/**
+Add buttons to hide code cells
+*/
+
+
+var setCodeCellVisibility = function(inputField, kind) {
+    // Update the image and class for hidden
+    var id = inputField.getAttribute('data-id');
+    var codeCell = document.querySelector(`#${id} div.highlight`);
+
+    if (kind === "visible") {
+        codeCell.classList.remove('hidden');
+        inputField.checked = true;
+    } else {
+        codeCell.classList.add('hidden');
+        inputField.checked = false;
+    }
+}
+
+var toggleCodeCellVisibility = function (event) {
+    // The label is clicked, and now we decide what to do based on the input field's clicked status
+    if (event.target.tagName === "LABEL") {
+        var inputField = event.target.previousElementSibling;
+    } else {
+        // It is the span inside the target
+        var inputField = event.target.parentElement.previousElementSibling;
+    }
+
+    if (inputField.checked === true) {
+        setCodeCellVisibility(inputField, "visible");
+    } else {
+        setCodeCellVisibility(inputField, "hidden");
+    }
+}
+
+
+// Button constructor
+const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+var addHideButton = function () {
+  // If a hide button is already added, don't add another
+  if (document.querySelector('div.hidecode input') !== null) {
+      return;
+  }
+
+  // Find the input cells and add a hide button
+  document.querySelectorAll('div.input_area').forEach(function (item, index) {
+    if (!item.classList.contains("hidecode")) {
+        // Skip the cell if it doesn't have a hidecode class
+        return;
+    }
+
+    const id = codeCellId(index)
+    item.setAttribute('id', id);
+    // Insert the button just inside the end of the next div
+    item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+    // Set up the visibility toggle
+    hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+    hideLink.addEventListener('click', toggleCodeCellVisibility)
+  });
+}
+
+
+// Initialize the hide buttos
+var initHiddenCells = function () {
+    // Add hide buttons to the cells
+    addHideButton();
+
+    // Toggle the code cells that should be hidden
+    document.querySelectorAll('div.hidecode input').forEach(function (item) {
+        setCodeCellVisibility(item, 'hidden');
+        item.checked = true;
+    })
+}
+
+initFunction(initHiddenCells);
+
+</script>
+
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("http://0.0.0.0:4000") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://jupyter.org/jupyter-book/"><img src="/images/logo/lhyml.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">李宏毅机器学习</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/intro.html"
+        >
+          
+          目录声明
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/jupyter/jupyter-book"
+        >
+          
+          课程链接
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__chapter"><a class="c-sidebar__entry" href="/search.html">查询</a></li>
+        
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+        <li><h2 class="c-sidebar__title">书籍内容</li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/01/features.html"
+        >
+          
+          第1章 机器学习介绍
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/01/01.html"
+                >
+                  
+                  01-01 机器学习导论
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/01/02.html"
+                >
+                  
+                  01-02 我们为什么需要去学习机器学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/02/features.html"
+        >
+          
+          第2章 回归模型
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/01.html"
+                >
+                  
+                  02-01 线性回归案例
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/02.html"
+                >
+                  
+                  02-02 梯度下降法实战
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/03.html"
+                >
+                  
+                  02-03 误差分析
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/04.html"
+                >
+                  
+                  02-04 梯度下降法
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/05.html"
+                >
+                  
+                  02-05 梯度下降法
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/06.html"
+                >
+                  
+                  02-06 梯度下降法
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/02/07.html"
+                >
+                  
+                  02-07  作业介绍
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/03/features.html"
+        >
+          
+          第3章 分类模型
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/03/01.html"
+                >
+                  
+                  03-01 分类
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/03/02.html"
+                >
+                  
+                  03-02 逻辑回归
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/03/03.html"
+                >
+                  
+                  03-03 作业介绍
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/04/features.html"
+        >
+          
+          第4章 回归模型
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/01.html"
+                >
+                  
+                  04-01 介绍深度学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/02.html"
+                >
+                  
+                  04-02 反向传播
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/03.html"
+                >
+                  
+                  04-03 基于Keras实现的深度学习Hello World
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/04.html"
+                >
+                  
+                  04-04 Keras2.0 实现手写数字识别
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/05.html"
+                >
+                  
+                  04-05 Keras demo1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/06.html"
+                >
+                  
+                  04-06 DNN训练技巧
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/07.html"
+                >
+                  
+                  04-07  Keras demo1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/04/08.html"
+                >
+                  
+                  04-08  Fizz Buzz in TensorFlow
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/05/features.html"
+        >
+          
+          第5章 卷积神经网路
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/05/01.html"
+                >
+                  
+                  05-01 卷积神经网络
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/05/02.html"
+                >
+                  
+                  05-02 深度学习的原因
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/06/features.html"
+        >
+          
+          第6章 半监督学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/06/01.html"
+                >
+                  
+                  06-01 半监督学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/07/features.html"
+        >
+          
+          第7章 无监督学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/01.html"
+                >
+                  
+                  07-01 线性降维
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/02.html"
+                >
+                  
+                  07-02 词嵌入
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/03.html"
+                >
+                  
+                  07-03 邻域嵌套
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/04.html"
+                >
+                  
+                  07-04 深度自动编码
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/05.html"
+                >
+                  
+                  07-05 生成器1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/07/06.html"
+                >
+                  
+                  07-06 生成器2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/02/features.html"
+        >
+          
+          第8章 迁移学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/08/01.html"
+                >
+                  
+                  08-01 迁移学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/09/features.html"
+        >
+          
+          第9章 结构化学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/01.html"
+                >
+                  
+                  09-01 支持向量机
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/02.html"
+                >
+                  
+                  09-02 结构化学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/03.html"
+                >
+                  
+                  09-03 结构化学习线性模型
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/04.html"
+                >
+                  
+                  09-04 结构化学习支持向量机
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/09/05.html"
+                >
+                  
+                  09-05 序列标记
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/10/features.html"
+        >
+          
+          第10章 RNN与集成学习
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/01.html"
+                >
+                  
+                  10-01 循环神经网络1
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/02.html"
+                >
+                  
+                  10-02 循环神经网络2
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/03.html"
+                >
+                  
+                  10-03 集成学习
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/10/04.html"
+                >
+                  
+                  10-04 深度强化学习浅析
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/11/features.html"
+        >
+          
+          第11章 总结与展望
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/11/01.html"
+                >
+                  
+                  11-01 机器学习的下一步
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="http://www.momodel.cn:8899/classroom">Jupyter Book</a></p>
+</nav>
+
+      
+      <main class="c-textbook__page" tabindex="-1">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+
+            <div class="c-textbook__content">
+              <div class="search-content__inner-wrap">
+    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
+    <div id="results" class="results"></div>
+</div>
+
+<script>
+    // Add the lunr store since we will now search it
+    var store = [{
+        "title": "01-01 机器学习导论",
+        
+        "excerpt":
+            "欢迎大家来一起学习！   这一节我们主要学习     人工智能发展史   人工智能/机器学习/深度学习关系   生物的本能与机器的本能   什么是机器学习?   机器学习分类以及各个模型的应用场景   1. 人工智能发展史  人工智能的历史源远流长。1956年，在达特茅斯学院举行的一次会议上正式确立了人工智能的研究领域。 人工智能当时简单的定义就是希望机器能够像人一样的聪明。       2. 人工智能/机器学习/深度学习关系     3. 生物的本能与机器的本能     生物本能            先天条件       后天学习           机器本能            设定规则       永远无法超过创造者               4. 什么是机器学习?   机器学习在近30多年已发展为一门多领域交叉学科，涉及概率论、统计学、逼近论、凸分析、计算复杂性理论等多门学科。  机器学习理论主要是设计和分析一些让计算机可以自动“学习”的算法。  机器学习算法是一类从数据中自动分析获得规律，并利用规律对未知数据进行预测的算法。  机器学习已广泛应用于数据挖掘、计算机视觉、自然语言处理、生物特征识别、搜索引擎、医学诊断、  检测信用卡欺诈、证券市场分析、DNA序列测序、语音和手写识别、战略游戏和机器人等领域。            第一步:类似于从数据(DATA)中寻找一种函数(Function)              语音识别                         图像识别                         阿尔法狗                         聊天机器人                       第二步:寻找函数,建立机器学习模型                   第三步:评价模型的好坏                   机器学习流程总结:               其实机器学习的流程与将大象放在冰箱里的流程是一样的,对比如下:                      类别       第一步       第二步       第三步                       机器学习       类似寻找函数规则       建立模型Model       评价模型的好坏                 大象放冰箱       打开冰箱       大象放进去       关上冰箱               5. 机器学习路线 (Learning Map)      5.1 监督学习(Supervised learning )   监督学习是指在有标签的数据下进行学习。           回归模型       回归问题一般是通过大量的训练数据,找到相对较好的函数,输出是一个数值,       比如预测PM2.5.我们先从历史数据中找到PM2.5的规律,从而预测未来PM2.5的值。       分类（Classification）            二分类(是/否,0/1)       多分类(类别1,类别2,…,类别 N)           应用:             判断邮件是否为垃圾邮件(http://spam-filter.toptenreviews.coms/)       将新闻进行分类(http://top-breaking-news.com/)           深度学习(Deep Learning)       5.2 半监督学习(Semi-Supervised learning)   数据集中既包含带标记的数据集,也包含不带标记的数据,但是带标记的数据比较少.   比如识别猫和狗:         5.3 迁移学习(Transfer learning)   迁移学习是在已经学习的基础上，去做看似和以前学习不相关的事情，但是实际效果很好。   例如：还是识别猫狗的例子，我们可以在识别猫狗的基础上识别大象、老虎。（在一定的基础上进行学习）          5.4 非监督学习(Unsupervised learning)   非监督学习就是指在数据集没有标注的情况下进行学习.   比如:      机器阅读：机器在大量的文档中学会词语的意思   机器绘画：机器在看过图片信息后，自己绘制图片      5.5 结构化学习(Structed learning)   结构化学习就是输入或者输出具有结构的数据，而在之前的学习之中，输入和输出都是向量。  在结构学习中，我们需要学习的是一个函数 F 。  结构化学习的输入和输出都是对象，而对象可能是序列、列表或者树等等,形式可以不同。    应用:     语音识别   机器翻译   人脸识别       5.6 增强学习(Reinforcement Learning，RL)   增强学习又叫做强化学习，是近年来机器学习和智能控制领域的主要方法之一。    增强学习关注的是智能体如何在环境中采取一系列行为，从而获得最大的累积回报    通过增强学习，一个智能体应该知道在什么状态下应该采取什么行为。    增强学习是从环境状态到动作的映射的学习，我们把这个映射称为策略。    增强学习需要智能体自己不断地与数据/环境进行交互，通过试错学习的方式获得最佳策略。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/01/01.html",
+        "teaser":null},{
+        "title": "01-02 我们为什么需要去学习机器学习",
+        
+        "excerpt":
+            "    这一节我们主要学习     学习机器学习的原因以及机器学习的作用   各位同学，大家好，今天我要来讲，为什么我们需要学习机器学习。听说AI要来取代人类的工作了，大家都好怕怕。但大家不用担心会出现一个新的工作，叫做AI训练师，机器不是自己会学吗？为什么需要AI训练师。这个问题就好像是问说，为什么需要宝可梦训练师？我记得宝可梦训练师都只在旁边嘴炮，都不自己战斗。但是我们知道，宝可梦训练师，其实很重要，例如说战斗时要选择属性适合的宝可梦。不然就会像这样（动画场景：你这个白痴，难道你不知道飞行系的遇到岩石系的神奇宝贝是没作用的吗？）。同样地AI训练师需要为机器挑选合适的model和loss function。不同的model和loss function适合解决不同的问题。另外，我们知道，召唤出来的宝可梦，不一定会听话。例如说（动画场景：真的没有问题吗？小健，你放心，我相信喷火龙一定办得到）。也有些模型的最佳化比较困难，例如深度学习，可能会需要有经验的AI训练师来处理。因此，我们知道要训练出厉害的AI，AI训练师功不可没，所以让我们一起朝AI训练师之路迈进。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/01/02.html",
+        "teaser":null},{
+        "title": "第1章 机器学习介绍",
+        
+        "excerpt":
+            "第1章 机器学习介绍     01 机器学习导论   02 我们为什么需要去学习机器学习  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/01/features.html",
+        "teaser":null},{
+        "title": "02-01 线性回归案例",
+        
+        "excerpt":
+            "线性回归的案例研究      线性回归模型的应用场景   机器学习相关的名词，比如：特征、模型、损失函数、训练集、测试集、误差、线性模型、过拟合等   线性回归模型的原理和实现流程   梯度下降法   过拟合产生的原因以及解决方法   正则化   1. 回归的定义   回归模型：          输入：预测对象的各种已有信息            输出：输出值是一个数字       回归模型可以做很多事情。比如道琼斯指数预测、自动驾驶中的方向盘角度预测，   以及推荐系统中预测客户购买某种商品的可能性等等。   李老师课程中的案例是运用回归模型来预测宝可梦 (pokemons) 进化后的CP值。              预测股票市场                   商品推荐                  2. 回归模型案例：预测宝可梦进化后的CP值   根据宝可梦已有的攻击力 Combat Power(CP) ，估算出它进化后的攻击力 (CP) 。   这里我们的任务就是找到一个 function ，能够准确预测宝可梦的CP值。   function 的输入就是宝可梦进化前的各种资讯信息，输出就是宝可梦的CP值。   在这里我们使用第一节的机器学习三大步骤流程来处理：           第一步 ：选择一系列的函数（a set of function），即选择一个模型（model）            第二步 ：评价函数的优劣（goodness of function）            第三步 ：选出最好的那个函数（best function）       2.1 第一步：建立机器学习模型   一只宝可梦可由5个参数表示，$x=(x_{cp}, x_s, x_{hp}, x_w, x_h)$ 。   我们的模型先选择线性模型，对以上的输入解释：   $x_{cp}$：宝可梦进化前的CP值；   $x_s$：宝可梦的物种(种类)；   $x_{hp}$：宝可梦的HP值；   $x_w$：宝可梦的重量；   $x_h$：宝可梦的高度，   输出： $y$：一个数值，表示宝可梦进化后的CP值。      我们假设输出值 y 与输入值 $x_{cp}$ 有这样的关系：   $y=b+w·x_{cp}$ （$w$ 和 $b$ 称作参数，可以是任何值）   对于不同的对 $w$ 和 $b$ ，得到的模型也不尽相同，而我们需要找到最适合的模型。   对 $w$， $b$ 输入不同的值，得到的 function 就是 function set，   function set 包含 $f_1$，$f_2$，$f_3$ 等各种模型。   这里面的模型有合理的，也有不合理的，   比如 $f_3$ 就不合理，因为 $w$，$b$ 若都是负数，而则输出值 y 就是负数，   CP值是负数，显然是不合理的。   有无穷多个函数就组成了线性模型，关系表达式如下：   $y = b+\\sum w_ix_i $   其中 $x_i:(x_{cp}, x_s, x_{hp}, x_w, x_h …)$，输入值宝可梦的特征 $x_i$ 被称作特征，   $w_i$ 称作权重，$b$ 称作偏置。   到目前为止，我们已经只做好了一个 model。   2.2 第二步：评价模型   它类似于函数的函数，我们输入一个函数，输出的是 how bad it is，这就需要定义一个损失函数，用来判断我们模型的好坏。    用已经知道的不同的输入值可以训练出来不同的宝可梦的 CP 值。   下图是 10 只宝可梦的数据集，其中：   $ x^{1},…,x^{10}$ 表示10只宝可梦进化前的信息值   $ y^{1},…,y^{10}$ 表示10只宝可梦进化后的CP值         模型的平方损失函数：   $L(f) = \\sum_{n=1}^{10}[y^n-f(x_{cp}^n )]^2 $   其中：     $y^n$ 表示第n个宝可梦CP的的真实值        $f(x_{cp}^n)$ 表示第$n$只宝可梦CP的预测值      考虑到预测值y与参数$w$和$b$的关系,将上式转化如下：   $ L(f) = \\sum_{n=1}^{10}[y^n-(b+w·x_{cp}^n)]^2$      上图为二维平面图，图中每一个点代表一个function，   横轴表示 $b$ 的大小，纵轴表示 $w$ 的大小，颜色的深浅表示 loss 值的大小，   红颜色表示 loss 的值越大，绿灰色表示 loss 的值越小。   比如：$w$ 为负数越小，预测出来的 CP 值与实际的 CP 值差距也就越大，红颜色也就越深。   但是在实际工作中，参数比较多，所以无法使用穷举法来选择模型。   2.3 第三步：如何挑选到最好的模型   每个 function 都有自己的损失值，选择最好的模型即是选择损失函数值最小的 function。      求解最优参数的方法(图片中最后一个式子)可以用线性代数的基本公式来直接计算出最佳的 w 和 b。   当特征非常多时，我们就可以用 **梯度下降法 (Gradient Descent) ** 进行求解。       3. 梯度下降法(Gradient Descent)   3.1 我们首先仅仅考虑一个参数 $w$ 对损失函数（loss function $L(w)$）的影响      当我们在 $L(w)$ 的二维平面中时，我们必须要找到函数的最低点。   在图像上我们很容易得到全局最优解的位置，但是采用 Gradient Descent，步骤如下：           第一步：随机挑选出来一个 $w_0$，或者称为 $w$ 初始化；                                       第二步：计算损失函数在 $w_0$ 处的梯度(切线斜率) $\\frac{dL}{dw}           _{w=w^0}$                                                      如果 $\\frac{dL}{dw}           _{w=w^0} $ 为负数 (Negative)，那么就增加 (Increase) $w$                                                      如果 $\\frac{dL}{dw}           _{w=w^0} $ 为正数 (Positive)，那么就减少 (Decrease) $w$                           综合上面两种情况后的数学表达式：                                  **$w^1 = w^0 - η\\frac{dL}{dw}           _{w=w^0}$**                           $η$：学习率 (learning rate)，手动设置参数。       学习率如果设置比较大，学习比较快，每次步伐跨的比较大；       如果比较小，学习相对就慢一点，每次跨的步伐就小一点。       第三步：迭代第二步。   根据第二步的规则依次迭代 $w^2,w^3,…,w^n$ 直至找到最小 loss 的 $w^T$ 值，此时损失函数的切线斜率等于零。   如果 $w^0$ 从左边开始初始化，往右走，一般走到局部最小值处 (local minima)；   如果 $w^0$ 从右边开始往左边走，就可以走到全局最小值处 (global minima)；   所以不同的地方起始，就会得到不同的结果，这是一个看人品的方法。   3.2 考虑 w、b 两个参数对损失函数的影响？   其实流程与一个参数都是一样的，区别具体如下：              每次初始化参数 $w^0$、$b^0$            然后每次计算 w 和 b 的梯度，第一次的计算结果为：                                  $\\frac{∂L}{∂w}           _{w=w^0，b=b^0}$,                                                      $\\frac{∂L}{∂b}           _{w=w^0，b=b^0}$；                                然后更新 (updata)  w、b 的表达式如下：                                  $w^1= w^0 - η\\frac{∂L}{∂w}           _{w=w^0，b=b^0}$                                                      $b^1= b^0 - η\\frac{∂L}{∂b}           _{w=w^0，b=b^0}$                                依次反复迭代，直至找到 loss function 对 w 和 b 偏微分最小的值。       4. 结果分析      图中横坐标表示偏置 $b$，纵坐标表示权重 $w$，图中颜色的深浅表示 loss 值的大小。      微分是0但却不是极值的点，称为 saddle point，或者函数比较平滑的点，怎么办？                在使用穷举法的时候就已经知道，当 w = 2.7，b = -188.4 的时候就可以获取最好的 function。   然后我们计算平均误差值大小是 31.9。   然后我们采用另外的 10 只宝可梦 CP 值进行预测，平均误差大小是 35.0，跟训练集结果的误差相近。       5. 如何得到更好的模型   刚刚我们选用一次方程作为我们的模型，那么二次方程、三次方程、四次方程会不会更好一点呢？   于是我们采用同样的方法，放到多次方程中，试验结果如下：   那么此时该模型还是还是线性模型吗？ 以上四个模型依然是线性模型 (linear model)，在这里是将 $(x_{cp})^n$ 看作宝可梦的一个特征处理的。           二次方程                   三次方程                   四次方程                   五次方程               这5个模型都是模型越复杂得到的误差越小，这件事情是很直觉的。   在这里黄色的是第三个模型，绿色的是第 4 个模型，发现 3 个函数只是 4 次函数的一个子集和。   我们将 $w_4$ 设置为零，则就成为 3 次的函数，所以 3 次是 4 次的一个子集和，5 次又是 4 次的一个子集和。   所以根据训练集找到一个最好的函数，在 5 次的集合里面找到最好的函数，不可能比在 4 次集合里面找到最好的函数还要更差。   当我们的模型越复杂，当在训练集上面我们的误差是越来越低的。      上图中的蓝色线型是训练集上的误差，橙色线型是测试集上的误差，横坐标表示第几个模型。   我们发现在测试集上的误差是三次的时候是最好的，   当模型越来越复杂的时候，误差就会突然爆炸，所以一个复杂的模型在训练集上给我比较好的 performance。   但并不总是在测试集上给我们比较好的 performance，这件事情叫做过拟合 (overfitting)。   从上图我们看到，当第四次拟合的时候，过拟合发生了，测试集上的误差变得很大。   因此，模型不是越复杂越好，而是要选择一个最合适的，综合比较三次方程表现的最好。   虽然它在训练集上不是最好的，但是它在测试集上是最好的。       6. 过拟合解决方式   过拟合的解决方式：     1.收集更多的数据;        2.正则化              我们收集了 60 只左右的宝可梦进化前后的 CP 值，显然刚刚有我们没有考虑到的一个因素决定了宝可梦的 CP 值，   不然你会发现进化前同样的 CP 值，进化后 CP 值的大小却相差那么多。   那么隐藏的决定性因素又是是什么呢？      通过研究发现，宝可梦进化前后的CP值跟宝可梦的种类有关。   上图中蓝色的是 Pidgey，红色的是 Eevee，黄色的是 Weedle，绿色的是 Caterpie。   因此，现在我们需要设计一个考虑宝可梦种类的模型。      该模型目前还是不是线性模型呢？具体情况可以看下图以及相关的公式：         考虑宝可梦种类后宝可梦CP值预测模型的表达式：   $\\begin{aligned} y = &amp; b_1·\\delta{(x_s = Pidgey)} +  w_1·\\delta(x_s = Pidgey)x_{cp}+ \\ &amp; b_2·\\delta(x_s = Weedle) +  w_2·\\delta(x_s = Weedle)x_{cp}+ \\ &amp;b_3·\\delta(x_s = Caterpie) +  w_3·\\delta(x_s =  Caterpie)x_{cp} +\\ &amp; b_4·\\delta(x_s = Eevee) + w_4·\\delta(x_s = Eevee)x_{cp} \\end{aligned}$   其中：   $δ(x_s = Pidgey)=\\begin{cases}1&amp; \\text{if x_s=Pidgey}\\ 0&amp; \\text{otherwise}\\end{cases}$   同理 $δ(x_s = Weedle)$、 $δ(x_s =  Caterpie)$、$δ(x_s = Eevee)$。   因此，当 $x_s = Pidgey$ 时，上述表达式就可以化简为：   $\\begin{aligned} y = &amp; b_1·1 +  w_1·1·x_{cp}+ \\ &amp; b_2·0 +  w_2·0·x_{cp}+ \\&amp;b_3·0+  w_3·0·x_{cp} +\\ &amp; b_4·0 + w_4·0·x_{cp}\\ =&amp;b_1 +  w_1·x_{cp}\\end{aligned}$   同理，当 $x_s = $Weedle 时，$y=b_2 +  w_2·x_{cp}$；   当 $x_s = $Caterpie 时，$y=b_3 +  w_3·x_{cp}$；   当 $x_s = $Eevee 时， $y =b_4 +  w_4·x_{cp} $，   因此，此时该模型还是线性模型。   此时我们绘制出来四条曲线，其中有两条重合在一起。   此时我们发现在训练集上误差 3.8，在测试集上误差 14.3；   我们在上一个模型中，最好的 function 中，在训练集上的误差 15.3，在测试集上的误差 18.1。           是否还有其他隐藏的因素呢？              比如重量，高度，HP 是否有用呢？不知道哪些 features 有用，那么我们就直接用全部的 features。      以上模型一共 18 个参数，也不算多。然后我们计算训练集误差为 1.9，测试集误差为 102.3，发现过拟合了！下面介绍另外一种方法防止过拟合。           正则化              正则项：$\\lambda\\sum{(w_{i})^2}$   正则项越小，意味着 $w_i$ 越小，同时也说明损失函数比较平滑。   平滑的理解是输入的变化很大而输出的变化很小，则 function 是比较平滑的。           为什么我们要选择既让损失函数小的 function，同时又要一个 smoother 的 function？       因为一般情况，smoother function 更倾向于正确的那个模型；            为什么正则化没有考虑 bias？       一方面，y = bias是一条水平线，对function是否平滑没有影响；       正则化结果：      $\\lambda$ 是手动调整的。   在宝可梦CP值预测的模型上，$\\lambda$ 越大，在训练集上的误差是越来越大的，测试集上的误差是先降低后增大。   因此我们更偏向于平滑的 function，但是要考虑训练集误差，故也不能太平滑。   因此选择参数 $\\lambda$ 值也很重要，具体方法请参考后续课程。   7.总结：      宝可梦进化后的 CP 值显然跟宝可梦的种类和进化前的CP值有关系            可能还有其他的隐藏因素，目前还未研究出来           梯度下降法            更多的理论和推到细节放在后续课程中           我们最终得到在测试集上误差为 11.1 的机器学习模型            我们的模型对新数据如何？如果新数据放在我们的模型中，得到的误差会大于 11.1 还是小于 11.1?           下节课：误差的来源？  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/01.html",
+        "teaser":null},{
+        "title": "02-02 梯度下降法实战",
+        
+        "excerpt":
+            "这节我们主要学习      1.机器学习常见的 python 包   2.梯度下降法代码实现           # 导入工具包 import numpy as np import matplotlib import matplotlib.pyplot as plt                    # 生成数据 x_data = [338.,333.,328.,207.,226.,25.,179.,60.,208.,606.] y_data = [640.,633.,619.,393.,428.,27.,193.,66.,226.,1591.] # ydata = b + w * xdata                    x = np.arange(-200,-100,1) # bias y = np.arange(-5,5,0.1) # weight z = np.zeros((len(x),len(y))) X,Y = np.meshgrid(x,y) for i in range(len(x)):     for j in range(len(y)):         b = x[i]         w = y[j]         z[j][i] = 0         for n in range(len(x_data)):              z[j][i] = z[j][i] + (y_data[n]-b-w*x_data[n])**2         z[j][i] = z[j][i]/len(x_data)                    # ydata = b + w * xdata b = -120 # initial b w = -4  # inital w lr = 0.0000001 # learning rate iteration = 100000  # store initial values for plotting b_history = [b] w_history = [w]  # Iterations for i in range(iteration):          b_grad = 0.0     w_grad = 0.0     for n in range(len(x_data)):         b_grad = b_grad - 2.0*(y_data[n] - b - w*x_data[n])*1.0         w_grad = w_grad - 2.0*(y_data[n] - b - w*x_data[n])*x_data[n]              # update parameters     b = b - lr * b_grad     w = w - lr * w_grad          # Store parameters for plotting      b_history.append(b)     w_history.append(w)      # plot the figure plt.contourf(x,y,z,50,alpha=0.5,cmap=plt.get_cmap('jet')) # plt.contourf(x,y,z,50,alpha=0.5,cmap='jet') plt.plot([-188.4],[2.67],'x',ms=12,markeredgewidth=3,color='orange') plt.plot(b_history,w_history,'o-',ms=3,lw=1.5,color='black') plt.xlim(-200,-100) plt.ylim(-5,5) plt.xlabel(r'$b$',fontsize=16) plt.ylabel(r'$w$',fontsize=16) plt.show()                                         上图中，横轴代表 b 的变化，纵轴代表 w 的变化，不同颜色的 w 和 b 我们可以得到不同的损失函数值，损失函数最低的点是上图的叉号位置，该点的 w 位于 (2,4) 之间，b 位于 (-200,-180) 之间。初始时 w 和 b 就在黑线的右下方，然后一直变化向上走，然后左转；迭代 10 万次以后发现还未到 loss 最低点，故我们学习率设置太低，现在去调大学习率，视频中学习率先是 10 倍的扩大，这里我就不演示了，直接扩大 100 倍后看看情况。      学习率扩大 100 倍           # ydata = b + w * xdata b = -120 # initial b w = -4  # inital w lr = 0.00001 # learning rate iteration = 100000  # store initial values for plotting b_history = [b] w_history = [w]  # Iterations for i in range(iteration):          b_grad = 0.0     w_grad = 0.0     for n in range(len(x_data)):         b_grad = b_grad - 2.0*(y_data[n] - b - w*x_data[n])*1.0         w_grad = w_grad - 2.0*(y_data[n] - b - w*x_data[n])*x_data[n]              # update parameters     b = b - lr * b_grad     w = w - lr * w_grad          # Store parameters for plotting      b_history.append(b)     w_history.append(w)      # plot the figure plt.contourf(x,y,z,50,alpha=0.5,cmap=plt.get_cmap('jet')) # plt.contourf(x,y,z,50,alpha=0.5,cmap='jet') plt.plot([-188.4],[2.67],'x',ms=12,markeredgewidth=3,color='orange') plt.plot(b_history,w_history,'o-',ms=3,lw=1.5,color='black') plt.xlim(-200,-100) plt.ylim(-5,5) plt.xlabel(r'$b$',fontsize=16) plt.ylabel(r'$w$',fontsize=16) plt.show()                                      此时学习率太大，直接跑出图片范围以外了。   那我们该如何设置学习率呢？           # ydata = b + w * xdata b = -120 # initial b w = -4  # inital w lr = 1 # learning rate iteration = 100000  # store initial values for plotting b_history = [b] w_history = [w]  # 给w b 特制化一个学习率 lr_b = 0 lr_w = 0  # Iterations for i in range(iteration):          b_grad = 0.0     w_grad = 0.0     for n in range(len(x_data)):         b_grad = b_grad - 2.0*(y_data[n] - b - w*x_data[n])*1.0         w_grad = w_grad - 2.0*(y_data[n] - b - w*x_data[n])*x_data[n]          lr_b = lr_b + b_grad ** 2     lr_w = lr_w + w_grad ** 2               # update parameters     b = b - lr/np.sqrt(lr_b) * b_grad     w = w - lr/np.sqrt(lr_w) * w_grad          # Store parameters for plotting      b_history.append(b)     w_history.append(w)      # plot the figure plt.contourf(x,y,z,50,alpha=0.5,cmap=plt.get_cmap('jet')) # plt.contourf(x,y,z,50,alpha=0.5,cmap='jet') plt.plot([-188.4],[2.67],'x',ms=12,markeredgewidth=3,color='orange') plt.plot(b_history,w_history,'o-',ms=3,lw=1.5,color='black') plt.xlim(-200,-100) plt.ylim(-5,5) plt.xlabel(r'$b$',fontsize=16) plt.ylabel(r'$w$',fontsize=16) plt.show()                                      以上学习率采用的 AdaGrad 方式进行更新，感兴趣的可以自己先了解一下。现在我们把学习率设置为 1，   结果如图：从初始值到终点我们就很容易实现了。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/02.html",
+        "teaser":null},{
+        "title": "02-03 误差分析",
+        
+        "excerpt":
+            "这节我们主要学习      误差的来源   偏差   方差   过拟合、欠拟合与误差的关系   交叉验证   1. 误差的来源   通过上一节课的学习，我们知道：     选择不同的函数集就是选择不同的模型，在训练集和测试集上得到不同的误差 (error)。   越复杂的模型不一定误差最小。   那么我们现在讨论误差的来源：     bias 偏差   variance 方差   如果知道误差的来源，就可以采用适当的方法来优化模型。   2. 误差来源的实例分析   上一节课中，我们需要估测宝可梦进化后CP值。   我们需要找到一个函数，能够准确预测每一个宝可梦进化后的 CP 值。   理论上，有一个最佳的函数，我们记作：$\\widehat{y}=\\widehat{f}(宝可梦)$   实际上我们是不知道最佳模型的。   我们根据训练集数据找到最好的模型，记作：$f^$（$f^$  是  $\\widehat{f}$  的估测值）   它们俩之间的距离大小来自 2 个方面：可能来源于偏差，也可能来源于方差。   那么一个评价模型的偏差和方差指的是什么呢？   3. 理解方差和偏差           估计变量 $X$ 的期望              假设 $x$ 的平均值是 $\\mu$       假设 $x$ 的方差是 $\\sigma^2$                均值 $\\mu$ 的估计量             简单取样 $N$ 个样本点：{$x^1,x^2,…,x^N$}       计算 $N$ 个点的平均值和方差 $s^2$：           $m={\\frac{1}{N}\\sum_n{x^n}}$       $s^2 = \\frac{1}{N}\\sum_{n}(x^n-m)^2$              将以上试验多次，然后计算 $m$ 的平均值:           $E[m] = E[\\frac{1}{N}\\sum_n{x^n}]=\\frac{1}{N}\\sum_{n}{E[x^n]}=\\mu$       $Var[m]=\\frac{\\sigma^2}{N}$       偏差估计值：       $E[s^2]=\\frac{N-1}{N}\\sigma^2 \\neq \\sigma^2$       m 分散在 $\\mu$ 周围，分散的情形取决于 m 的方差，而方差的大小取决于 $N$。       【注意】：视频中的 Larger N 和 Smaller N 放反了。   4. 方差和偏差的几种情况      我们要估测的是靶的中心，这个是我们的目标。   通过许多次试验，我们发现你其中一个射中的位置，记作 $f^*$，   它与靶心中心 $\\widehat{f}$ 之间的距离，其实是发生了两件事，即等价于他们之间的误差取决于两件事：           第一件事情就是：你瞄准的位置在哪里？       换句话说就是你瞄准位置的期望与靶心之间的偏差，计算如下：       $f^$ 的平均值：$E[f^]=\\overline{f}$，       即：你没有瞄准靶心，你以为你瞄准的靶心与实际的靶心是有偏差 (bias)            第二件事情就是：       你瞄准的靶心 $E[f^]=\\overline{f}$ 与射中的位置 $f^$ 是有偏移的。       所以每次的 $f^*$ 是不一样的，       而每一次的 $f^$ 与 $E[f^]=\\overline{f}$ 之间的距离就是方差 (variance)       所以误差大小取决于偏置和方差的大小。   我们期待的是没有偏差（Low Bias），而且方差较小（Low Variance）。   但是有时我们得到的有时方差很小，但是偏离靶心比较远，此时是 High Bias 和 Low Variance，   又或者我们得到是目标是分散在靶心周围，这样也会得到一些误差。   多次试验宝可梦模型理解方差和偏差   在不同的平行宇宙抓到 10 只宝可梦来计算不同的 $f^*$，   在不同的宇宙中抓到的宝可梦是不一样的：           第一个宇宙中的我，抓到 10 只宝可梦；            第二个宇宙中的我(衣服颜色与第一个不同)，抓到另外 10 只宝可梦；            第三个宇宙中的我(性别已经换掉),抓到的是其他 10 只宝可梦；       每一次抓到的宝可梦是不一样的。   如果你拿不同的宝可梦来找到你最好的 function，就算你用同一个模型，得到的结果也会不同。   假设我们现在都用 $y=b+w \\cdot x_{cp}$ 这个模型，   但是你给他输入的 data 不一样，最后得到的 $f^*$ 就不一样。   我们在 100 个平行宇宙中分别抓取 10 个宝可梦，每个平行宇宙中都用 $y=b+w \\cdot x_{cp}$ 模型，   可以得到不同的 $f^*$ 的分布情况，然后将得到 100 个不同 $w$ 和 $b$，将每一条直线都绘制出来，最后得到的结果如图：   如果采用不同的 model 呢？         方差   如果全部采用直线模型，得到的方差就比较小。   如果用比较复杂的模型，误差点散的比较开，方差就比较大，而且各种曲线长得都不像。      偏差   偏差：我们有很多 $f^$，找到它们的期望值 $E[f^]=\\overline{f}$，描述 $\\overline{f}$ 与 $\\widehat{f}$ 接近程度。   如果偏差比较大，说明 $\\overline{f}$ 与靶心 $\\widehat{f}$ 距离较大；   如果偏差比较小，说明 $\\overline{f}$ 与靶心 $\\widehat{f}$ 距离较小；   实际测量时，无法清晰的获取 $\\widehat{f}$ 的位置，故假设一条曲线作为 $\\widehat{f}$，   宝可梦依次 $\\widehat{f}$ 曲线上取样 10 个点，然后求取 $\\overline{f}$。      试验结果：           黑色曲线：真实的靶心位置 $\\widehat{f}$            红色部分：表示我们做 5000 次试验得到的 $f^*$            蓝色曲线：表示 5000 次试验 $f^*$ 的平均值 $\\overline{f}$       然后分别用三次式和五次式进行试验，发现五次式中每一个差距很大，但是平均后的蓝线和实际中心黑线很接近。   总结：           简单模型得到的偏差比较大，方差较小。            复杂模型得到的偏差比较小，方差较大。       5. 欠拟合和过拟合与误差之间的关系      如何知道遇到的问题是偏差较大还是方差较大呢？   如果模型不能够拟合训练集，则是偏差比较大，此时是欠拟合，   如果模型能够很好的拟合数据，但是在测试集上有较大的误差，此时模型可能有较大的方差，此时是过拟合。         欠拟合解决方式：            添加更多的特征       选择更复杂的模型           过拟合解决方式：            增加数据(非常有效但有点不实际)       正则化           模型选择注意事项：            在方差和偏差之间找到平衡       选择一个能够使得偏差和方差综合误差最小的模型       不能够做的：           不能够根据 private testing set 的误差来选择模型，要考虑 public testing set，故可以采用交叉验证来解决这个问题。   6. 交叉验证    一般数据集分为训练集和测试集，将训练集分为训练集和验证集，然后根据验证集上的误差选择模型，   从而来得到测试集上的误差。   一般测试集上的误差大于验证集上的误差。   不要因为测试上的误差大于验证集上的误差而在模型上做工作，此时相当于把测试集上的偏差考虑进去。           n-折交叉验证              图示是 3-折交叉验证，即将训练集分成 3 份，每一次拿其中 1 份作为验证集，另外 2 份作为训练集。   然后每一次分别得到模型的误差，每一个模型对应的训练 3 次，然后得到每一个模型的平均误差。   选择平均误差最小的那个模型即可，然后将选择的模型在训练集上跑一遍后在测试集上使用。   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/03.html",
+        "teaser":null},{
+        "title": "02-04 梯度下降法",
+        
+        "excerpt":
+            "这一节我们主要学习     梯度下降法   梯度下降法小技巧，比如 Adagrad、随机梯度下降法、特征放缩等。       1. 梯度下降法 (Gradient Descent)             上图中：红色是梯度方向，蓝色是梯度下降方向，横纵坐标都是参数，故可以看作是损失函数的等高线。   而梯度方向是损失函数等高线的法线方向。       2. 调整学习率 (Learning Rate)      上图主要理解学习率对损失函数的影响。   左边的横坐标是学习率、右边的横坐标是参数的迭代次数。      各种颜色代表含义：            蓝色：学习率过小的情况       红色：学习率刚刚好       绿色：学习率偏大情况       黄色：学习率过大情况 &lt;/br&gt;                蓝色：学习率过小，找到最优解需要迭代的次数比较多，损失函数变化比较缓慢。            红色：学习率刚刚好，找到最优解迭代的步数刚刚好，损失函数变化也刚刚好。            绿色：学习率过大，在找最优解时可能跳过或者如上图所示，在那附近循环，损失函数下降很快并不再变化。       黄色：学习率太大，损失函数可能不降反真。   只有把学习率调整的刚刚好，才能得到最适合曲线。       3. 使用Adagrad来自动调整学习率 (Adaptive Learning Rate)   学习率简单常见的基本原则：学习率通常随着参数的更新会越来越小。          在起始点，距离目标比较远，需要大一点的学习率；            迭代多次以后，比较靠近目标，此时需要小一点的学习率，使其收敛于最低点            假设第t次学习率设置为：$\\eta^t = \\eta/\\sqrt{t+1}$            每个不同的参数有自己不同的学习率       3.1 Adagrad 定义和表达式   Adagrad 自适应地为各个参数分配不同学习率的算法      注意：上式中 $g^t = \\frac{\\partial L(\\theta^t)}{\\partial{\\theta}}$      理解 $\\sigma^t$ 和推导公式过程       3.2 理解 Adagrad 反差问题      $g^t$ 越大，每次迭代的步幅就越大；   $\\sqrt{\\sum_{i=0}^t (g^i)^2}$ 越大，每次迭代的步伐就越小；   即：分子部分参数偏微分越大，更新步伐就越大；而分母越大，则每次更新的步伐就越小。   那么如何理解这一部分呢？     直观解释         具体解释      假设上图中  $x_0$ 是初始点，求二次函数的最低点：                  最好的步伐就是该点到对称轴的距离 $       x_0-(-\\frac{b}{2a})       =\\frac{       2ax_0+b       }{2a}$                          而二次函数的倒数绝对值就是 $       2ax_0+b       $           因此：最好的步伐是与微分的大小成正比（针对一个参数时成立）      考虑多个参数微分与步伐的关系      此时考虑 2 个参数微分与步伐之间的关系：   如果仅考虑 a 与 b 或者 c 与 d 之间微分与步伐的关系，答案是很明显的。   距离最低点越远的微分值比较大。   考虑 a 对 w1 的微分和 c 对 w2 的微分，上面的答案就不正确。   此时我们发现：                  二次函数初始值 $x_0$ 到最低点的距离表达式 $\\frac{       2a x_0 +b       }{2a}$ 的分母项 2a           正好是二次函数对 x 的二次微分。                  故最好的步伐是：**       First derivative       /Second derivative**                          即 $\\frac{       f’(x)       }{f’‘(x)}$              $\\sqrt{\\sum_{i=0}^{t}(g^i)^2}$ 反应了二次微分的大小       4. 随机梯度下降法 (Stochastic Gradient Descent)      梯度下降法的一般流程是：          计算全部训练集的损失函数 L            计算相关参数梯度并更新参数权重       随机梯度下降法的流程是：          选择训练集中的一个样本 $x^n$ ，可以随机取也可以按照顺序取            损失函数也只是一个样本的损失函数 $L^n$            计算参数梯度也只是计算一个样本对应的参数梯度并以此更新参数权重          梯度下降法参数更新过程如上图左边，参数更新方向就是极值点方向。   随机梯度下降法参数更新过程如上图右边，每个样本参数更新一次，如果有 20 个样本就更新 20 次。       5. 特征缩放（Feature Scaling）      上图中 x1 与 x2 分布不一致且 x2 分布远比 x1 大，把 x2 特征缩放后如图右边所示，二者特征分布一致。         特征缩放的作用：   上图表示特征缩放前后参数对损失函数的影响；   没有特征缩放的参数很难找到损失函数极值点（椭圆中心和圆中心）。   特征缩放后分布一致，更新参数也很容易，找到损失函数的极值点也容易。   可以理解是每次参数更新的方向是损失函数等高线的法线方向，很明显椭圆等高线的法线方向实时变化，而圆的法线方向一直指向圆心。      特征缩放常见的方法：   特征标准化（特征均值是0，方差是1）       $x_i = \\frac{x_i-\\mu}{\\sigma}$       6. 梯度下降法理论 (Theory)      假设参数 $\\theta$ 有两个变量 {$\\theta_1,\\theta_2$}，参数与损失函数关系如上图。   然后在起始点 $\\theta^0$ 为圆心，绘制一个圆，找到圆上最小值点 $\\theta^1$；    之后在起始点 $\\theta^1$ 为圆心，绘制一个圆，找到圆上最小值点 $\\theta^2$；    依次内推，一直找到最小值点附近。   问题：怎么很快的在红色圆圈里面找到让损失函数最小的参数？      泰勒公式         多元泰勒展开      按照泰勒公式对函数进行展开。      梯度下降与泰勒公式相结合         假设红色圆圈足够小，红色圆圈圆心 (a,b)，在红色圆圈内，用泰勒公式对损失函数进行简化：   $L(\\theta)\\approx L(a,b)+\\frac{\\partial L(a,b)}{\\partial \\theta_1}(\\theta_1-a)+\\frac{\\partial L(a,b)}{\\partial \\theta_2}(\\theta_2-b)$    将常数项简化：    $s = L(a,b)$    $u = \\frac{\\partial L(a,b)}{\\partial \\theta_1}$    $v = \\frac{\\partial L(a,b)}{\\partial \\theta_1}$    即关键表达式：    $L(\\theta) \\approx s + u(\\theta_1-a)+v(\\theta_2-b)$    红色圆圈范围内表达式：    $(\\theta_1-a)^2+(\\theta_2-b)^2 \\leq d^2$   上述问题转化为：   满足红色圆圈范围内的 {$\\theta_1,\\theta_2$}，使得损失函数 $L(\\theta) \\approx s + u(\\theta_1-a)+v(\\theta_2-b)$ 最小。      按照梯度下降法进行求解，得到参数 $\\theta_1，\\theta_2$ 近似解的表达式。       7. 梯度下降法的限制 (More Limitation of Gradient Descent)      梯度下降过程中，局部最优解和鞍点不是最主要的。    最严重的是图中红色方框的位置，我们计算其微分值小于一个非常小的数（$10^{-6}$）是时就认为其微分值为 0，而实际上此时不一定比较接近最优解。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/04.html",
+        "teaser":null},{
+        "title": "02-05 梯度下降法",
+        
+        "excerpt":
+            "这一节我们主要学习     游戏理解梯度下降法，如何找到局部最低点或者全局最低点  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/05.html",
+        "teaser":null},{
+        "title": "02-06 梯度下降法",
+        
+        "excerpt":
+            "梯度下降法   理解梯度下降法更新参数时，loss出现不降反增的情况  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/06.html",
+        "teaser":null},{
+        "title": "02-07  作业介绍",
+        
+        "excerpt":
+            "    这一节我们主要学习     理解题意，运用回归实现PM2.5预测   1 任务描述 (Task Description)      预测丰原站下一个小时会观测到的PM2.5  中国台湾地图上黄点和绿点代表气象观测站的位置  黄色表示空气质量指标比较差  绿色表示空气质量指标比较好       2 介绍数据集      第 A 列是id：每一个id代表一个时间点；  第 B 列是各项指标；  第 K 列表示第 N-1 时的指标值。   3 机器学习第一步：定义你的模型      预测值y：A年B月C日 N时的PM2.5   输入值$x_{K,M}：$A年B月C日 N-K 时的 M 观测值   M = PM2.5，CH4， NO， NO2， O3 …(总共18种)   数据集中某些指标不是数值，比如RAINFALL = NR，该怎么表示呢？      假设说PM2.5 仅与过去9个小时的PM2.5 相关，则：     $ y = b + w_{1,PM}·x_{1,PM}+ w_{2,PM}·x_{2,PM}+…+ w_{9,PM}·x_{9,PM}$      假设说PM2.5 仅与过去5个小时的PM2.5 相关，则：   $ y = b + w_{1,PM}·x_{1,PM}+ w_{2,PM}·x_{2,PM}+…+ w_{5,PM}·x_{5,PM}$      假设说PM2.5 与过去5个小时的PM2.5和N0，O3,… 相关，则：   \\begin{aligned} y  =  b &amp; + w_{1,PM}·x_{1,PM}+ w_{2,PM}·x_{2,PM}+…+ w_{5,PM}·x_{5,PM}       &amp; + w_{1,NO}·x_{1,NO}+ w_{2,NO}·x_{2,NO}+…+ w_{5,NO}·x_{5,NO}       &amp; + w_{1,O3}·x_{1,O3}+ w_{2,O3}·x_{2,O3}+…+ w_{5,O3}·x_{5,O3}       &amp;…… \\end{aligned}   4 机器学习第二步：根据训练集确定损失函数      训练集来自每个月的前20天；  测试集来自每个月的后10天；  从训练集中拿出一些数据集作为验证集（2：8/3:7)    5 机器学习第三步：找到最好的模型      采用梯度下降法找到最好的模型   线性代数正规方程求解与梯度下降法的解形成对比。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/07.html",
+        "teaser":null},{
+        "title": "第2章 回归模型",
+        
+        "excerpt":
+            "第2章 回归模型     01 线性回归案例   02 梯度下降法实战   03 误差分析   04 梯度下降法   05 梯度下降法   06 梯度下降法   07  作业介绍  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/02/features.html",
+        "teaser":null},{
+        "title": "03-01 分类",
+        
+        "excerpt":
+            "这一节我们主要学习      介绍分类模型   利用生成模型求解分类问题   利用极大似然估计法求解训练集数据的概率分布   通过几率模型，求解生成模型中变量的概率分布   1.分类模型   分类模型：输入一个对象的特征，输出该对象所属的具体类别。  该模型在医疗诊断、人脸识别等问题中有着广泛的应用。    1.1 分类模型的应用      接下以宝可梦的例子作为具体实例来进行分析。      在该实例中，我们将总评分、HP值、攻击力、防御力等参数作为数据特征输入，来预测输出宝可梦的属性，从而进行分类。      1.2 分类流程步骤      收集数据进行训练      我们应该将分类问题归类至回归分析中吗？   举个例子，我们首先来看看二分类问题。   在训练集中，我们将类别 1 对应的标签值设为 1 ；类别 2 对应的标签值设为 -1 。   在测试集中，当预测值更接近 1 时，将其归为类别 1 ；更接近 -1 时，归为类别 2 。   这样做会遇到什么问题呢？      左图中，左上角代表小于 0 ，右下角代表大于 0 ，当特征数据方差较小时，分类良好。   右图中，当特征数据方差较大，比较分散，导致决策边界右下角偏移。   为照顾那些过于“正确”（预测值过大）的样本点，决策边界将会向右下角偏移，从而不能进行正确的分类。   对于多元分类问题，我们将类别 1、2、3…… 的标签值分别置为 1、2、3……   1.3 模型改进   针对上述问题，我们需要找到一个理想的替代函数，来代替线性回归模型。      函数（模型）：      寻找一个函数 $f(x)$ ，当 $g(x)&gt;0$ 时，输出类别 1 ；否则，输出类别 2。      损失函数：      确定损失函数 $L(f)$ ，记录训练中预测错误的次数。     确定最佳函数   通过感知神经元、支持向量机等方法，确定最终的最佳函数模型。       2. 分类问题   2.1 盒子问题      那么问题来了：取出一个球，确定该球的颜色为蓝色，判断该球来自哪个盒子？   (已知取出的球是蓝色的，求来自箱子 1 的概率。）   我们需要用下面公式完成计算：                  &lt;font size=4&gt;$P(B_1       Blue)=$&lt;/font&gt;&lt;font size=5&gt;$\\frac{P(Blue       B_1)P(B_1)}{P(Blue       B_1)P(B_1)+P(Blue       B_2)P(B_2)}$&lt;/font&gt;           上述，是贝叶斯公式。   2.2 二分类问题   推而广之：如果我们看成分类，两个类别如何区分呢？                  思路：通过大量的训练集数据，来估测 $P(C_1),P(C_2),P(x       C_1),P(x       C_2)$ 的值 ，再进行正确的分类预测。              已知一个宝可梦对象的特征变量为 $x$ ,判断宝可梦的类别属性（来自哪个 Class 的概率最大）。                  那么给一个 x ，它的分类的概率是：&lt;font size=4&gt;$P(C_1       x)=$&lt;/font&gt; &lt;font size=5&gt;$\\frac{P(x       C_1)P(C_1)}{P(x       C_1)P(C_1)+P(x       C_2)P(C_2)}$&lt;/font&gt;           整体 $P(x)$ 的概率是：                  生成模型： &lt;font size=4&gt;$P(x)=P(x       C_1)P(C_1)+P(x       C_2)P(C_2)$              考虑两个类别，Class1 是水系宝可梦，Class2 是普通系宝可梦。   我们将 ID 小于 400 的宝可梦用作训练，剩余的宝可梦用于测试。   其中训练集：水系宝可梦 79 只；普通系宝可梦 61 只。   得到， &lt;font size=4&gt;$P(C_1)=$&lt;/font&gt; &lt;font size=5&gt;$\\frac{79}{79+61}$ &lt;/font&gt;; &lt;font size=4 &gt;$P(C_2)=$ &lt;font size=5&gt;$\\frac{61}{79+61}$                     $P(x       C_1)$ 表示从水系里面挑一只宝可梦，这只宝可梦是 $x$ 的概率值。           每只宝可梦都是用一个向量表示的，它的属性值就是向量里的值。   根据数据特征进行分类：      现在取宝可梦的两个属性防御和特殊攻击防御作为一个特征向量。   这样就得到了上图。这个二维平面上每一个点都代表一只宝可梦。   我们假设上面的数据点采样自高斯分布。   3. 最大似然估计   3.1 高斯分布   &lt;font size=5&gt; $f_{μ,\\sum}(x)=$ &lt;/font&gt;  &lt;font size=5&gt; $\\frac{1}{(2π)^{D/2}}$ $\\frac{1}{|\\sum|^{1/2}}$$\\cdot exp{-\\frac{1}{2}(x-μ)^T\\sum^{-1}(x-μ)}$ &lt;/font&gt;     输入：样本值 $x$ ；  输出：样本的概率密度。  函数的形状取决于均值 $μ$ 和协方差矩阵 $\\sum$      3.2 利用极大似然法求解高斯分布      假设这些点采样自高斯分布，我们要通过极大似然估计法找到这个分布，且能够预测新的样本点的概率。      我们拥有水系的宝可梦：&lt;font size=4&gt;$x^1,x^2,x^3,…,x^{79}$&lt;/font&gt; ，我们假设这些样本点均来自高斯分布 $(μ,\\sum)$ ,使得最大似然函数 $L(\\mu,\\sum)$ 最大。         通过上述公式，我们可以求出水系和普通系宝可梦的高斯分布。      3.3 分类预测      通过生成模型，我们可以对新的样本点进行预测分类。         模型的预测结果：该模型的准确率仅仅为 54% ，效果不是特别理想。      3.4 模型改进      针对两个属性的不同高斯分布，将两个分布的协方差矩阵设为相同的值，减少参数的数量，避免过拟合。         使用最大似然估计法求解：         改良后的模型：准确率由之前的 54% 提升至 73%          4.几率模型   4.1 几率模型的三个步骤      寻找函数集（模型）   评价模型的好坏   确定最终的模型      4.2 概率分布      按照自己的意愿选择数据的概率分布      如果你假设 &lt;font size=4&gt;$x$&lt;/font&gt; 各个维度是相互独立的，那么你正在使用朴素贝叶斯分类器。 但是这样的模型有时可能过于简单，效果不是特别好；需要在各个特征之间添加一些联系，使模型更加复杂。    并不是所有的模型都是高斯分布。对于一些二分类问题，你可以假设它们来自伯努利分布来生成概率模型，然后进行分类预测。   #### 4.3 后验概率                     通过代数变换，我们将分类预测变成关于 &lt;font size=4&gt;$z$&lt;/font&gt; 的 &lt;font size=4&gt;$sigmoid$&lt;/font&gt; 函数，其中 &lt;font size=3.5&gt;$P(x       C_1),P(x       C_2)$&lt;/font&gt; 满足高斯分布。                                                 我们将 &lt;font size=3.5&gt;$P(x           C_1),P(x           C_2)$ &lt;/font&gt;和 &lt;font size=3.5&gt;$P(C_1),P(C_2)$&lt;/font&gt; 的表达式带入化简得到 &lt;font size=4&gt;$z$&lt;/font&gt; 的新的表达式：                                 当两个高斯分布的协方差相同时，即 $\\sum^1 = \\sum^2$,进一步简化 &lt;font size=4&gt;$z$&lt;/font&gt; 的表达式：      在生成模型中，我们通过训练集数据，估计 &lt;font size=3.5&gt;$N_1,N_2,μ^1,μ^2,$&lt;/font&gt;$\\sum$ .  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/03/01.html",
+        "teaser":null},{
+        "title": "03-02 逻辑回归",
+        
+        "excerpt":
+            "    这一节我们主要学习     逻辑回归模型   逻辑回归与平方误差   判别模型 vs. 生成模型   多元分类   逻辑回归的局限性   延伸：深度学习   1. 建立逻辑回归模型   1.1 步骤1：确定函数集                  我们需要找到一个概率函数 $P_{w,b}(C_1       x)$  ，该函数有如下特征：                          当 $P_{w,b}(C_1       x) \\geq 0.5$  时，输出 $C_1$ ； 否则输出 $C_2$。                          函数 $P_{w,b}(C_1       x) = σ(z)$ ， 满足上述条件。           其中$z = wx + b，σ(z) = \\frac{1}{1+exp(-z)}$ ，如图。                     函数集 $f_{w,b}(x) = P_{w,b}(C_1       x)$  ，如图：                      比较逻辑回归和线性回归：                       逻辑回归：$f_{w,b}(x) = σ(\\sum_{i}w_ix_i+b)$ ； 输出范围(0 , 1)                        线性回归：$f_{w,b}(x) = \\sum_{i}w_ix_i+b$ ；输出范围($-\\infty$,$+\\infty$)                     1.2 步骤2：模型评价  模型评价 - 3m54s**                  如图所示，假设训练数据集是依据 $f_{w,b}(x) = P_{w,b}(C_1       x)$ 产生的，给出一系列的 $w$ 和 $b$，产生该数据集的概率为多少？              产生该数据集的概率为 $L(w,b) = f_{w,b}(x^1)f_{w,b}(x^2)(1-f_{w,b}(x^3)) \\cdots f_{w,b}(x^N)$       （注意$x^3$属于$C_2$类别）   其中 $w^,b^ = arg maxL(a,b)$，当 $w$ 和 $b$ 分别取 $w^,b^ $ 时，函数 $L(w,b)$ 取最大值。   ** $L(w,b)$的优化：**       $L(w,b) = f_{w,b}(x^1)f_{w,b}(x^2)(1-f_{w,b}(x^3)) \\cdots $   为简化计算，我们将求解 $L(w,b)$ 的最大值，转化为求解 $-lnL(w,b)$ 的最小值。       $-lnL(w,b)= \\ln{f_{w,b}(x^1)}\\ln{f_{w,b}(x^2)}\\ln{(1-f_{w,b}(x^3))} \\cdots$    = $\\sum_{n=1}^{n=N} -[\\hat y^{n}\\ln{f_{w,b}(x^n)}+(1-\\hat y^{n})\\ln({1-f_{w,b}(x^n)})]$,   该函数可以看做两个伯努利分布之间的交叉熵，如图。       熵的概念本来是热力学的一个概念，描述物质的混乱程度。 在这里，我们用交叉熵的概念来描述两组不同概率数据分布的相似程度，越小越相似。      逻辑回归和线性回归训练集上的比较：   训练数据集($x^n,\\hat y^{n}$)：    逻辑回归：$L(f) = \\sum C(f(x^n),\\hat y^{n})=\\sum-[\\hat{y}^nlnf(x^n)+(1-\\hat{y}^n)ln(1-f(x^n))]$  其中：$\\hat y^{n}$ 取1表示分类1，取2表示分类2；   线性回归：$L(f) = \\frac{1}{2}\\sum (f(x^n)-\\hat y^{n})^2$ ；其中$\\hat y^{n}$ 表示一个真实有实际意义的值。   1.3 步骤3：模型优化   偏导数： $\\frac{\\partial (-lnL(w,b))}{\\partial w_i}$ = $\\sum_n-(\\hat y^{n}-f_{w,b}(x^n))x_i^n$   梯度下降：$w_i \\leftarrow w_i - 𝜂\\sum_n -(\\hat y^n - f_{w,b}(x^n))x_i^n$，由上式可以看出，偏差越大，更新的步长越大。   逻辑回归与线性回归在参数更新上的比较：   梯度下降表达式均为 $w_i \\leftarrow w_i - 𝜂\\sum_n -(\\hat y^n - f_{w,b}(x^n))x_i^n$。   1.4 逻辑回归与回归模型总结对比          2. 逻辑回归与平方误差      步骤1：   $f_{w,b}(x) = σ(\\sum_i w_ix_i+b)$   对线性回归中的加速函数 $h$ 作 sigmod 函数得到逻辑回归假设函数。      步骤2：   训练数据集($x^n,\\hat y^n$)：当 $\\hat y^n$ 为类别1时，取1；为类别2时，取0 。   $L(f)=\\frac{1}{2}\\sum_n(f_{w,b}(x^n)-\\hat y^n)^2$      步骤3：   $\\frac{\\partial (f_{w,b}(x^n)-\\hat y)^2}{\\partial w_i}$ = $2(f_{w,b}(x^n)-\\hat y^n)f_{w,b}(x^n)(1-f_{w,b}(x^n))x_i$   $\\hat y^n$ = 0时，   如果 $f_{w,b}(x^n)$ = 1(远离目标)，$\\frac{\\partial L}{\\partial w_i }= 0$   如果 $f_{w,b}(x^n)$ = 0(靠近目标)，$\\frac{\\partial L}{\\partial w_i }= 0$       ### **3. 判别模型 v.s. 生成模型 **   3.1 介绍   我们把逻辑回归方法称为判别模型（ Discriminative ）方法，   上节课用高斯方法来描述后验概率的方法称为生成模型（ Generative ）方法。                  概率函数 $P_{w,b}(C_1       x)$ ，通过两种不同的方式求解 $w,b$。                   1 直接求解 $w,b$            2 计算 $μ^1$，$μ^2$ ，$\\sum^{-1}$ ，再通过下式计算：          如果使用生成模型，可以使用方法2计算。   它们使用相同的训练数据和函数集进行训练，但是最终的得到的预测函数不相同，如图所示。    上述两种模型采用了数据集的7种数据特征来对数据集进行分类，其中生成模型的准确率为73%，判别模型的准确率为79%。   3.2 生成模型实例   已知特征均为1时，是类别1，其余为类别2。    我们来预测一下：    如果使用贝叶斯模型（生成模型）会得到什么样的结果？     预测结果为类别2，应该是类别1的，为什么出错了呢？   生成模型经过计算判断测试数据是类别1的几率小于0.5，原因在于生成模型会适当脑补一些情形。   4. 多元分类   类比二元分类，多元分类即根据特征将数据分为多个类别。   $C_1:w^1,b^1$;$z_1 = w^1*x + b_1$   $C_2:w^2,b^2$;$z_2 = w^2*x + b_2$   $C_3:w^3,b^3$;$z_3 = w^3*x + b_3$   Probability：$y_i = P(C_i|x)$          $1 &gt; y_i &gt;0$            $\\sum_i y_i=1$       使用 softmax 函数：      softmax 函数和 交叉熵（ cross entropy ）:   熵的概念本来是热力学的一个概念，描述物质的混乱程度。   在这里，我们用交叉熵的概念来描述两组不同概率数据分布的相似程度，越小越相似。      5. 逻辑回归的局限性   “异或”函数      如图，我们不能够将数据集进行很好的分类。请问为什么呢？   解决办法   特征变化：    如图，我们通过一些变换将数据在坐标轴上分开，但是我们并不能很容易找到一个较好的变换。   级联逻辑回归模型      首先通过特征变换，改变每个点的特征值：      通过第二级模型进行分类：      如图，我们成功地将数据进行分类。   6. 深度学习         ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/03/02.html",
+        "teaser":null},{
+        "title": "03-03 作业介绍",
+        
+        "excerpt":
+            "这一节我们主要学习   1.数据集和任务介绍     数据集：https://archive.ics.uci.edu/ml/datasets/Adult      2. 特征处理      3.requirements      经过以上信息的介绍，大家赶紧动动自己的小手指，实战起来吧！  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/03/03.html",
+        "teaser":null},{
+        "title": "第3章 分类模型",
+        
+        "excerpt":
+            "第3章 分类模型     01 分类   02 逻辑回归   03-03 作业介绍  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/03/features.html",
+        "teaser":null},{
+        "title": "04-01 介绍深度学习",
+        
+        "excerpt":
+            "这一节我们主要学习     深度学习   神经网络   损失函数   反向传播   1.深度学习   1.1 深度学习的发展趋势   深度学习吸引了很多的关注，并且在很多领域都有应用：      1.2 深度学习的发展历史      1.3 深度学习的三个步骤      2.神经网络 – 深度学习的第一步   2.1 什么是神经网络      神经网络：神经元间的不同连接组成不同的网络结构。   网络参数 $\\theta$：所有神经元的权重和偏差。      2.2 全连接前馈网络      全连接：每一层的神经元之间全部两两连接；前馈：传递的方向由后往前   将神经元以全连接的方式连接起来，不确定网络参数（Network parameter），相当于确定了一个函数集 - 神经网络。   确定网络参数相当于从函数集中确定了一个函数，每输入一个向量都会有一个输出的向量与之对应。   网络参数应该是从训练数据中学出来的         一般而言，每一层神经元的个数和层数都是不确定的。隐藏层的层数对应 Deep 的概念。        随着隐藏层数目增加，网络的错误率减少，且层间连接方式会发生变化，使用非全连接的其他方式。         调用 GPU 利用并行计算技术加快矩阵运算：         全连接前馈网络的隐藏层起到特征提取的作用，输入的特征经过隐藏层之后转换成一组新的特征，取代之前的手动特征转换工程。   输出层相当于一个多分类器，将提取后的特征进行分类。因为多分类器要通过 Softmax 函数，所以在输出层也会加上 Softmax 函数。      2.3 应用例子      输入一张手写数字的图片，输出这张图片对应的数字：   假设输入图片的解析度为 16 * 16，那么它就有 256 个像素，对应一个 256 维的向量；   输出是一个 10 维的向量，每一个维度代表对应数字的几率。        要实现手写数字识别，我们所需要的就是一个函数，即神经网络。        那么怎么确定这个网络呢？其实，这里对网络的限制只是输入是一个 256 维的向量，输出是一个 10 维的向量，对中间的网络结构并没有任何限制。   假设我们确定用全连接前馈网络，也就是确定了一个函数集，接下来还需要用梯度下降算法找到表现最好的那个函数。   但是一个不好的网络结构可能不包含一个表现好的函数，所以我们需要设计网络结构以保证表现最好的那个函数在我们的函数集里。        那么如何设计网络结构呢？            如何确定网络的层数和每一层有多少神经元？       答：试错法（经验） + 直觉            网络结构能否自动学习？       答：可以，比如进化人工神经网络。            我们能否自己设计网络结构？       答：可以，比如卷积神经网络（CNN）。           3.损失函数 – 深度学习的第二步和第三步      定义一个函数的好坏–损失函数   对于一个训练数据，我们可以计算函数结果和实际数据的交叉熵        整个网络的损失函数：$L=\\sum_{n=1}^N C^n$ ，即所有训练数据的交叉熵的和   接下来，我们需要在函数集中确定一个函数使总损失达到最小，即确定神经网络的参数 $θ^*$ 使损失函数最小         给定一组参数的初始值，计算梯度，根据学习率更新参数值，循环往复，直到找到一组好的参数。这就是机器在深度学习中的学习过程。           4.反向传播      反向传播：计算神经网络中偏微分的有效方式。      5.结束语           为什么要用深度学习？越深越好？            普遍性定理：只要有足够多的神经元，任何连续函数 $f: R^N \\rightarrow R^M$ ,都能够被一个仅有一层隐藏层的网络实现。         ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/01.html",
+        "teaser":null},{
+        "title": "04-02 反向传播",
+        
+        "excerpt":
+            "这一节我们主要学习     梯度下降法   链式法则   前向传播   反向传播   1.基础知识   1.1 梯度下降算法           网络的参数 ** $θ=$ {$w_1,w_2,…,b_1,b_2,..$}**            起始参数： $θ^ 0 \\longrightarrow θ^ 1 \\longrightarrow θ^ 2 \\longrightarrow …… $            在神经网络使用梯度下降算法求解最优化的损失函数，反向传播算法能够使梯度计算更高效。          1.2 链式法则      因为神经网络有着多个隐藏层，所以在计算偏导数的过程中要使用到链式求导法则。      2.反向传播算法   2.1 梯度计算      我们要最小化的损失函数 L(θ) 是每一组数据的损失 C(θ) 之和。（注：这里的 C(θ) 对应视频中的 l(θ)）   因此计算 L(θ) 的偏微分等价于计算每一个 C(θ) 的偏微分，再将之加总。所以接下来算 C(θ) 的偏微分。        对第一层的某一个神经元进行分析发现：&lt;font  size=4 &gt;$\\frac{\\partial C}{\\partial w} = \\frac{\\partial z}{\\partial w} \\frac{\\partial C}{\\partial z}$&lt;/font&gt;   前向传播阶段：计算所有参数的 &lt;font  size=4 &gt; $\\frac{\\partial z}{\\partial w}$    反向传播阶段：计算所有参数的 &lt;font size=4&gt; $\\frac{\\partial C}{\\partial z}$       2.2 前向传播      为所有的参数计算 &lt;font  size=4 &gt; $\\frac{\\partial z}{\\partial w}$         实例：      2.3 后向传播      计算 &lt;font size=4&gt; $\\frac{\\partial C}{\\partial z} : \\frac{\\partial C}{\\partial z} = \\frac{\\partial a}{\\partial z} \\frac{\\partial C}{\\partial a}$          第一步，计算 &lt;font size=4&gt; $\\frac{\\partial a}{\\partial z}= σ’(z)$  :         第二步，计算 &lt;font size=4&gt; $\\frac{\\partial C}{\\partial a}$  :        假设 &lt;font size=4&gt; $\\frac{\\partial C}{\\partial z’}$ &lt;/font&gt;和 &lt;font size=4&gt;$\\frac{\\partial C}{\\partial z’’}$  &lt;/font&gt;  已知,后向传播阶段的结果：             但实际&lt;font size=4&gt; $\\frac{\\partial C}{\\partial z’}$ &lt;/font&gt;和 &lt;font size=4&gt;$\\frac{\\partial C}{\\partial z’’}$  &lt;/font&gt;是未知的，接下来分两种情况进行讨论：            情况1：该层是输出层，&lt;font size=4&gt; $\\frac{\\partial C}{\\partial z’}$ &lt;/font&gt;和 &lt;font size=4&gt;$\\frac{\\partial C}{\\partial z’’}$  &lt;/font&gt;为输出层的输入            情况2：该层不是输出层，我们可以递归地计算，直到我们到达输出层。然后，从输出层不断向前计算，得到 &lt;font size=4&gt;$\\frac{\\partial C}{\\partial z}$          情况2： 从输入开始算感觉很麻烦，从输出开始算会发现和前馈网络运算量一样：      2.4 反向传播算法总结      先做前向传播，计算出激活函数的输出$\\frac{\\partial z}{\\partial w} = a$,  再从反向传播中求出$\\frac{\\partial C}{\\partial z}$，将上述结果相乘即得到$\\frac{\\partial C}{\\partial w}$  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/02.html",
+        "teaser":null},{
+        "title": "04-03 基于Keras实现的深度学习Hello World",
+        
+        "excerpt":
+            "这一节我们主要学习     Keras 简介   用 Keras 实现手写数字识别模型   小批量梯度下降（Mini-batch Gradient Descent）   1. Keras 简介      TensorFlow、theano 的特点：方便灵活但是难以上手；   Keras 是 TensorFlow 和 theano 的接口，容易上手使用且具备一定的灵活性；   Documentation: &lt;font size=3.5&gt; http://keras.io/ &lt;/font&gt;   Example: &lt;font size=3.5&gt; https://github.com/fchollet/keras/tree/master/examples &lt;/font&gt;   用 Keras 实现深度学习，就像是在搭积木。   2. 用 Keras 实现深度学习的“Hello World！” —— 手写数字识别模型   2.1  手写数字识别        MNIST Data: &lt;font size=3.5&gt; http://yann.lecun.com/exdb/mnist/ &lt;/font&gt;   Keras 提供数据集加载功能: &lt;font size=3.5&gt; http://keras.io/datasets/ &lt;/font&gt;   2.2 构建网络      2.3 评价模型的好坏      loss=‘categorical_crossentropy’   Keras 中损失函数的几种选择：&lt;font size=3.5&gt; https://keras.io/objectives/ &lt;/font &gt;      2.4 选择最佳的函数——训练      第一步，配置优化方式        第二步，训练        其中，x_train 和 y_train 都是 numpy array 的形式：    其中：     batch_size: 在实际操作中，我们并不会最小化总的损失函数，而是把训练集分成多个 batch，每次最小化一个 batch 的总损失 —— 小批量梯度下降法（Mini-batch）。   nb_epoch: 将所有的 batch 都跑一遍叫做一个 epoch。            如果 batch_size 设为1，小批量梯度下降法（Mini-batch Gradient Descent）就相当于随机梯度下降法（SGD）。   随机梯度下降法特点是参数更新的更快，不稳定。小批量梯度下降法特点是参数更新慢，更稳定。   实际操作中，相同时间内，两种梯度下降算法参数更新的次数相当，所以我们更倾向于稳定的小批量梯度下降法。        Batch_size 不能过大的原因：1. GPU 平行运算的能力是有限度的；2. 容易陷入局部最优点（这也是 SGD 的随机性可以解决的问题）。   小批量梯度下降法比随机梯度下降法更快的原因是前者可以调用 GPU 平行运算：      3. Keras 补充           保存和加载模型： &lt;font size=3.5&gt;http://keras.io/getting-started/faq/#how-can-i-save-a-keras-model             帮你做测试：1. 有测试集的情况下算正确率（score[0]:损失，score[1]:正确率） 2. 只有输入的情况下做预测。         ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/03.html",
+        "teaser":null},{
+        "title": "04-04 Keras2.0 实现手写数字识别",
+        
+        "excerpt":
+            "    这一节我们主要学习     用 Keras 2.0 构建一个最基础的全连接前馈网络来实现手写数字识别              损失函数的几种选择：&lt;font size=3.5&gt; https://keras.io/objectives/ &lt;/font &gt;            优化器选择：SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam                     保存和加载模型： &lt;font size=3.5&gt;http://keras.io/getting-started/faq/#how-can-i-save-a-keras-model             测试：1. 有测试集的情况下算正确率（score[0]:损失，score[1]:正确率） 2. 只有输入的情况下做预测。         ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/04.html",
+        "teaser":null},{
+        "title": "04-05 Keras demo1",
+        
+        "excerpt":
+            "这一节我们主要学习     利用 Keras 搭建一个简单的手写数字识别网络           # 导入相应的工具包  import numpy as np  from keras.models import Sequential from keras.layers.core import Dense, Dropout, Activation from keras.layers import Conv2D, MaxPooling2D, Flatten from keras.optimizers import SGD, Adam from keras.utils import np_utils from keras.datasets import mnist                    # 定义一个函数：从 MNIST 数据集中导入数据并处理好数据格式  def load_data():     (x_train, y_train) , (x_test, y_test) = mnist.load_data()     number = 10000     x_train = x_train[0:number]     y_train = y_train[0:number]     x_train = x_train.reshape(number, 28*28)     x_test = x_test.reshape(x_test.shape[0], 28*28)     x_train = x_train.astype('float32')     x_test = x_test.astype('float32')     # convert class vectors to binary class matrices     y_train = np_utils.to_categorical(y_train,10)     y_test = np_utils.to_categorical(y_test,10)     x_train = x_train     x_test = x_test     # x_test = np.random.normal(x_test)     x_train = x_train / 255     x_test = x_test / 255      return (x_train, y_train), (x_test, y_test)                    # 导入数据  (x_train,y_train), (x_test,y_test) = load_data()  # 观察一下数据输出格式  print(x_train.shape) print(y_train.shape) print(x_test.shape) print(y_test.shape)                        Downloading data from https://s3.amazonaws.com/img-datasets/mnist.npz 11493376/11490434 [==============================] - 680s 59us/step                                   ---------------------------------------------------------------------------      error                                     Traceback (most recent call last)      &lt;ipython-input-4-f22c8af72fbf&gt; in &lt;module&gt;           1 # 导入数据           2      ----&gt; 3 (x_train,y_train), (x_test,y_test) = load_data()           4            5 # 观察一下数据输出格式           &lt;ipython-input-2-195cd3046b15&gt; in load_data()           2            3 def load_data():     ----&gt; 4     (x_train, y_train) , (x_test, y_test) = mnist.load_data()           5     number = 10000           6     x_train = x_train[0:number]           ~/.virtualenvs/basenv/lib/python3.5/site-packages/keras/datasets/mnist.py in load_data(path)          24     f = np.load(path)          25     x_train, y_train = f['x_train'], f['y_train']     ---&gt; 26     x_test, y_test = f['x_test'], f['y_test']          27     f.close()          28     return (x_train, y_train), (x_test, y_test)           ~/.virtualenvs/basenv/lib/python3.5/site-packages/numpy/lib/npyio.py in __getitem__(self, key)         256                 return format.read_array(bytes,         257                                          allow_pickle=self.allow_pickle,     --&gt; 258                                          pickle_kwargs=self.pickle_kwargs)         259             else:         260                 return self.zip.read(key)           ~/.virtualenvs/basenv/lib/python3.5/site-packages/numpy/lib/format.py in read_array(fp, allow_pickle, pickle_kwargs)         724                     read_count = min(max_read_count, count - i)         725                     read_size = int(read_count * dtype.itemsize)     --&gt; 726                     data = _read_bytes(fp, read_size, \"array data\")         727                     array[i:i+read_count] = numpy.frombuffer(data, dtype=dtype,         728                                                              count=read_count)           ~/.virtualenvs/basenv/lib/python3.5/site-packages/numpy/lib/format.py in _read_bytes(fp, size, error_template)         863         # done about that.  note that regular files can't be non-blocking         864         try:     --&gt; 865             r = fp.read(size - len(data))         866             data += r         867             if len(r) == 0 or len(data) == size:           /usr/lib/python3.5/zipfile.py in read(self, n)         842         self._offset = 0         843         while n &gt; 0 and not self._eof:     --&gt; 844             data = self._read1(n)         845             if n &lt; len(data):         846                 self._readbuffer = data           /usr/lib/python3.5/zipfile.py in _read1(self, n)         918         elif self._compress_type == ZIP_DEFLATED:         919             n = max(n, self.MIN_READ_SIZE)     --&gt; 920             data = self._decompressor.decompress(data, n)         921             self._eof = (self._decompressor.eof or         922                          self._compress_left &lt;= 0 and           error: Error -3 while decompressing data: invalid literal/length code                            # 构建网络模型并训练数据  model = Sequential()  # construct the network  model.add(Dense(units=633,activation='sigmoid')) model.add(Dense(units=633,activation='sigmoid')) model.add(Dense(units=10,activation='softmax'))  # configuration and train  model.compile(loss='mse',optimizer=SGD(lr=0.1),metrics=['accuracy'])  model.fit(x_train,y_train,batch_size=100,epochs=20) # validation set can be used in fit function to evaluate                    # 对模型进行评估，并输出准确率  result = model.evaluate(x_test, y_test)  print(\"Test Acc:\"+\"{}\".format(result[1]))                    # 你会发现训练出的模型效果并不好，接下来可以对网络进行调整  # 可以调整每层神经元的数目 model.add(Dense(units=689,activation='sigmoid'))  # 可以增加网络的深度 for i in range(10):     model.add(Dense(units=689,activation='sigmoid'))      # 效果依然不大好，接下来可以学习下一节课—— DNN 训练技巧，根据课程内容来优化你的网络，让它表现的更好。                ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/05.html",
+        "teaser":null},{
+        "title": "04-06 DNN训练技巧",
+        
+        "excerpt":
+            "这一节我们主要学习     激活函数（activation function）   自适应学习率（Adaptive Learning Rate）   早停法（Early Stopping）   正则化（Regularization）   Dropout   1. 前言   1.1 如何评估训练出的神经网络      我们通过深度学习的三个步骤得到一个神经网络，那么如何判断我们得到的是不是一个好的神经网络呢？   首先，要判断该神经网络在训练集上的表现（深度学习不能保证模型在训练集上的表现）。    如果表现不好，要回到开始的三个步骤进行调整，直到其在训练集上表现好为止。    其次，检查我们已经得到的在训练集上表现好的神经网络在测试集的表现。    如果表现不好，则是出现了过拟合，回到开始的三个步骤进行调整。    如果表现是好的，那么我们得到了一个好的深度神经网络。         注意要通过正确的步骤对深度神经网络进行评估，    这样才能发现问题所在，而不是效果不好则盲目责怪过拟合,比如：    该图片取自论文：图像识别中的深度残差学习 &lt;font size=3.5&gt;http://arxiv.org/abs/1512.03385&lt;/font&gt;   1.2 对模型进行改进      提高模型在训练集上的表现：            1.激活函数       2.自适应学习率           提高模型在测试集上的表现：            1.早停法       2.正则化       3.Dropout              2. 提高模型在训练集上的表现   2.1 更换新的激活函数      当神经网络比较深的时候，若激活函数为 sigmoid 函数且每个参数学习率一致，会发生梯度消失问题，导致模型可能收敛的结果比较差。   理论上，可以设置动态的学习率来解决梯度不一致的问题。但是更有效的方法是换掉导致该问题的元凶 —— sigmoid 函数。          使用 ReLU 函数的原因：            1.计算速度快       2.生物学上的理由       3.相当于无限个不同偏差的 sigmoid 函数叠在一起       4.可以解决梯度消失问题           Rectified Linear Unit（ReLU）：         使用 ReLU 函数代替 sigmoid 函数可以解决梯度消失的问题是因为：            作用在输入大于零区域的神经元相当于线性函数，作用在输入小于零区域的神经元相当于消失。       整个网络会变成一个很瘦的线性网络，靠近输入层的参数梯度就不会特别小，从而解决了梯度消失问题。       但是网络只是在小范围内是线性的，整体来说总的网络还是非线性的。                 ReLU 的变形：带泄露线性整流函数（Leaky ReLU）、参数线性整流函数（Parametric ReLU）、Exponential Linear Unit         Maxout Network 的运作方式：        Maxout Network 怎么产生 ReLU：        Maxout Network 可以产生其他的类似 ReLU 的函数：        Maxout Network 生成激活函数的特点：1.分段线性凸函数 2.分段数取决于组中的元素数        Maxout Network 训练：看似不能算偏微分，其实给定输入的时候，网络是线性的。而且对于不同的输入对应不同的线性网络，保证所有的参数都可以被训练到。       2.2 自适应学习率（Adaptive Learning Rate）      在讲梯度下降时已经讨论过 Adagrad——我们用一次微分来估计二次微分的值。这建立在二次微分比较固定的情况下，但是实际情况是很复杂的。         实际训练神经网络时，误差曲面可能非常的复杂。   如图，在梯度比较大的时候，我们需要小一点的学习率；在梯度比较小的时候，我们需要大一点的学习率，以保证损失函数正常收敛。所以我们一般会用比 Adagrad 效果好一点的 RMSProp。        RMSProp 其实是和 Adagrad 一样的思路，只是在求分母的时候考虑了历史梯度和新梯度的权重，如图：         在训练时可能会遇到三大问题：            参数更新太慢       函数卡在鞍点       函数卡在局部最小点                 把物理世界中“惯性”这一概念应用到梯度下降中，使得参数移动不仅取决于当前的梯度，而且受前一次移动的影响，从而有希望冲出局部最优点，去寻找全局最优点。        简单梯度下降和添加动量的梯度下降的对比：         说明为什么只考虑前一次的移动方向就是考虑过去所有的移动方向：         Adam = RMSProp + Momentum：      3. 提高模型在测试集上的表现   3.1 早停法（Early Stopping）      在实际训练的过程中，学习率设置正确的情况下，随着训练的次数（epochs）增加，模型在训练集上的准确率会越来越高，但在测试集上的准确率随着过拟合的出现反而开始变差。所以我们需要一个告知我们即将出现过拟合的机制——早期停止，来保证测试集上最好的效果。但由于不能边训练边测试，于是引入了验证集（Validation set）来做计算。    Keras: &lt;font size=3.5&gt;http://keras.io/getting-started/faq/#how-can-i-interrupt-training-when-the-validation-loss-isnt-decreasing-anymore &lt;/font&gt;   3.2 正则化（Regularization）      在损失函数后面添加一个系数的“惩罚项”是正则化的常用方式，为了防止系数过大从而让模型变得复杂。   $\\lambda$ 是一个超参数，用于控制正则化程度   使新的损失函数达到最小，找到一组权重不仅使原始的损失函数最小，而且使权重接近 0         L2 正则化通过让原损失函数加上了所有特征系数的平方和来实现正则化。   可以看出每次更新时，会对特征系数进行一个比例的缩放，这会让系数趋向变小而不会变为 0，因此 L2 正则化会让模型变得更简单，防止过拟合。         L1 正则化通过让原损失函数加上了所有特征系数绝对值的和来实现正则化。   每次更新会加减一个常数，所以很容易产生特征的系数为 0 的情况，特征系数为 0 表示该特征不会对结果有任何影响，因此 L1 正则化会让特征变得稀疏，起到特征选择的作用，从而防止过拟合。        同为防止过拟合的办法，如果在深度学习中使用早期停止的话，正则化相对没有必要。   3.3 Dropout      Dropout 是一种有深度学习特色的办法。   Dropout 运作方式            每次更新参数之前，对神经元（包括输入层的维度）进行抽样。每个神经元有 p% 的概率失活。       抽样后，对变瘦的神经网络进行训练。对于每一个mini-batch，都要重新采样神经元。                 对训练完成的整个网络结构进行测试。如果训练时神经元的失活率为 p% ，测试时的所有权重都要乘以 1-p%         为什么训练的时候要用 Dropout，测试的时候不用：                团队合作时，如果每个人都期望其他人来工作，那么团队最终什么都做不成；    然而，如果你知道你的合作伙伴会什么都不做，那你会做得好一点；    到测试时会发现其实每个人都有好好工作，所以最终会取得好的结果。             测试时所有权重都要乘以(1-p%)的直观原因：             集成学习的运作方式：训练时，划分训练集分别训练；测试时，将数据输入所有训练好的模型求平均作为最后的结果。         Dropout 的运作方式：训练时，一个Mini-batch训练一个网络，但网络中的参数是共享的；    测试时，将所有权重乘以（1-p%），输入数据得出结果。且这个结果和继承学习取平均得到的结果近似相等。           为什么 Dropout 的测试结果和继承学习的结果近似相等，这里举一个最简单的网络作为例子。    但是这个例子的理论不适用于非线性网络。不过，Dropout 对于非线性的网络还是适用的，    只是 Dropout 应用于线性网络的话效果会特别好。     ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/06.html",
+        "teaser":null},{
+        "title": "04-07  Keras demo1",
+        
+        "excerpt":
+            "这一节我们主要学习     根据上节课学习的深度神经网络训练技巧，改善表现不好的手写数字识别网络。           # 导入相应的工具包  import numpy as np  from keras.models import Sequential from keras.layers.core import Dense, Dropout, Activation from keras.layers import Conv2D, MaxPooling2D, Flatten from keras.optimizers import SGD, Adam from keras.utils import np_utils from keras.datasets import mnist #categorical_crossentropy                    # 这是我们上节课训练坏掉的模型 def load_data():     (x_train, y_train) , (x_test, y_test) = mnist.load_data()     number = 10000     x_train = x_train[0:number]     y_train = y_train[0:number]     x_train = x_train.reshape(number, 28*28)     x_test = x_test.reshape(x_test.shape[0], 28*28)     x_train = x_train.astype('float32')     x_test = x_test.astype('float32')     # convert class vectors to binary class matrices     y_train = np_utils.to_categorical(y_train,10)     y_test = np_utils.to_categorical(y_test,10)     x_train = x_train     x_test = x_test     # x_test = np.random.normal(x_test)     x_train = x_train / 255     x_test = x_test / 255     return (x_train, y_train), (x_test, y_test)  (x_train,y_train), (x_test,y_test) = load_data()  model = Sequential() model.add(Dense(units=689,activation='sigmoid')) model.add(Dense(units=689,activation='sigmoid')) #for i in range(10): #   model.add(Dense(units=689,activation='sigmoid'))   model.add(Dense(units=10,activation='softmax'))  model.compile(loss='mse',optimizer=SGD(lr=0.1),metrics=['accuracy'])  model.fit(x_train,y_train,batch_size=100,epochs=20)  result = model.evaluate(x_test,y_test,batch_size=10000) print(\"\\nTest Acc:\"+\"{:.4f}\".format(result[1]))                        A local file was found, but it seems to be incomplete or outdated because the auto file hash does not match the original value of 8a61469f7ea1b51cbae51d4f78837e45 so we will re-download the data. Downloading data from https://s3.amazonaws.com/img-datasets/mnist.npz   679936/11490434 [&gt;.............................] - ETA: 9:55:44``` &lt;/div&gt; &lt;/div&gt; &lt;div class=\"output_wrapper\" markdown=\"1\"&gt; &lt;div class=\"output_subarea\" markdown=\"1\"&gt; {:.output_traceback_line}               ---------------------------------------------------------------------------  ConnectionResetError                      Traceback (most recent call last)  &lt;ipython-input-2-df067d22b24b&gt; in &lt;module&gt;      19     return (x_train, y_train), (x_test, y_test)      20  ---&gt; 21 (x_train,y_train), (x_test,y_test) = load_data()      22       23 model = Sequential()   &lt;ipython-input-2-df067d22b24b&gt; in load_data()       1 # 这是我们上节课训练坏掉的模型       2 def load_data(): ----&gt; 3     (x_train, y_train) , (x_test, y_test) = mnist.load_data()       4     number = 10000       5     x_train = x_train[0:number]   ~/.virtualenvs/basenv/lib/python3.5/site-packages/keras/datasets/mnist.py in load_data(path)      21     path = get_file(path,      22                     origin='https://s3.amazonaws.com/img-datasets/mnist.npz', ---&gt; 23                     file_hash='8a61469f7ea1b51cbae51d4f78837e45')      24     f = np.load(path)      25     x_train, y_train = f['x_train'], f['y_train']   ~/.virtualenvs/basenv/lib/python3.5/site-packages/keras/utils/data_utils.py in get_file(fname, origin, untar, md5_hash, file_hash, cache_subdir, hash_algorithm, extract, archive_format, cache_dir)     220         try:     221             try: --&gt; 222                 urlretrieve(origin, fpath, dl_progress)     223             except HTTPError as e:     224                 raise Exception(error_msg.format(origin, e.code, e.msg))   /usr/lib/python3.5/urllib/request.py in urlretrieve(url, filename, reporthook, data)     215      216             while True: --&gt; 217                 block = fp.read(bs)     218                 if not block:     219                     break   /usr/lib/python3.5/http/client.py in read(self, amt)     446             # Amount is given, implement using readinto     447             b = bytearray(amt) --&gt; 448             n = self.readinto(b)     449             return memoryview(b)[:n].tobytes()     450         else:   /usr/lib/python3.5/http/client.py in readinto(self, b)     486         # connection, and the user is reading more bytes than will be provided     487         # (for example, reading in 1k chunks) --&gt; 488         n = self.fp.readinto(b)     489         if not n and b:     490             # Ideally, we would raise IncompleteRead if the content-length   /usr/lib/python3.5/socket.py in readinto(self, b)     573         while True:     574             try: --&gt; 575                 return self._sock.recv_into(b)     576             except timeout:     577                 self._timeout_occurred = True   /usr/lib/python3.5/ssl.py in recv_into(self, buffer, nbytes, flags)     927                   \"non-zero flags not allowed in calls to recv_into() on %s\" %     928                   self.__class__) --&gt; 929             return self.read(nbytes, buffer)     930         else:     931             return socket.recv_into(self, buffer, nbytes, flags)   /usr/lib/python3.5/ssl.py in read(self, len, buffer)     789             raise ValueError(\"Read on closed or unwrapped SSL socket.\")     790         try: --&gt; 791             return self._sslobj.read(len, buffer)     792         except SSLError as x:     793             if x.args[0] == SSL_ERROR_EOF and self.suppress_ragged_eofs:   /usr/lib/python3.5/ssl.py in read(self, len, buffer)     573         \"\"\"     574         if buffer is not None: --&gt; 575             v = self._sslobj.read(len, buffer)     576         else:     577             v = self._sslobj.read(len)   ConnectionResetError: [Errno 104] Connection reset by peer               &lt;/div&gt; &lt;/div&gt; &lt;/div&gt;  &lt;div markdown=\"1\" class=\"cell code_cell\"&gt; &lt;div class=\"input_area\" markdown=\"1\"&gt; ```python # 第一步，检查训练集上的表现： # 其实 keras 在训练的时候就已经告诉你模型在训练集上的效果，不过我们特别把它打印出来 result = model.evaluate(x_train,y_train,batch_size=10000) print(\"\\nTrain Acc:\"+\"{:.4f}\".format(result[1]))  # 我们会发现训练集正确率很低，所以训练的时候就没有训练好。 # 所以我们要想办法提高模型在训练集上的表现。 # 这里可以用到一些基本的网络训练知识、换激活函数和自适应学习率（梯度下降策略）的办法。                                # 第二步，换合适的损失函数： # 代码中的问题是损失函数设的不对，之前已经讲过在分类问题中用均方误差（mse）是不能得到好的结果的，这里不再解释。 # 所以，把损失函数换成交叉熵（categorical_crossentropy）运行一遍。会发现模型在训练集上的表现明显提升。 model.compile(loss='categorical_crossentropy',optimizer=SGD(lr=0.1),metrics=['accuracy'])                                # 第三步，改变 batch_size 的影响： # batch_size 设大（10000），运行速度会加快，但是表现会变差。 # batch_size 设小（1），运行速度会变慢。 # 所以想要利用 GPU 加速，要把 batch_size 设大一点。                                # 第四步，改变网络深度的影响： # 发现网络加深，训练效果不好。 for i in range(10):     model.add(Dense(units=689,activation='sigmoid'))                                  # 第五步，换激活函数： # 把 sigmoid 换成 relu. 发现训练集上正确率有很大提升，测试集上正确率也很不错。 model.add(Dense(units=689,activation='relu')) model.add(Dense(units=689,activation='relu')) for i in range(10):     model.add(Dense(units=689,activation='relu'))                                  # 第六步，数据规范化（normalization）的重要性： # 把 x_train = x_train / 255 和 x_test = x_test / 255 注释掉，发现模型训练失败。 # 然后把规范化重新加上。                                # 第七步，改变梯度下降策略：  # 1.先把网络深度变小（把 10 层注释掉），跑一次。 #for i in range(10): #    model.add(Dense(units=689,activation='relu'))   # 2.再改一下梯度下降的策略，从 SGD 改成 ‘adam’ 跑一遍。会发现训练时正确率上升的速度变快。 model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])                                # 第八步，添加噪声，使用 Dropout：  # 1.对测试集加噪声，发现测试集正确率下降。 x_test = np.random.normal(x_test)  # 2. Dropout 的效果。 # 加上 Dropout 之后，会发现每一个 epoch 训练时训练集上的效果变差。 # 但计算训练集的正确率和测试的时候是用整个网络测试，所以效果变好。 model.add(Dense(input_dim=28*28,units=689,activation='relu')) model.add(Dropout(0.7)) model.add(Dense(units=689,activation='relu')) model.add(Dropout(0.7)) model.add(Dense(units=689,activation='relu')) model.add(Dropout(0.7))                  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/07.html",
+        "teaser":null},{
+        "title": "04-08  Fizz Buzz in TensorFlow",
+        
+        "excerpt":
+            "这一节我们主要学习          Fizz Buzz in Tensorflow       将看似不能训练的通过训练来求解。   Fizz Buzz：输出 1 到 100，遇 3 的倍数输出 Fizz，遇 5 的倍数输出 Buzz，遇 15 的倍数输出 Fizz Buzz。   Fizz Buzz in Tensorflow：http://joelgrus.com/2016/05/23/fizz-buzz-in-tensorflow/  这是个有趣的故事。             from keras.layers.normalization import BatchNormalization  # 感兴趣的同学可以把这个函数写出来 ''' def fizzbuzz(a, b):      return x_train,y_train '''  x_train,y_train = fizzbuzz(101,1000) #fizzbuzz()此处未做解释，但它是一个将整数转换成十位二进制，并用四维数组表示输出的函数 x_test,y_test = fizzbuzz(1,100)  print(x_train.shape) print(x_train[0]) #用十位的二进制表示 print(y_train[0]) #array([1, 0, 0, 0]) 四个维度分别代表输出原来的数字、Fizz、 Buzz、 Fizz Buzz  model = Sequential() model.add(Dense(input_dim=10, output_dim=100))#output_dim=1000 将网络变大，效果变好 model.add(Activation('relu')) model.add(Dense(output_dim=4)) model.add(Activation('softmax'))  model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])  model.fit(x_train,y_train,batch_size=20,nb_epoch=100)  result = model.evaluate(x_test,y_test,batch_size=1000) print('Acc:', format(result[1], '0.2f'))                             ---------------------------------------------------------------------------      NameError                                 Traceback (most recent call last)      &lt;ipython-input-2-5e94fa6008ed&gt; in &lt;module&gt;           8 '''           9      ---&gt; 10 x_train,y_train = fizzbuzz(101,1000) #fizzbuzz()此处未做解释，但它是一个将整数转换成十位二进制，并用四维数组表示输出的函数          11 x_test,y_test = fizzbuzz(1,100)          12            NameError: name 'fizzbuzz' is not defined                   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/08.html",
+        "teaser":null},{
+        "title": "第4章 回归模型",
+        
+        "excerpt":
+            "第4章 回归模型     01 介绍深度学习   02 反向传播   03 基于Keras实现的深度学习Hello World   04 Keras2.0 实现手写数字识别   05 Keras demo1   06 DNN训练技巧   07  Keras demo1   08  Fizz Buzz in TensorFlow  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/04/features.html",
+        "teaser":null},{
+        "title": "05-01 卷积神经网络",
+        
+        "excerpt":
+            "这节我们主要学习      1.卷积神经网络（CNN）简介   2.CNN模型   3.在Keras中实现CNN   4.理解CNN实际在做什么   5.CNN的一些应用   1. CNN 简介   1.1 为什么使用卷积神经网络   典型的深度学习模型就是很深的神经网络，包含多个隐含层，多隐含层的神经网络很难直接使用BP算法进行直接训练。   因为反向传播误差是往往会发散，很难收敛。   为什么使用卷积神经网络处理图像问题：     使用比整个图片小很多的图案    通常一个神经元不需要通过整个图片来发现一些图案；    即神经元只需要选取一些特征图案就可做出判断，如通过判断鸟嘴来分类鸟，而不是使用鸟的整张图片。         相同的图案出现在不同的地区    对整张图片中不同位置的相同图案进行提取，并且可以使用相同的参数设置进行训练。    如下图，不同位置的鸟嘴，不用分别设置 detector 处理，直接使用相同参数相同 detector（下文详解）。         对像素进行二次采样不会更改对象 　 二次采用可以减小图片尺寸，但不改变图像中特征图案，即对训练结果没有影响。     1.2 整个 CNN 模型架构    CNN 模型中图像处理具有以下性质：   性质1：使用比整个图片小很多的图案   性质2：能够处理不同区域相同的图案   性质3： 对像素进行二次采样不会更改对象   性质1和2使用卷积操作实现，性质3使用最大池化操作实现。              2. 卷积神经网络主要内容   2.1 卷积操作   卷积过程如下。首先，将过滤器叠加在图像数组的左上部。   接下来，对过滤器及其目前所在的图像子部分执行对应元素乘积。   也就是说，将过滤器的左上部元素与图像的左上部元素相乘，依此类推。   然后，将这些结果相加来生成一个值。接着，将过滤器在图像上移动一段距离（称为步幅），并重复该过程。    卷积核（也叫过滤器）： Filter1，Filter2，$…$；需要一个人为设计卷积核的大小和个数, 这里大小是一个 3X3 的矩阵。  因为使用卷积操作可以将图片的局部特性提取出来，所以实现了性质1，使用比图像小的特征图案。   确定卷积操作的步长 stride：  stride=1（每次操作向右移动一列）：    stride=2（每次操作向右移动两列）：        使用卷积操作提取图像的特征，因为卷积核扫描整个图像,所以在不同区域的特征图案都会被提取到，这也是性质２的实现。      特征图谱： 采用不同的过滤器，得到不同的特征图谱。   2.2 对彩色图片作卷积   图像是一种二阶或三阶字节数组，二阶数组包含宽度和高度两个维度，三阶数组有 3 个维度，包括宽度、高度和多个通道。   所以灰阶图是二阶的，而 RGB 图(彩色图片)是三阶的（包含 3 个通道）。   那么对应的卷积核就要设计成一个三维矩阵, 这也是和上面灰阶图作卷积不同的地方。      2.3 卷积和全连接对比      更少的参数：过滤器中的每个参数，仅仅连接到9个输入，而不是全连接。      权值共享：每次卷积操作使用相同的卷积核，实现了权值共享。      2.2 最大池化   取每个池化区域的最大值：    最终得到一个 2X2 的结果：    得到的新的图片更小，每一个过滤器代表一个通道。   经过卷积和池化操作之后得到的图片比原图片更小；通道的数量和卷积核的数量相同。      2.3 Flatten   经过一些列的卷积和池化操作之后，我们需要将得到的图片平展开来，经过最后一层的全连接层达到最终的输出结果。          3. 在 Keras 中实现 CNN   在 Keras 中，我们只需要修改网络的结构和输入的形式。    如图，我们有25个 3X3 的过滤器，输入的 shape 为（28,28,1）：   当为黑白图像时，最后一位为1；当为彩色图片时，最后一位为3。   左下角使用最大池化操作，池化的结果为一个单独的像素值3。   每一个卷积层中，每个滤波器所包含的参数的多少：    第一个卷积层为单通道，每一个通道的卷积核的大小为 3X3，每个过滤器包含的参数的个数为9。   第二个卷积层有25个通道，每一个通道的卷积核的大小为 3X3，每个过滤器包含的参数的个数为225。   全连接层：   经过卷积和池化操作之后，将特征图像平铺，并添加两个全连接层，得到最终的输出结果。          4. CNN 实际在做什么   实际上，机器可能不会识别这是一双鞋子，而是一头美洲狮。      4.1 第一个卷积层   AlexNet 网络中第一个卷积层的过滤器的可视化结果：      4.2 更高的卷积层      哪张图片会使一个特定的神经元活跃      取出一个特定的神经元和相应的过滤器，将图片经过CNN网络的训练从该过滤器输出；   观察输出的结果，可以判断该神经元究竟在干什么。   第k个滤波器的输出是 11X11 矩阵，第k个滤波器的活跃程度：   $a^k=\\sum_{i=1}^{11} \\sum_{j=1}^{11} a^{k}_{ij} $   &lt;font size=4&gt;$x^* = arg$ $ \\smash{\\displaystyle\\max_{x}}a^k$ (gradient descent)   $\\frac{\\partial a^k}{\\partial x_{ij}}$，我们通过梯度下降的方法找到使 $a^k$ 最大的 $x$。      如图，是对第二个卷积层的前12个卷积核求出的使 $a^k$ 最大对应的 $x$ 图像。      4.3 全连接层   对于全连接层，我们可以使用与卷积层相同的方法，找到哪一张图片使该神经元的激活程度最大。    上图展示了前九个神经元对应的结果。   4.4 最后一层   类似上述处理得到的 $x$。      图片可视化结果的改良：      彩色图片得到的结果：      判断某些像素点对分类影响的大小：   通过微分的大小判断某些像素点的影响大小：    通过将某一部分遮住，判断该区域对最终分类的影响：             5. CNN 的应用   5.1 Deep Dream    将得到的结果夸张化：    参考网址：&lt;font size=4&gt;http://deepdreamgenerator.com/   5.2 Deep Style   风格迁移：    结果：      参考网址：&lt;font size=1&gt;https://dreamscopeapp.com/   原理：   将左右两张图片分别卷积得到他们的内容和风格，在找出一张图片，使其内容与左边的相似，风格与右边的相似。      5.3 CNN 网络更多应用    使用 CNN 网络能将棋盘当做图片来处理，而不是一个 19X19 的向量。   训练过程就是输入以前下过的棋谱，得到下一步的落子位置。      使用 CNN 的原因：           有些图案比整个图像小得多            相同的图案出现在不同的地区        下围棋也有相似的特点。      对像素进行二次采样不会更改对象   在图像识别中具有这样的特点，需要进行池化操作，那么在下围棋时也有同样的特点吗？      在语音处理上应用：    滤波器在声谱频率方向上移动。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/05/01.html",
+        "teaser":null},{
+        "title": "05-02 深度学习的原因",
+        
+        "excerpt":
+            "   1.网络结构是否越深越好   2.神经网络模块化思想   3.端到端学习   4.处理复杂问题中深层网络的作用   1. 网络是否越深越好   理论上，一层隐藏层的神经网络就可以表示任意的函数，但是从效率、精度考量，   在实际的神经网络构建中往往采用多个隐藏层（即深度学习）。    从上图对比可得，在神经元个数相同的情况下，多层神经网络的精度高于单层神经网络。   1.1 胖+短的网络 VS. 瘦+高的网络   那么，在参数相同的情况下，哪种网络的表现更好呢？      实验结果表明瘦而高的网络（层数多的），即深度神经网络，实验结果更好。          2. 模块化   通常，我们在写程序时，我们不会将所有的功能都放到主函数中，   我们会将一些常用的功能写成模块，以供反复调用，这其实就是模块化思想。    网址链接：&lt;font size=1&gt; http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html   2.1 分类问题   我们需要将一个图像分为长头发男孩，短头发男孩，长头发女孩，短头发女孩四类；   但是我们遇到一个问题，长头发男孩的例子比较少，不好分类。   所以模型训练出来的效果对测试集上的长发男生效果会比较差（样本不平衡）。      我们将该问题进行模块化处理，变成两个基础分类问题，是男孩还是女孩以及是长发还是短发。    这样每一个基础的分类都有足够的例子进行训练。   此时样本比例是相当的，由此训练的效果不会变差，且由两个基础类别的组合可以得到最终的四个类别。   通过将简单分类的结果组合得到最终的分类结果：      2.2 深度学习中的模块化   深度学习的优势就体现在模块化的处理方式上。   在深度学习的网络结构中，上一层的神经元可以作为下一层的模块，模块是通过学习数据自动生成的。      由上述例子可以看出，使用模块化的网络，我们可以使用更少的数据进行训练。   2.3 模块化应用之语音识别      人类语言的层次架构   比如一句 what do you think，这一句话其实是有很多音位（区分单词最小语音单元）组成。   同样的音位可能会有不一样的发音（比如 d uw 和 y uw 中，由于前一个音素不同，所以导致口腔真正发出的两个 uw 不一样），   因此我们给同样的音位不同的模块（Tri-phone，该音素加上前后两个音素）。   语音识别简而言之：从声音信号输出声音的特性（state），再从特性转成音位 ，最后音位转成文字。    由于人在说话时，每个字母的发音因前后字母的不同而有着不同的发音，   所以我们将一个 Tri-phone 称为一个发音单元，每一个 Tri-phone 有3个特征。      语音识别步骤一（整个语音识别比较复杂，课程里面只讲第一个步骤）            分类：输入→声学特征，输出→状态               在语音的时序图中以一定大小的 window（如：250毫秒，上图中绿色框框）取出数据，然后用 acousitc feature 表示。   一段声音就表示成为 acousitc feature sequence 。   语音识别的第一步就是要决定 acousitc feature 属于哪个 state ，相当于一个分类问题。   也就是要构建一个分类器，把 acousitc feature 分类，决定是哪个 state ，后续还要把 state 转化成音位，最后组合成字并考虑多义字。      每个状态都有一个声学特征的固定分布   高斯混合模型（ Gaussian Mixture Model ）：      每个 state 用一个高斯分布来描述，参数过多，传统语音识别解决问题的方法就是 tied-state ，   意思就是有些 state 会共用一个高斯分布（就好比编程里面的不同指针指向的是相同地址），   至于如何决定哪些 state 会共用一个高斯分布，则需要 domain knowledge 来决定。      在 HMM-GMM 模型（隐马尔可夫模型-高斯混合模型）中，所有音位都是独立建模的、不相关的。   可以发现 state1 和 state 在某些时候可以共享高斯分布，有的时候又可以独立分布。   但是这样效率不高，因为人类语言发音是有一定关系。    元音的发音受几个因素的控制。 它受三个因素影响：  舌头前后的位置、  舌头上下的位置、  嘴型。   2.4 使用 DNN 处理语音识别    输入为声学特征；输出为每个 state 的概率。   在 DNN 中，所有的 state 使用同一的模型，虽然 DNN 模型中使用的参数更多；   但是由于只需要使用一个模型，参数的数量与 HMM-GMM 模型中使用的参数数量相差无几。   DNN 模块化：   将中间层的输出结果进行降维可视化，得到如下结果：             隐藏层可以检测关节处的动作，模拟人类发音时舌头的动作，判断这个声音人类是如何发出来的（舌头位置）；            所有音位（phoneme）共享来自同一组探测器的结果，即模块化；       根据这个结果来判断 acousitc feature 属于哪个音位或属于哪个 state。            这样可以有效地使用参数； cousitc feature 可以用同一个 DNN 来进行识别。       2.5 通用原理总结   任何连续的函数都可以用单层神经网络来表示（给定足够多的神经元），这个已经有证明，见《深度学习》第四章。    虽然浅层网络能够代表任何函数，但是深度网络更加高效。   2.6 逻辑电路类比神经网络   使用两层逻辑门电路可以表示任何的布尔函数，但是使用多层逻辑门电路实现一些函数更加简单；深度神经网络亦是如此。   神经网络需要的参数少，好处多多，不容易过拟合，需要比较少的数据就完成训练。      举个栗子，奇偶校验（ parity check ）：   我们使用多个同或门实验奇偶校验的电路，右上角是 XNOR 真值表。    如果使用两层逻辑门电路时，我们需要 $O(2^d)$ 个逻辑门；   如果使用多层逻辑门电路时，我们只需要 $O(d)$ 个逻辑门电路。   另外一个栗子，剪窗花：   折了再剪，只用剪几下就能构造出更加复杂的形状，这个与神经网络有什么联系？      回到之前讲逻辑回归划分异或坐标点的例子：   增加一个隐藏层实际上是将 feature 进行特征转换，以便于分类。      让我们做个小实验：    左图是函数，输入的是对应的 X，Y 坐标，输出为0和1，函数形状就是菱形的纹路。   右图上为1个隐藏层，下为3个隐藏层，不同训练样本个数的学习效果，   这里要注意的是1个隐藏层和3个隐藏层的参数是基本相同的。   可以看出，10万训练数据的时候两个神经网络都差不多，   当只有2万训练数据的时候3个隐藏层的神经网络的结果还是比较好。       3. 端到端学习      生产线（ production line ）   一个模块由许多个简单的功能块组成，而每一个功能块对应深层网络中的一层，可以通过数据训练自动的生成。    比如，在语音辨识中先将语音信号送进去，通过模块一层一层的转换，直接输出结果。   3.1 语音识别      浅方法   每个盒子都是生产线上的一个简单功能：   其中只有 GMM 是通过数据训练自动生成的，其他的都是由科学家们手动设计的。         深度学习    通过深度学习的方法进行语音识别，可以减少工程设计的部分，更多地通过机器自主学习。   3.2 图像识别      浅方法    同上，原来是绿色（手工设计）+蓝色（学习得到）来弄，现在变成：      深度学习    现在，通过深度学习方式，把手工设计的模块去除了，所有功能块都是学习得来的。       4. 复杂的任务   在面对一些复杂的任务时，我们需要深层次的网络结构来解决一些问题，   而这些任务通过一两层的神经网络是无法完成的。      输入的声学特征中，相同的颜色表示同一个人说的话，他们说的话是完全相同的，   但是在图中的显示结果完全杂乱无章，我们通过多层的神经网络的输出结果可以观察到   相同颜色的信号聚集在一起，特征更加明显。    上图中不同颜色代表的是不同人讲话，可以看出来同一句话，   不同人讲话，在二维平面的投影比较难以区分，用一层神经网络进行处理得到右边的图。    经过网络层加深，使用八层隐藏层的神经网络就明显分开了。   MNIST 手写数字识别的输出结果：    同样的，拥有更多隐藏层的网络结构，识别的更明确。   更多参考：    网址：&lt;font size=1&gt; http://research.microsoft.com/apps/video/default.aspx?id=232373&amp;r=1           深度学习：理论动机       &lt;font size=1&gt;http://videolectures.net/deeplearning2015_bengio_theoretical_motivations/            物理学与深度学习之间的联系       &lt;font size=1&gt; https://www.youtube.com/watch?v=5MdSE-N0bxs            为什么深度学习起作用：理论化学的视角       &lt;font size=1&gt;https://www.youtube.com/watch?v=kIbKHIPbxiU      ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/05/02.html",
+        "teaser":null},{
+        "title": "第5章 卷积神经网路",
+        
+        "excerpt":
+            "第5章 卷积神经网络     01 卷积神经网络   02 为什么要深度学习  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/05/features.html",
+        "teaser":null},{
+        "title": "06-01 半监督学习",
+        
+        "excerpt":
+            "这一节我们主要学习     生成模型中的半监督学习（Semi-supervised Learning for Generative Model）   低密度分离（Low-density Separation）   平滑性假设（Smoothness Assumption）   更好的表达（Better Representation）   1.半监督学习介绍      监督学习：${x^r,\\hat{y}^r}_{r=1}^{R}$            $x^r：$输入特征，比如 image       $\\hat{y}^r：$类别标签           半监督学习：${x^r,\\hat{y}^r}{r=1}^{R}，{x^u}{u=R}^{R+U}$            没有标签的数据远大于有标签的数据，即 $U \\gg R$       转化学习（Transductive learning）：无标签的数据是测试集数据（除去label）       归纳学习（Inductive learning）：无标签的数据不包括测试数据           为什么做半监督学习？            数据的收集比较容易，但是得到有标签的数据是比较麻烦的；       人类本身的学习过程就是一种半监督学习。           在进行半监督学习的过程中，我们需要作出一些假设，而半监督学习能否取得理想中的效果取决于我们作出的假设是否精确、是否符合实际。       如上图所示，当未加入无标签的数据的时候，我们画出的决策边界是竖着的那条红线；  当我们加入一些无标签的数据（灰色的数据点）之后，我们得到的边界可能会变成斜着的那条线。    因为当给出那些无标签的数据点的时候，我们会假设左下角的数据点是猫，从而得出新的决策边界。  但是我们作出的假设不一定正确，因此假设的合理性很大程度上决定了半监督学习的有效性。       2. 半监督学习生成模型         监督学习生成模型训练流程：            带标签的训练样本$x^r \\in C_1,C_2$                                                       计算先验概率分布$P（C_i）$和条件概率分布$P(x               C_i)$                                               条件概率分布符合均值$\\mu^i$、方差$\\Sigma$的高斯分布                                                       根据贝叶斯公式计算后验概率$P（C_i               x）$，将后验概率最大的类作为$x$的输出类                                                      上图中，红色的点和蓝色的点代表有标签的数据，绿色的点代表无标签数据。  加入无标签的数据点之后，数据点的分布发生了改变：由实线表示的分布变成虚线表示的分布。  无标签数据$x^{\\mu}$ 对先验概率分布$P（C_i）$、条件概率分布$P(x|C_i)$、高斯分布参数$\\mu^i,\\sum$估测有影响，从而影响决策边界。         初始化参数：$\\theta={P(C_i),u^i,\\sum}$                                    step1：计算无标签数据$P_{\\theta}(C_i           x^{\\mu})$,依赖模型参数                            step2：按照图中表达式更新模型     将更新后的模型进行第一步操作，重新计算$P_{\\theta}（C_i|x^{\\mu})$,然后继续更新模型，依此迭代…     理论上该方法会收敛，初始值影响收敛的结果。     在监督学习生成模型中，我们需要最大化的似然函数为 $logL(\\theta)=\\sum_{x^r}P_{\\theta}(x^r,\\hat y^r)$。    在半监督学习生成模型中，我们除了需要考虑有标签数据之外，还要考虑无标签数据产生的概率 $P_{\\theta}(x^u)$，  最大似然函数变为$logL(\\theta)=\\sum_{x^r}P_{\\theta}(x^r,\\hat y^r)+\\sum_{x^u}P_{\\theta}(x^u)$。    由于加入无标签数据后，似然函数不再是凸函数，最终的取值与初始化参数 $\\theta$ 有关；  我们需要在每次更新参数 $\\theta$ 之后，求解一次似然函数的最大值。（EM算法）       3.半监督学习低密度分离    相比于之前的生成模型，这里我们作出一个假设：  如果一个数据样本不属于类别一，那么它一定属于类别二。  我们将这种做法产生的标签称为硬标签。        数据集：             有标签数据集${(x^r,\\hat{y}^r)}_{r=1}^R$       无标签数据集${x^u}_{u=l}^{R+U}$           循环：            step1:用已知标签的数据训练（利用逻辑回归，神经网络，决策树等方法）出模型 $f^*$       step2:将未知标签的数据带入该函数中，得到“新标签”。       step3:然后从得到“新标签”的未知标签的数据中抽取一些数据放入已知标签的数据中。       重复上述步骤。           补充：    我们可以通过给未知标签的数据添加权重的方式来辅助抽取数据；对于回归函数而言，这种训练方式对函数没有影响。  我们可以通过熵来度量通过函数 f 给未知标签的数据生成的标签的质量。熵越小，表示生成的标签质量越高。     自我学习的方法与生成模型有些类似，但是前者采用的是硬标签，后者采用的是软标签。    在神经网络中，假设模型预测某一个样本是类别一的概率为 0.7，是类别二的概率为 0.3。  若采取硬标签的方法，我们会将该样本的标签值设为 [1 0]；  若采取软标签的方法，则标签值依旧为 [0.7 0.3]。  对于神经网络而言，当我们采用硬标签时，才会对模型产生影响。       我们依据训练好的模型参数来得到无标签数据的概率分布，  我们希望无标签数据的预测值越集中越好。如左下 3 个预测值中前两个比较密集集；第三个就比较平均，ji不是令人十分满意。   我们引入熵的公式，来评估数据的分布是否集中。  如图所示，前两个的熵是 0，第三个的熵最大是ln5。熵越小说明数据的分布越集中，预测的结果越好。  我们在损失函数上加了无标签部分的熵的正则项，$\\lambda$ 来决定是考虑有标签数据多一点还是考虑无标签数据多一点。        如上图所示，假设我们有 4 个未标记的数据，支持向量机会找到一个最大间隔并使误差最小的边界。  这里对无标签数据集采用枚举法遍历其所有的可能性。然后分别作出每种可能性的决策边界，并从中选出分类边距最大的那个（图中黑色方框）。    假如我们有 M 个未标签数据，则需要做 $2^M$ 个假设。  但是在实际操作中，我们都是改变一笔数据的标签观察边界是否变大，如果变大就采用该假设。        4 平滑假设   4.1 平滑假设的方法介绍    平滑性假设的主要思想是“近朱者赤,近墨者黑”，我们将具有相似性的数据样本归为同一类。      假设 x 分布是不均匀的，某些地方很集中而某些地方很分散；  如果 $x^1$ 和 $x^2$ 分布在一个很集中区域，那么它们对应的标签 $\\hat{y}^1$ 和 $\\hat{y}^2$ 是相等的。    比如图中 $x^1$ 和 $x^2$ 相近且在一个高密度的区域中，则它们的标签相同；  仅仅观察 x 特征似乎 $x^2$ 和 $x^3$ 比较相近，但是实际上 $x^1$ 和 $x^2$ 在一簇里，而 $x^3$ 在另外一簇。    比如我们手写数字，两个 2，一个带一个包围的弯，一个没有，可能后边的 2 反而和 3 比较像。  但是看大部分没标签的数据，我们会发现这两个 2 其实是通过很多个过渡的 2 连接在一起，  但是 2 和 3 虽然比之前的2接近，但是他们之间并没有过渡的数据。    比如左侧人脸和右侧人脸，从图片数据上可能另一个左侧人脸和图片左侧人脸都比较接近，  但是当引入过渡数据（不同角度的人脸后）就会发现其实他们是1类。    4.2 平滑假设的实现方法            计算两个数据点之间的相似度   根据计算出的相似度，利用 KNN 算法或者 e-neighborhood(e-邻居算法)给数据点之间加边   我们还可以给每条边增加权重，这里我们采用高斯径向基函数来计算相似度作为权重。采用高斯径向基函数有一个好处  就是对于那些距离不是特别近的点，权重会非常小，有利于聚类。    基于图的方法的好处是可以将标签传递出去，当然这样的做法就需要海量的数据，否则这种连接就可能断掉。  带标签的数据通过图来影响与其相邻的点。     图中不同数据点的标签之间的平滑度的定义如下：   &lt;font size=4.5&gt; $S=\\frac{1}{2}\\sum_{i,j} w_{i,j}{(y^i-y^j)}^2$ &lt;/font&gt;     我们希望平滑度 S 越小越好。    $w_{i,j}$ 表示图中两个点之间的权重；矩阵 $W$ 则是由 $w_{i,j}$ 组成的权重矩阵。  矩阵 D 中对角线元素的值为 $W$ 矩阵中每行元素的和。  $y$ 是数据样本的标签值组成的向量（既包含了有标签的数据，也包含了无标签的数据）；向量的维度为 (R+U)。  L 相应的就是一个 (R+U)×(R+U) 的一个矩阵，叫做图拉普拉斯矩阵，定义为 L=D−W。       平滑度 S 的值是取决于网络参数的，为了将平滑度的影响加入到网络的训练过程中，  我们将平滑度 S 作为正则项加入到损失函数中，得到 $L=∑_{x^r}C(y^r,\\hat{y}^r)+λS$。  我们在不仅需要考虑有标签数据给损失函数带来的影响 $C(y^r,\\hat y^r)$，还需要考虑无标签数据产生的影响 $\\lambda S$。  当我们的模型是深度网络的时候，我们可以将平滑度放在网络中的任何位置。        5.更好的表达   主要思想是“去芜存菁，化繁为简”。指的是要抓住重点，得到更好的表达。      找到在观察(observation)下的潜在因素（latent factor），这些潜在的因素(通常更简单)是更好的表达(better represevtation)。  上图漫画中，胡子是观察，头才是重点是更好的表达。    关于这方面的内容在非监督学习中将会重点讲解。   7.总结  本小节讲述了半监督学习：     生成模型中的半监督学习   低密度分离   平滑性假设   更好的表达   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/06/01.html",
+        "teaser":null},{
+        "title": "第6章 半监督学习",
+        
+        "excerpt":
+            "第6章 半监督学习     01 半监督学习  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/06/features.html",
+        "teaser":null},{
+        "title": "07-01 线性降维",
+        
+        "excerpt":
+            "这一节我们主要学习      无监督学习的分类   聚类   分布式表征（Distributed Representation）   降维（Dimension Reduction）   PCA 主成分分析   矩阵分解   1. 无监督学习的分类         聚类和降维（化繁为简）  复杂的input —&gt;  简单的output，训练时只有一堆输入，不知道输出    Generation（生成器，无中生有）  随机输入（比如输入不同的数字）得到不同的输出（image）  知道输出（image），但是不知道输入        2. 聚类     关键问题：聚类的个数   2.1 k-均值聚类（K-means）   + 将样本 X={x1,x2…xN} 聚合成 K 个类     初始化类中心 ci，i=1,2,…K   重复            利用 ci 将样本分为 K 各类       利用分好的 K 个类中的样本重新算出每一个类的 ci           2.2 分级聚类(Hierarchical Agglomerative Clustering(HAC))    假设有5个样本，计算两两之间的相似度，将最相似的两个样本聚合在一起（比如第一个和第二个）  再将剩下的4个聚合在一起，以此类推。       3. 分布式表征（Distributed Representation）    仅仅做聚类是不准确的，有的个体并不只属于一个大类，所以需要一个向量来表示在各个类中的概率。  这样，从一个（高维）图片到一个各属性概率（低维）就是一个降维。     聚类：一个对象必须属于一个类别；   降维：直接按照特征的分布来选取有分布的特征。       4. 降维（Dimension Reduction）   为什么说降维是很有用的呢？   有时候在3D种很复杂的图像到2D种就被简化了        在 MNIST 训练集中，很多28X28维的向量转成图像看起来根本不像数字，  直觉上可以理解向量中与数字有关的向量维数较少（背景的像素点均为无效向量），所以我们可以用少于28X28维的向量来描述它。   比如上图一堆3，每一个都是28X28维的向量，但是我们发现，它们仅仅是角度的不同，  所以我们可以加上角度值进行降维，来简化表示。       降维一般有两个方法：     特征选择（Feature selection ）：    比如在左图二维坐标系中，我们发现X1轴对样本点影响不大，那么就可以把它拿掉。         主成分分析（PCA ）：     输出 z=Wx 输入，找到这个向量 W 。        5. 主成分分析(PCA)   5.1 PCA原理      假设z是一维数据，假定 $||w^1||_2 = 1$，此时 $w^1x$ 表示 x 在 $w^1$ 上的投影；  目标：找到的 w 使得样本投影在这一向量上的点的分布方差最大，如图，我们选择 Large variance 这一向量。      现在考虑高维情况，此时同样的思路也是找到相互垂直的 $w^1,w^2…w^K$ ，使得 $z^1,z^2…z^K$ 分布方差最大。   5.2 PCA数学推导部分      经过一系列的数学推导，最后目标函数转化为如下形式：         在求解的过程中：只需要知道上图中红色方框的结论即可：  $w^1$是协方差矩阵S的特征向量；并且与其相对应的最大特征值$\\lambda_1$    同理计算 $w^2$      结论:   $w^2$ 是协方差矩阵 S 的特征向量；并与其第二大特征值 $\\lambda_2$ 相对应    5.3 PCA      降维之后的 z 之间彼此是互相垂直的（ cov(z) 是一个对角矩阵），  由此得出的结果再作为其他模型的输入，可以大大减少模型的参数。    5.4 SVD 对 PCA 进行求解               U 的 K 列：$XX^T$的 K 个最大特征值对应的一组标准正交特征向量  $\\sum$：$XX^T$ 的非负特征值    SVD 矩阵分解知识：  http://speech.ee.ntu.edu.tw/~tlkagk/courses/LA_2016/Lecture/SVD.pdf   5.5 从 NN 角度理解 PCA      训练这个NN的参数，让输入和输出越接近越好。   不能用 gradient descent ，因为不能保证 $w^i,w^j$ 正交。   效果也不会比 SVD 方法更好。    5.6 PCA的缺点         PCA 是无监督的，不知道数据的标签，这样在降维映射之后可能会把两类数据混到一起。     考虑数据标签的方法 LDA（Linear Discriminant Analysis）可以避免这一问题。    PCA 是线性的。把一个三维空间中的S形分布的数据做 PCA 之后的效果，就是把 S 形拍扁，而非展开。   5.7 PCA 实例化      对宝可梦做PCA              每个宝可梦是六维向量，计算出6个特征值，计算6个特征值的 ratio ，  舍去较小的（只取前四个特征值的特征向量作为新的特征）  特征值的意义是， PCA 降维时，在相应维度的 variance 有多大。   每个 PC 都是一个六维向量，分析它们在哪个维度是大的正值/负值，   可以分析出这个 PC 所代表的意义。       PCA-MNIST      对手写数字识别，取前30个 PC ，如上图：  白色部分代表有笔画，前面看起来比较清晰，后面就比较复杂。       PCA-Face      对人脸，取前30个 PC ，每个 PC 拼成图片，发现都是脸，而不是脸的一部分。   5.8  What happens to PCA?         对数字和人脸做NMF  此时得到的都是“部分”：             6. 矩阵分解   人买公仔，人和公仔背后都有共同的隐藏属性影响人买多少公仔，例如：  人的属性：萌傲娇/萌天然呆；公仔的属性：傲娇/天然呆。   我们要从购买记录（矩阵）中推断出 latent factor ，latent factor 的数目需要事先定好。       [注意]：矩阵分解的第一个矩阵应该为 M X K  对矩阵进行 SVD 分解， SVD 分解后的矩阵 $\\sum$ 并入左边或者右边都可以。      对缺失值的处理（missing data）：  先定义 loss function L（只考虑有定义的数据），用 gradient descent 实现。       得到$rA,rB,rC,rD,rE,r1,r2,r3,r4rA,rB,rC,rD,rE,r1,r2,r3,r4$ 之后，并不知道每个维度代表什么属性，需要事后分析。   已知姐寺与小唯属于天然呆类型、春日与炮姐属于傲娇类型，所以第一个维度代表天然呆，第二个维度代表傲娇。      $b_A$：表示 A 购买公仔的喜欢程度；与属性无关  $b_1$：表示公仔1被购买的程度；与属性无关    参考资料：http://www.quuxlabs.com/blog/2010/09/matrix-factorization-a-simple-tutorial-and-implementation-in-python/   7. 作业：对主题分析进行矩阵分解     ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/07/01.html",
+        "teaser":null},{
+        "title": "07-02 词嵌入",
+        
+        "excerpt":
+            "这一节我们主要学习      为什么要使用词嵌入（Word Embedding）   为什么词嵌入是无监督学习   基于统计（Count based ）   基于预测（Predition based）   词嵌入的特点   词嵌入的主要应用       1. 为什么要使用词嵌入   在词嵌入之前往往采用 1-of-N Encoding 的方法，如下图所示        这种方法主要有两个缺点，首先这种表示是正交的，但是正是由于正交性使得具有相似属性的词之间的关系变得微弱；  其次这种编码方式使得词向量很长，比如说一共有10万个单词，那么就需要一个长度为10万的词向量进行编码。    为了克服这样的缺点，采用了词嵌入的方法。这种方法将词映射到高维之中（但是维数仍比 1-of-N Encoding 低很多），  相似的单词会聚集在一起，而不同的单词会分开；每个坐标轴可以看作是区分这些单词的一种属性，  比如说在上图中，横坐标可以认为是生物与其他的区别，纵坐标可以认为是会动和不会动的区别。        2. 为什么词嵌入是无监督学习   因为在进行学习的过程中，我们只知道输入的是词的一种编码，输出的是词的另一种编码，但是并不知道具体应该是怎样的一种编码，所以是无监督学习。   有的人可能想可以通过自编码的方式实现词嵌入，但是如果你得输入是 1-of-N Encoding 的话，是基本上不可以采用这样的方法处理的 ，因为输入的向量都是无关的，很难通过自编码的过程提取出什么有用的信息。    词嵌入的两种方式:  词嵌入 主要有基于统计 （Count based ） 和基于预测 （Predition based） 的两种方法。       3. 基于统计（Count based ）      这种方法的主要思路如下图所示      两词向量共同出现的频率比较高的话，那么这两个词向量也应该比较相似。  所以两个词向量的点积应该与它们公共出现的次数成正比，这与上节课讲的矩阵分解就很像了。  具体可以参考：Glove Vector : http://nlp.stanford.edu/projects/glove/        4. 基于预测（Prediction based）  用前一个词预测后一个词：   4.1 词预测训练过程      中文中“潮”、“水”是一个字，而“潮水”是一个词。  中文是以词和字为单位进行分词处理，故对中文如何分词是十分重要的。  但是对中文有一个断词问题，就是一个句子有好几种不同的分断法。  其作用可以拿来做推文接话，如下：      上图中红色部分都是一个词接一个词预测出来，然后形成一句话。  推文接话参考：https://www.ptt.cc/bbs/Teacher/M.1317226791.A.558.html  预测的另外一个作用：Language Modeling       预测一个句子出现的几率，通常采用估测该句子中首个单词接下来的单词概率（比如通过 wreck 得到 a 的概率），  依次类推最终得到句子的概率等于所有单词的概率的乘积。  比如图中p(wrek|START)p(a|wreck)p(nice|a)p(beach|nice)  主要应用在机器翻译、语音识别中。       上图主要表达：预测$w_t$出现的几率，      输入是：$w_{t-1},w_{t-2},…,w_{t-n+1}$     每一个输入都会乘上一个矩阵C，成为$C(w_{t-1})，C（w_{t-2}）,…,C(w_{t-n+1})$     然后将上述结果并起来并通过 tanh 激活函数和 softmax 处理得到某个单词出现的几率。    4.2 基于预测的原理      首先对词进行 one-hot 编码，然后进行类似于降维的处理，  得到第一个隐藏层的输入 $z_1,z_2,…$  训练出神经网络，所以我们将它的第一个隐藏层拿出来，就能将它们对应到相应的空间。       用第一个隐藏层的输出代表该词的词向量。（图中绿色的一层）  例子中“蔡英文”、“马英九”要让它们在进入隐藏层之后输入相近（为了得出共同结果“宣誓就职”）。  而且，仅通过一个词汇就要预测下一个词汇是很难的，所以通过共享参数来进行增强。    4.3 共享参数（Sharing Parameters）   不仅用前一个词，还用前 n 个词来一起预测。      同样的权重是为了让同一个词放在 i-1 的位置和 i-2 的位置都有同样的输出，或者两个近义词可以得到近似的词向量输出，另外的好处是可以减少参数量。   计算过程：      4.4 基于预测的其他结构   用前两个词预测后一个词和通过中间词汇预测前后2个词汇      5. 词嵌入的特点         国家与首都有着固定的关系、动词的三态变化是一个有趣的三角形。  可以发现，我们把同样类型的单词摆在一起，他们之间是有固定的关系的。  比如让两个单词两两相减，然后部署到一个空间上，如果落到同一处，则他们之间的关系是很类似的。  参考资料： http://www.slideshare.net/hustwj/cikm-keynotenov2014       6. 应用      多语种词向量 （Multi-lingual Embedding）      中文的 word embedding 和英文的 word embedding 无法将其混在一起使用。  但是将一些中文英文对应的词放在一起训练后，黄色部分词汇靠近其相近意思的中文词汇附近。      文章 Embedding（Document Embedding）         难点：不同文章长度不一致；不同的文章内容有不同的词汇数目；  解决方式：采用 bag-of-word 来描述文章      相同词汇，不同顺序表达不同的意思。   7. 总结     词嵌入的作用和分类   基于统计的词嵌入模型原理   基于预测的词嵌入模型原理  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/07/02.html",
+        "teaser":null},{
+        "title": "07-03 邻域嵌套",
+        
+        "excerpt":
+            "这一节我们主要学习     流形学习（Manifold Learning）   局部线性嵌入(Locally Linear Embedding (LLE))   拉普拉斯特征映射(Laplacian Eigenmaps)   T-distributed Stochastic Neighbor Embedding (t-SNE)   1. 流形学习      我们要做的是非线性的降维，数据是分布在低维空间里面，只是被扭曲到了高维空间。   比如地球的表面是一个二维平面，但是被塞到一个三维空间中。   流行学习就是把 S 型摊平，将高维空间内的低维数据展开，这样才能计算点对点的距离。        2. 局部线性嵌入         从原来的分布中找一点$x^i$，然后找它的 neighbour $x^j$，计算它们之间的关系$w_{ij}$。  把$x^i$,$x^j$ 降维成$z^i$,$z^j$ 之后要保证它们之间的$w_{ij}$ 不变。       “在天”等价于在原来的数据集$x^i,x^j$,他们之间的关系:”比翼鸟”等价于$w_{ij}$  transform 后:  “在地”等价于在原来的数据集$z^i,z^j$,他们之间的关系依然是:”连理枝”等价于$w_{ij}$       LLE没有明确的 function 做降维。   LLE的好处是，就算不知道xi,xj 只知道wijwij ，也可以用 LLE 。   要好好调 neighbour 的个数，刚刚好才会得到好的结果。   点之间的距离关系保持不变需要点之间够近，所以 k 不能太大。        3. 拉普拉斯特征映射      两个红点之间的距离不能用欧氏距离还衡量，  要看两点之间有没有高密度区域的链接，可以建立一个图，用图中的距离来表示。       回顾半监督学习：红框里那项与 labelled data 无关，  它利用 unlabelled data 考虑得到的 label 是否 smooth，作用类似于正则项。       计算 S 时对 z 要加一个约束：  设 z 是 M 维的，则 $z^1,z^2,…,z^N$ 张成 $R^M$ 空间。   这样解出 z 。z 就是 graph laplacion L 的特征向量，对应比较小的特征值。         4. T-distributed Stochastic Neighbor Embedding (t-SNE)   T 分布随机近邻嵌入算法(t-SNE)   前面方法只假设相近的点接近，但未假设不相近的点要分开。       把相同的数字放在一起，但是没办法把不同的数字分开。  故有可能把不相似的物体也放在一起。故挤成一团，如上图所示。      t-SNE 计算过程      t-SNE 先分别计算原空间、新空间中所有点对的相似度再归一化。  归一化是必要的，为了防止两个空间中距离的 scale 不同。   然后最小化二者之间的 K-L 距离，代入公式用 GD 即可。   t-SNE 计算量大，可先用 PCA 降维，再用 t-SNE 降维。   t-SNE 需要一堆 data point ，然后找到z。  如果之后再给一个数据，t-SNE 是没法做的，只能再跑一遍。        t-SNE 的神妙之处在于原空间与新空间中相似度计算公式不同。   原空间的计算公式，使得两个点的相似度随距离增加快速下降。   而新空间的计算公式，是长尾的，为了维持相同的相似度，两个点之间要分得更开。   对原来距离很近的点，影响很小。而原来离得远的点，会被拉开。   效果如图：       t-SNE参考资料：     https://github.com/oreillymedia/t-SNE-tutorial   Laurens van der Maaten, Geoffrey Hinton,“Visualizing Data using t-SNE”, JMLR, 2008   5. 总结     流形学习   局部线性嵌入   拉普拉斯特征映射   T-distributed Stochastic Neighbor Embedding (t-SNE)  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/07/03.html",
+        "teaser":null},{
+        "title": "07-04 深度自动编码",
+        
+        "excerpt":
+            "这一节我们主要学习      介绍 Auto-encoder   深度自动编码   深度自动编码实例化   1. 介绍 Auto-encoder     基本上 Auto-encoder 是使用神经网络进行降維。  编码器（Encoder）将输入降维成一段 code ；然后通过解码器（Decoder）进行解码输出。最终目标是让输入和输出相等或十分接近。       在手写数字识别任务中，想训练一个 NN encoder ，得到图像的精简表达。  但做的是无监督学习，可以找到很多 input image ，但是不知道 code 最终结果无法计算误差，所以没法学习更新编码器（NN Encoder）。  于是又提出一个 NN decoder（也没法单独更新），把两者连接在一起通过比较输入和输出的误差更新编码器和解码器 。       PCA 过程回顾：  首先通过输入的图片，乘以矩阵W，得到降维后的数据，  然后对于降维数据乘以前述矩阵的转置，可以得到预测的输出图片。    2. 深度自动编码      当这个结构变得很深，就变成了deep auto-encoder，encoder 和 decoder 的系数不一定是对称的。      上图上面部分是手写数字采用 PCA 降维:把784维降到30维再恢复到784维  下面是采用 deep auto-encoder 降维：784-1000-500-250-30-250-500-1000-784  PCA&amp;Deep Auto-encoder 比较，明显后者效果更好。  不过以上不是重点，重点如下：      当 code 为二维时，很明显看到 Deep Auto-encoder 使数字手写识别集分类地更好。      添加噪声      为了让 auto-encoder 学的更好，我们可以在输入加入噪音   3. 深度自动编码实例化   3.1 应用于图片      直接对像素做 t-SEN ，把 PCA 降维到32维，颜色分开效果还好。  与上面 Deep auto-encoder 对比:  1成功的被分开了，4与9与分开没有很明显，但是效果比原本混在一起好。    3.2 应用于文字处理      把文章变成一段 code ，得到 vector space model ，  把查询词汇也变成一个 vector ，从而进行查询。   比如图中与查询的向量接近的为红色左边和右边的文章向量，将向量解码后可能就是所查询得到的结果  一种方法是词袋，但是这种方法中每个词都独立，不能知道语意。       要把语意考虑进来的话，要用 Auto-encoder 。  词袋经过 auto-encoder 之后得到 code 。上图中不同颜色代表文档的不同种类。    3.3 应用于以图找图      如果基于像素计算图片之间相似度的话，得到的结果会比较差。  比如，会得到迈克尔杰克逊的照片比较像马蹄铁。        直接图像像素查找的效果不是太理想，选用深度自动编码，  先把图像像素作为 input ，总共5层，直至编码成256维度。  图片右上角是编码后解码回来的图像，比原图像模糊。       用编码后256维的信息寻找相似度接近的，结果就会好很多，最起码都是人脸了。   3.4 应用在CNN中      需要增加的隐藏层有 deconvolution 和 unpooling        对于 unpooling ，我们只需要在 maxpooling 过程中把要把 max locations 记录下来，  然后 unpooling 时候还原其位置，其他全为0       而 deconvolution 实质上就是 convolution 。  中间从三维扩展成五维的过程相当于右边通过CNN将七维降成5维（灰色的输入代表0）。   3.5 Pre-train DNN   Auto-encoder 还可以Pre-train DNN，第一步先将784维的数据转换成1000维，再将1000维的数据解码转换成784维，这样就可以通过比较先后784维度的数据更新得到w1。      第二步可以得到 w2 ，依次类推      把 w1,w2,w3 当做初始的参数，把最后 output 接上去，再用反向传播更新所有参数      在训练第一个 auto-encoder 时，由于 hidden layer 的维数大于 input 维数，要加很强的正则项，  e.g.: 对1000维的输出做L1正则化（希望 output 稀疏）。  否则 hidden layer 可能直接记住 input ，没有 learn 到任何东西。   在训练第二个 auto-encoder 时，要把数据集中所有 digit 都变成1000维vector。   以此类推，最后随机初始化输出层之前的权重。然后用反向传播做 fine-tune （W1,W2,W3已经很好，微调即可）。     之前在训练较深的NN时要用到预训练，但是现在没必要了，因为训练技术进步了。   但在有大量无标注数据 、少量标注数据时仍需要预训练，  可以先用大量无标注数据先把W1,W2,W3先训练好，最后的标注的数据只需稍微调整权重就好。    如果你想了解更多，下面是关于restricted Boltzmann machine的资料      Neural networks [5.1] : Restricted Boltzmann machine–definition            https://www.youtube.com/watchv=p4Vh_zMwHQ&amp;index=36&amp;list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrN             Neural networks [5.2] : Restricted Boltzmann machine–inference            https://www.youtube.com/watchv=lekCh_i32iE&amp;list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH&amp;index=37             Neural networks [5.3] : Restricted Boltzmann machine - free energy            https://www.youtube.com/watchv=e0Ts_7Y6hZU&amp;list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH&amp;index=38             下面是关于deep belief network的资料      Neural networks [7.7] : Deep learning - deep belief networks            https://www.youtube.com/watchv=vkb6AWYXZ5I&amp;list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH&amp;index=57             Neural networks [7.8] : Deep learning - variational bound            https://www.youtube.com/watchv=pStDscJh2Wo&amp;list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH&amp;index=58             Neural networks [7.9] : Deep learning - DBN pre-training            https://www.youtube.com/watchv=35MUlYCColk&amp;list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH&amp;index=59           Decoder 还可以生成我们想要的东西，比如图像         784维降到2维，根据向量的分布选择红框，在红框中等间隔采样，  作为解码的输入，得到计算机生成的图片。   如果红框选错了位置，比如选在右下方，可能得不到数字。   “需知道词向量分布”略麻烦，改进方法：加正则化。   在训练时，对 code 加L2正则化，这样 code 比较接近0。  采样时在0附近采样，这样采样得到的词向量比较有可能都对应数字。    4. 总结     Auto-encoder 原理   Deep Auto-encoder 原理及其应用  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/07/04.html",
+        "teaser":null},{
+        "title": "07-05 生成器1",
+        
+        "excerpt":
+            "这一节我们主要学习      生成模型（Generative Models）   像素循环神经网络（PixelRNN）   变分自编码器（Variational Autoencoder(VAE)）   1. 生成模型（Generative Models）      Generative Models:  https://openai.com/blog/generative-models/    凡我不能创造的，我都没有理解   Generative models ，就是在做创造的事情。      生成模型分类            PixelRNN       Variational Autoencoder（VAE）       Generative Adversarial Network(GAN)           2. 像素循环神经网络（PixelRNN）  2.1 介绍像素循环神经网络      PixelRNN 根据前面的像素预测接下来的像素。  假设生成一个3X3的 image ，流程如下：     将1作为RNN的输入，输出为2；   将1，2作为RNN的输入，输出为3；   将1，2，3作为RNN的输入，输出为4；  依次内推，输出3X3大小的image。       PixelRNN 不仅有效，而且在各种生成方法中 PixelRNN 产生的图是最清晰的。  上图的狗是真实世界的图片，假设只知道图片的上半身：  然后用模型预测出狗的下半身，如上图所示。  上述技术还可以应用于语音方面,如下图：      2.2 练习生成宝可梦模型         用在图像上有一些 tips : 如果 RGB 三个值相差不大，  则得到的颜色灰灰的、不够明亮，  可以把众多颜色聚成若干类然后做 1-of-N encoding 。     颜色一共有256X256X256种可能，然后把相似的颜色算作一种类别，最后生成167种颜色。      预测结果如下：     上图中宝可梦未在训练集中出现过。  如果要计算机从空白开始画，要给一个随机数，以免每次画出来的都一样。   3. 变自编码器（Variational Autoencoder (VAE)）         AutoEncoder   根据自编码器的知识，最初的想法是利用解码器，  随机产生一个 code 作为输入向量，来产生图像，但是效果并不理想。      VAE  对编码器的输出做出改变，如上图所示。  假设code维度是三维，则：  编码器的输出m1、m2、m3是原始code，  σ1、σ2、σ3视为添加的噪声的方差，这是自动学习的，通过指数操作保证非负，  e1、e2、e3是系数；  根据公式计算得到的新的 code 是带噪声的。  然后通过解码器得到输出，并且能够最小化重构误差(图中红色方框1)和最小化公式2（图中红色方框2）。    如果在学习时，仅仅最小化重构误差会怎样呢？  显然，噪声方差为0就能使得误差最小，但这和我们的想法不一致。  所以在上图右下方，在学习时不仅要最小化重构误差也要最小化该公式的值。    3.1 VAE 生成宝可梦      VAE 得到的结果不太清楚。  VAE 与 PixelRNN 区别在于：**理论上 VAE 可以控制要生成的 image **。   比如 code 是10维，固定其中8维、调整剩余2维，  看结果，可以解读 code 的每个维度代表什么意思，  从而每个维度就像拉杆一样可以有目的的调整。       3.2 VAE 写诗      先任意选两个句子，经过 encoder 得到这两个句子的 code ，  在 code space 上是两个点，连接两点、等距采样、用 decoder 还原，得到一系列句子。    4. 总结     生成模型   生成模型方法之 PixelRNN   生成模型方法之 Variational AutoEncoder(VAE)  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/07/05.html",
+        "teaser":null},{
+        "title": "07-06 生成器2",
+        
+        "excerpt":
+            "这一节我们主要学习     为什么使用VAE   高斯混合模型（Gaussian Mixture Model）   VAE的问题   生成对抗网络（GAN）   1. 为什么使用VAE？      为什么要用VAE？  一个直觉的解释是， auto-encoder 的 encoder 与 decoder 都是非线性的，  使用 auto-encoder 时，中间的 code 与满月的 code 和弦月的 code 都有偏差，所以很难预测问号处是一张介于满月与弦月之间的图像。  而 VAE 使得 code 加上噪声之后还能恢复出来，  这样问号处的 code 虽然与满月或弦月的 code 有偏差可仍有可能恢复出介于两者之间的图像。       VAE 是在 encoder 的输出上加噪声，  而 De-noising auto-encoder 是在 encoder input 上加噪声 。   如果只最小化重构误差，那么训练出来的结果不会是预期的样子，  因为方差是学出来的，会学成 0。        exp 是为了确保方差大小是正数，  右下方的 minimize 是为了让方差不能太小，  其中第一项为蓝色曲线、第二项为红色曲线、二者相减得绿色曲线，这样方差最小为1，  第三项是 L2 正则化，希望参数稀疏避免过拟合。       上图中用一维表示的是20X20高维空间，然后估计其概率分布P(x)；  然后根据概率分布生成一张宝可梦的图片；  如果图片是宝可梦的的话，其几率比较高，不像宝可梦时其几率比较低。   2. 高斯混合模型（Gaussian Mixture Model）      通常对于 VAE 的解释如下，每一个图片可以看作是高维空间的一个点，  而 VAE 则是估计高维空间的点分布，即计算出 P(x)，选取的输出在概率较大的地方。  这里使用高斯混合模型进行解释，如上图所示：  复杂的概率分布可以看作是多个高斯分布通过不同的加权叠加的结果。  在进行概率分布计算时，首先决定从哪一个高斯分布进行取样，  然后再计算该高斯分布的概率，这也就对应的全概率公式的形式。   首先，从 multinomial distribution（多项式分布）中选取m，此时m为正整数；  对于每一个m，都存在均值和方差，则可以得到m对应的高斯分布，最后得到p(x|m)。    对于实际操作，需要决定有多少个 mixture ，  然后根据数据，采用 EM 方法，可以得到权重、均值和方差。  进一步地，我们可以采用离散分布估计来进行 VAE 操作，而不是局限于此处的聚类操作。       VAE 是高斯混合模型的distributive representation 的版本。  首先，从正态分布选取一个z，z为向量，每一个维度代表要选取的每一个特征；  然后根据z得到高斯分布的 $μ,σ$ 假设为 $μ(z),σ(z)$ ，也就是前述的变量都是关于z的一个分布，  这个分布同样可以使用神经网络表示，输入为z，输出为均值向量，  对于方差矩阵，可以将其向量化或者采用输出对角线元素， non-diagonal 元素为0，  最终的概率为$P(x)$。      对于 code space 中的一个向量z，向量z符合某个分布（一般为高斯分布），  需要利用神经网络表示出$μ(z),σ(z)$，  输出的结果在进行完全的 decode 后，得到x，需要保证上述p(x)的似然函数最大。       将似然函数 P(x) 分解，其中 q(z|x) 可以为任意概率分布， 最后化简的右侧项为 KL-divergence ，衡量两个概率分布的相似程度（相对熵）， 得到了下边界$L_b$。      $logP(x)$只与P(x|z)有关，与q(z|x)无关；  寻找P(x|z)和q(z|x),使得$L_b$最大；  即：找到合适的q(z|x)使得$L_b$与$logP(x)$越来越接近；  而如果能够最大化$L_b$，则会最小化KL，  这意味着似然函数 logP(x) 与$L_b$逐渐靠近。  最后使得：q(z|x)越来越接近p(z|x)      最后化简$L_b$式子如上图，包含了一个 KL-divergence 和一个积分项，  需要最小化 KL-divergence ，对应于 regularization 项的前两个。       最小化 KL(q(z|x)||P(z)) ：  对于x，进入 encoder 神经网络，表示出$μ^{‘}(x),σ^{‘}(x)$，  其实以上过程就等价于上图中黄色方框那部分内容。具体可以参考后面的论文    最大化积分项：  首先对于x，进入 encoder ，得到x的 mean 和 variance ；  其次根据x的 mean 和 variance 得到z；  然后将z输入到 decoder 神经网络，使得到的$μ(x)$越接近x越好。   3. VAE的问题      VAE 的问题是其实 VAE 并没有想过从数据中学习怎样去生成一张新图，  而是在产生一张与数据中的图尽可能相似的图，只是在模仿。    上图中一个像素点的不同在原始的“7”图上，左边的可以理解，  但是右图是不一样的，是假的，但是VAE会认为说其与原始目标是一致的。  VAE 并没有生成新图，而是仅仅记住了已经存在了的图。    4. 生成对抗网络（GAN）   Yann LeCun 说过， GAN 是 ML 领域近十年最有意思的想法。   4.1 介绍GAN概念    用拟态的演化来类比 GAN ，下面介绍枯叶蝶的演化过程：      假设枯叶蝶最初也是彩色的，但是其有天敌，类似于麻雀等；  假如说蝴蝶的天敌认为蝴蝶不是棕色的，所以蝴蝶就演化为棕色的；  与此同时，蝴蝶的天敌也会进行演化，此时认为蝴蝶没有叶脉；  因此蝴蝶需要继续演化，演化为枯叶蝶。而此时其天敌也会继续演化…      Discriminator v1 判断 image 是 Generator v1 产生的还是 real images,然后据此更新参数形成 Generator v2；  Discriminator v2 判断 image 是 Generator v2 产生的还是 real images,然后据此更新参数形成 Generator v3；  Discriminator v3 判断 image 是 Generator v3 产生的还是 real images,然后据此更新参数形成新的Generator；  Generator v3产生的image更像真实的image，它可以骗过Discriminator v2；Generator v2产生的image可以骗过Discriminator v1；  与此同时，判别网络Discriminator也在演化。 因此,Generator根据Discriminator演化。   Generator从未看过real images, 产生的是database中没有见过的image。   4.2 训练      判别网络（Discriminator）      判别网络模型的输入是image(可以是真实图片，也可以是生成网络生成的图片)  判别网络模型的输出是标量，可以通过 sigmoid 使输出值介于0-1之间；  可以通过设置阈值表示期望结果的可信度，例如希望判断为真实图片的结果尽可能正确，可以设置当输出大于0.8时，标注为1。  输出为1表示输入的图片是真实的，否则输入的图像是假的,是生成模型生成的。    生成网络的架构与 VAE 的 decoder 部分相似；也是一个神经网络模型。  输入是一个随机分布的向量，输入到生成网络中得到一个 image ；  输入不同的向量，得到不同的 image ；  将输出的 image 都标注为0，即 fake ；  将真实图片都标注为1，即 real ；       生成网络（Generator）      随机输入一个向量到生成网络模型中，会得到一张图片；  然后将图片输入到判别网络模型中，得到一个标量，比如0.87；  然后开始调整生成网络模型的参数，使其生成的图片越真实越好；  即将其生成的图片放入判别网络模型中，使其输出越接近1越好。  在以上的过程中需要固定住判别网络模型的参数。      GAN - Toy Example      图中（黑点： real ，绿线： Generator ，蓝线： Discriminator ）   将Z输入到生成网络模型中生成x(上图中绿色曲线)，  然后将x输入到判别网络中去，得到结果(图中蓝色曲线)；  然后通过蓝色曲线了解生成x与真实图片(黑色曲线)之间的区别；  直至蓝色曲线成为一条直线，表示生成图片x与真实图片一模一样，判别网络识别不出来。    4.3  GAN 遇到的问题      4.4 参考资料      “Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks”   “Improved Techniques for Training GANs”   “Autoencoding beyond pixels using a learned similarity metric”   “Deep Generative Image Models using a Laplacian Pyramid of Adversarial Network”   “Super Resolution using GANs”        “Generative Adversarial Text to Image Synthesis”       基本材料：            http://blog.aylien.com/introduction-generative-adversarial-networks-code-tensorflow/       https://bamos.github.io/2016/08/09/deep-completion/       http://blog.evjang.com/2016/06/generative-adversarial-nets-in.html           5. 总结     VAE 的原理及其优缺点   GAN 的原理  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/07/06.html",
+        "teaser":null},{
+        "title": "第7章 无监督学习",
+        
+        "excerpt":
+            "第7章     01 线性降维   02 词嵌入   03 邻域嵌套   04 深度自动编码   05 生成器1   06 生成器2  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/07/features.html",
+        "teaser":null},{
+        "title": "08-01 迁移学习",
+        
+        "excerpt":
+            "这一节我们主要学习     介绍迁移学习   迁移学习的分类   模型微调（Model Fine-tuning）   多任务学习（Multitask Learning）   领域对抗训练（Domain-adversarial training）   零样本学习（Zero-shot Learning）   1.介绍迁移学习      迁移学习是一种利用已有的解决某种问题的模型（知识）来解决其他不同但是相关问题的方法。       迁移学习要解决的问题是：假设我们现在手上有与任务不直接相关的数据，这些数据能否帮助我们完成任务呢？    例如，我们现在要做猫和狗的分类器，现在我们手上有一堆和猫狗不是直接相关的数据：     大量的在自然界拍摄的老虎和大象的图片；   大量的猫和狗的卡通图片。   这些数据都和现实世界中的猫狗图片有一定的关联性，但同时也有较大的差别。  我们需要将利用这些数据训练得到的模型运用到猫狗分类的问题上，这就是迁移学习。       当我们只拥有少量的符合任务要求的目标数据，但类似的源数据却很多的时候，  我们可以考虑使用迁移学习，比如以下情况。                   目标领域       目标任务       不相关的数据                       语音识别       对台湾语做识别       从 youtube 上爬取英文、中文语音数据训练模型来迁移学习                 图像分类       医疗数据极度缺乏，做医疗诊断时       使用已有的海量图像数据（ coco , imagenet 等）                 文本分析       特定领域，比如法律文件分析       可以从其他领域的文本分析迁移                  2.迁移学习的分类      迁移学习中： 目标数据有有标签和无标签两种情况；源数据也有有标签和无标签两种情况。  所以一共有如上图所示的四种情况，分别对应不同的迁移学习的方法：     Target Data: labelled,Source Data: labelled——Model Fine-tuning,Multitask Learning.   Target Data: labelled,Source Data: unlabelled——Self-taught learning.   Target Data: unlabelled, Source Data: labelled——Domain-adversarial training, Zero-shot learning.   Target Data: unlabelled, Source Data: unlabelled——Self-taught Clustering.       3.模型微调（Model Fine-tuning）      当我们的特定任务所拥有的数据集非常少,但是非相关的数据集很多时，这种问题我们称之为一次性学习（one-shot learning）。    例如，当我们要对某个人的语音进行语音辨识的时候，那个人的语音音数据特别少。但是我们有很多来自其他人的语音数据。  这时，我们需要使用迁移学习的方法：用许多人的语音数据训练模型，然后再用特定人选的语音数据对模型进行微调。    处理该类问题的时候需要注意的地方：由于目标数据很少，在用目标数据进行训练的时候要防止过拟合。    3.1 迁移学习技巧:保守训练      假设，我们已经有大量的源语音数据以及少量的目标数据集，我们先使用源数据训练出一个模型，  然后在原模型的基础之上，我们再使用目标数据对模型进行训练，得到的新模型可能发生过拟合而产生较大偏差。    因此，我们需要在训练新模型的时候，需要给模型添加一些限制，使得训练完成之后，前后两次模型不要差太多。  例如，当输入相同时，我们希望前后两个模型的输出不要相差太多。  在训练新的模型的时候，我们可以将旧模型的参数作为正则项加进去，使得新模型的参数与旧模型参数不会相差太大。    3.2 迁移学习技巧：层转移      我们在训练新模型的时候可以对参数做一些限制，只需要调整某一些网络层的参数。  当我们使用源数据训练好一个模型的时候，  如果我们只有少量的目标数据，我们可以将原模型中的某些层的参数直接复制到新的网络中，我们只需要训练余下层的参数；  如果目标数据较多，我们也可以在原模型的基础之上调整整个网络的参数得到新的模型。       在不同的任务之中，需要转移的网络层不同。        语音识别中，通常只复制最后几层网络，然后重新训练输入层网络。    语音识别的结果，应该跟发音者没有关系的，所以最后几层是可以被复制的。    而不同的地方在于，从声音信号到发音方式，每个人都不一样。      在图像任务中。通常只复制前面几层，而训练最后几层。    通常前几层做的就是检测图像中有没有简单的几层图形，    而这些是可以迁移到其他任务中。    而通常最后几层通常是比较特异化的，这些是需要训练的。          网络层迁移学习的实验结果(图像任务)  Image在 Layer Transfer 上的实验，出自 Bengio 在 NIPS2014 的论文。  ImageNet的数据120万图像分为 source 和 target ，  按照分类数量划分，其中500个分类作为 source ，另外500个为 target。    co-adaptation：相互适应   feature representation：特征表示           横坐标表明网络从第n层开始重新训练；纵坐标表明 Top-1 准确率；结果表明：                       可以发现，当我们只复制前面几个网络层时，效果有提升，但是复制得太多效果就开始变差。                         曲线5表明，Layer Transfer + Fine-tuning 在所有情况下，accuracy均有提高。    这一结果的惊人之处在于，这里的target data已经非常多（ImageNet的一半），    但是再加上Source data（ImageNet的另一半）仍然有所帮助。                         曲线2表示，如果用target domain训练出一个模型，固定住前几个layer，    再用target domain训练后几个layer，结果可能坏掉。                         曲线3表明，在曲线2基础上fine-tune，结果会恢复。                         综上：前面几层都学习到的是通用的特征（general feature），随着网络的加深，后面的网络更偏重于学习特定的特征（specific feature）                      随着可迁移层数的增加，模型性能下降。但是，前3层仍然还是可以迁移的！同时，与随机初始化所有权重比较，迁移学习的精度是很高的!       4.多任务学习（Multitask Learning）      多任务学习：当我们有多个任务需要完成时，我们希望能够同时训练多个任务而得到较好的结果。         当两个任务可以共用同一组特征，我们就可以采用左边的网络结构，让两个任务共用前面几个网络层，  在某一个网络层产生分支，一个分支用于解决任务 A，另一个分支用于解决任务 B。    当两个任务不能共用特征的时候，我们就可以采用右边的网络结构，对两组特征做一些特征转换，  然后再输入到同一个网络结构中训练，最后再产生分支分别用于解决任务 A 和任务 B。         多种语言的语音识别的例子：   不论何种语言，它们的声音信号都是一样的，所以可以使用相同的网络层结构对声音信号进行特征提取；   当到达某一个特定的隐藏层的时候，网络结构开始产生分支处理不同的任务，然后同时进行训练。   最后得到的多种语言语音识别的效果比某种单一语言语音识别的效果更好。     如图，横坐标表示训练样本的数量，纵坐标表示错误率      蓝色曲线表示做单一中文语音识别时中文语音识别的错误率。    红色曲线表示将中文同其他欧洲语言一起做语音识别时中文语音识别的错误率。    对比两曲线我们可以发现，将中文和其他欧洲语言放在一起进行语音识别训练的训练效果比单一训练中文时的训练效果更好。       先训练一个解决任务 1 的网络模型 1，训练完成之后，固定该模型的参数；再去训练一个任务 2 的网络模型 2，它的每个隐藏层都会去接收模型 1 的隐藏层输出。  它的好处是，即便任务 1 和任务 2 完全不像，任务 2 的数据也不会影响到模型 1 的参数，  所以迁移的结果一定不会更差，最糟糕的情况就是直接训练任务 2 的模型(此时网络模型 1 的输出设置为 0)。     博客参考       5.领域对抗训练（Domain-adversarial training）      当源数据集有标签、目标数据集无标签的时候，我们应该如何处理该问题呢？  其中一种做法是，将源数据视作训练集数据，将目标数据当做测试集数据来进行预测。  这种做法的问题在于源数据集和目标数据集的分布可能完全不同，出现不匹配的情况。  此时，我们需要采用领域对抗训练的方法。       领域对抗可以看做是 GAN 模型的一种，目的是把源数据和目标数据的特征转换到同一个领域中，  使得源数据和目标数据服从类似的分布。       如果我们不靠源数据和目标数据不匹配的问题的，不对数据特征做任何处理，  可能会得到如上图所示的数据分布：蓝色点表示源数据的分布；红色点表示目标数据的分布。    我们可以看出蓝色点的分布是一个一个的集群，但是红色的数据点堆积在一起，源数据和目标数据的特征分布完全不一样。  若我们无法将源数据和特征数据的分布转换到同一领域上的相同分布，我们就不能使用分类器将目标数据很好的分类。       我们使用特征提取器来消除源数据集和目标数据集的领域特性，让它们数据的特征服从同一分布。               具体做法：  我们需要在特征提取器后面增加一个领域分类器。  特征提取器的目标是：由它提取出来的数据特征能够让领域分类器无法分辨该数据来自哪个领域，  从而消除源数据集和目标数据集的领域特性，使这些数据特征服从同一分布。             存在的问题：  仅仅增加一个领域分类器并不能达到预期的效果，只要特征提取器每次输出一个特定的值，就可以骗过领域分类器。  因此，我们需要给特征提取器增加另外一个限制。            特征提取器除了要消除数据特征的领域特性之外，还需要提高标签预测的准确率。          整个网络结构如上图所示，领域分类器想要判断数据特征来自哪个领域，标签预测器想要尽可能准确地预测出数据的标签，  而特征提取器希望提取出来的数据特征尽可能满足标签预测器的要求，而使领域分类器失效。  那么具体应该怎么做来达到上面的要求呢？       领域分类器和标签预测器都会使用梯度下降的方法使自己的损失函数最小，  但关键点在于特征提取器会尽量满足标签预测器的要求而反对领域分类器的做法。  因此，当反向传播的梯度经过特征提取器的时候，标签预测器的梯度会保持原来的方向，而领域分类器的梯度方向会朝着相反的方向向后传递。  由于领域分类器的的输入数据是由特征分类器来提取输出的数据特征，所以最终的结果会是领域分类器无法判断数据特征来自哪一个领域。    因此，上述的网络模型能够很好的消除源数据和目标数据的领域特性，使它们服从同一分布；  同时满足了标签预测器的要求，能够很好的对数据进行预测分类。               实验结果：  第一行（SOURCE ONLY）是将源数据作为训练集数据目标数据作为测试集数据的实验结果，可以看出模型的表现比较差；  最后一行（TRAIN TARGET）是直接使用目标数据来训练的实验结果，效果较好；  第三行（PROPOSED APPROACH）是使用领域对抗训练的实验结果，效果介于两者之间。             结论:  当源数据和目标数据不匹配但需要完成的任务相同的时候，使用领域对抗训练的方法可以让模型的表现更好。           6. 零样本学习（Zero-shot Learning）      当源数据集（有标签）和目标数据集（无标签）处理的问题不同时，我们需要运用零样本学习的方法来处理问题。  例如，当源数据集都是猫和狗的图片的时候，我们需要识别的目标数据集都是草泥马的图片，我们应该怎么处理？    先看看语音识别的例子：我们在进行语音识别的时候，机器可能遇到从来没有见过的单词，我们如何处理这种情况呢？  实际上，机器识别的不是一个单词的发音，而是识别每个单词的各个音标，再根据音标和词汇的关系库判断出是哪个单词。     ![](http://imgbed.momodel.cn/30_22_TL.png)  在图像问题上，我们把图像的类别用类的属性表示。如上图中的 Database 所示，  当类的属性足够丰富可以代表一个类的时候，我们可以直接通过判断图像拥有哪些属性来判断图片所属的类别。  当我们在识别目标数据集的数据的时候，我们就可以直接通过图片的属性来判断图片的类别。      当图像的属性维度较高时，我们可以建立一个属性嵌入空间，将训练集中的每张图片变成嵌入空间中的一个点。  函数 $f$ 和 $g$ 都表示神经网络，它们将图片和属性的特征转换成嵌入空间中的一个点，  如果两个点比较接近的话，说明该图片具有该属性，再根据属性和类的关系判断图片的属性。       首先，我们想到是的使 $f(x)$ 和 $g(x)$ 的空间距离较小，但是仅仅这个约束还不能满足要求；  我们需要添加另外一个约束条件：图片和对应属性的数据特征的内积要比其他不对应的属性的内积要大一个间隔 $K$。  这样我们就可以使图片和对应属性点之间的距离尽可能的小，且对应点与不对应的点之间有一个明显的分界。       如果我们没有类和属性的关系数据库，我们可以通过单词嵌入，将属性转换成单词向量。      语义嵌入的凸结合是处理零样本学习的一个更简单的方法，它不需要我们来训练模型；  我们可以根据原有的模型的得到一个分类的输出结果，再在单词嵌入空间中找到和输出结果（图中的黑色点）最接近的一个数据点（liger 点）。  论文:https://arxiv.org/pdf/1312.5650v3.pdf      当我们要把日文翻译成韩文的时候，由于我们没有日文到韩文的数据样本，我们需要使用零样本学习的方法来解决这个问题。  由于我们有将英文翻译成韩文、英文翻译成日文的例子，我们可以将英文、日文、韩文都对应到一个属性的样本空间上，  因此，即使没有日文到韩文的数据样本，我们也可以实现日文到韩文的文本翻译。       根据学习好的编码器，把各种语言的词汇映射到空间中的向量，会出现上图的结果：  不同颜色代表不同语言，处于相同位置的代表意义相同。        7. 自我学习      自我学习适用于目标数据带标签而源数据不带标签的情况。  自我学习的做法是，如果现在的源数据足够多的，可以训练得到一个特征提取器，  然后用这个特征提取器在目标数据上提取数据特征。        8. 总结   本章主要介绍了模型微调（Model Fine-tuning）、多任务学习（Multitask Learning）、领域对抗训练（Domain-adversarial training）、零样本学习（Zero-shot learning）、自我学习（Self-taught Learning）等多种迁移学习的方法及其具体的适用情况。   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/08/01.html",
+        "teaser":null},{
+        "title": "09-01 支持向量机",
+        
+        "excerpt":
+            "这一节我们主要学习     支持向量机的介绍   铰链损失   线性支持向量机   核方法   1. 支持向量积   支持向量机(SVM)基本模型是定义在特征空间上的间隔最大的线性分类器，主要有 2 大特点: Hinge Loss 和 **Kernel Method **。  SVM是一种分类模型，利用支持向量寻找超平面，可以用于解决回归和分类问题。           2. 铰链损失函数      在步骤 2中，如果我们采用 &lt;font size=3.5&gt;$\\delta (g(x^n) \\ne \\hat y^n)$&lt;/font&gt; ,在第三步对目标函数进行优化的时候，会出现不可微分的情况。  其中 &lt;font size=3.5&gt;$\\delta (g(x^n) \\ne \\hat y^n)$&lt;/font&gt;  函数表示，当 $g(x^n)$ 和 $y^n$ 不相等时，函数值取 1 ；当 $g(x^n)$ 和 $y^n$ 相等时，函数值取 0 。   我们使用一个近似的函数 &lt;font size=3.5&gt;$l(f(x^n),\\hat y^n)$&lt;/font&gt; 来代替函数 &lt;font size=3.5&gt;$\\delta (g(x^n) \\ne \\hat y^n)$&lt;/font&gt; 来解决优化过程出现的不可微分的问题。      &lt;font size=3.5&gt;$\\hat{y}f(x)$&lt;/font&gt; 表示训练集中数据的标签值。当标签值为 +1 时，我们希望 &lt;font size=3.5&gt;$f(x)$&lt;/font&gt; 的值越正越好；当标签值为 -1 时，我们希望 &lt;font size=3.5&gt;$f(x)$&lt;/font&gt; 的值越负越好。  整体来看，我们希望 &lt;font size=3.5&gt;$\\hat y^nf(x)$&lt;/font&gt; 的值越大越好。 &lt;font size=3.5&gt;$\\hat y^nf(x)$&lt;/font&gt; 的值越大，损失就越小。    我们用横坐标 &lt;font size=3.5&gt;$\\hat y^nf(x)$&lt;/font&gt; 的值，纵坐标表示损失函数的值。  理想的损失函数 &lt;font size=3.5&gt;$\\delta (g(x^n) \\ne \\hat y^n)$&lt;/font&gt; 在优化过程中出现不可微分的情况， 我们使用近似的函数 &lt;font size=3.5&gt;$l(f(x^n),\\hat y^n)$&lt;/font&gt; 来代替，其中损失函数可以由我们自己来定义。      当 &lt;font size=3.5&gt;$\\hat y^n$&lt;/font&gt;$=+1$ 时，我们希望 &lt;font size=3.5&gt;$f(x)$&lt;/font&gt; 的值越接近 +1 越好；当 &lt;font size=3.5&gt;$\\hat y^n$&lt;/font&gt;$=-1$ 时，我们希望 &lt;font size=3.5&gt;$f(x)$&lt;/font&gt; 的值越接近 -1 越好。  平方损失函数（红色的线）可表示为 &lt;font size=3.5&gt;$l(f(x^n),\\hat y^n)={(\\hat y^nf(x^n)-1)}^2$&lt;/font&gt; 。  但是该函数是不合理的：当 &lt;font size=3.5&gt;$\\hat{y}f(x)$&lt;/font&gt; 很大时，损失函数的很大，不满足我们对损失函数的要求。      当 &lt;font size=3.5&gt;$\\hat y^n$&lt;/font&gt;$=+1$ 时，我们希望 &lt;font size=3.5&gt;$\\delta (f(x))$&lt;/font&gt; 的值越接近 +1 越好；当 &lt;font size=3.5&gt;$\\hat y^n$&lt;/font&gt;$=-1$ 时，我们希望 &lt;font size=3.5&gt;$\\delta (f(x))$&lt;/font&gt; 的值越接近 0 越好。  平方损失函数（蓝色的线）可表示为 &lt;font size=3.5&gt;$l(f(x^n),\\hat y^n)={ (\\delta (\\hat y^nf(x^n))-1)}^2$&lt;/font&gt; 。  但实际上在解决二分类问题，利用逻辑回归方法时，我们不会用 &lt;font size=4&gt;$square$ $loss$&lt;/font&gt; 作为损失函数，而是使用&lt;font size=4&gt;$cross$ $entropy$&lt;/font&gt;。       利用 &lt;font size=4&gt;$ sigmoid + cross entropy$&lt;/font&gt; 计算得到的损失函数表达式为  &lt;font size=3.5&gt;$l(f(x^n),\\hat y^n)=ln(1+exp(-\\hat y^n f(x))$&lt;/font&gt;   Sigmoid + cross entropy：绿色线；图片中曲线除以ln2   Sigmoid + cross entropy：蓝色线；    绿色曲线的损失函数一侧趋于 0 ，一侧趋于无穷大，是合理的。    比较绿线和蓝线，可知道为什么在逻辑回归时要用cross entropy作为损失函数，而不用square loss：   $\\hat{y}f(x)$ 从-2变到-1时，蓝色线变化很小，绿色线变化很大；  或者说绿色曲线：努力就可以有回报；而蓝色曲线：没有回报不想努力 来理解这段关系。 $\\hat{y}f(x)$ 很负时，应该朝正方向调整，但对蓝色线来讲调整没有回报，而对绿色线调整有回报。       损失函数 &lt;font size=4&gt;$l(f(x^n),\\hat{y}^n)=max(0,1-\\hat y^nf(x))$&lt;/font&gt;，在图中由紫色的线表示。  当 &lt;font size=4&gt;$\\hat y^nf(x)$&lt;/font&gt; 的值大于 1 的时候，&lt;font size=4&gt;$loss$&lt;/font&gt; 的值为 0；  当 &lt;font size=4&gt;$\\hat y^nf(x)$&lt;/font&gt; 的值在 0 和 1 之间的时候，&lt;font size=4&gt;$loss$&lt;/font&gt; 会有一个较小的值，表示预测的结果还不足够好，需要继续优化。  函数表达式中的 “1” 可以看做是 &lt;font size=4&gt;$Ideal$ $loss$&lt;/font&gt; 的上界,我们希望通过最小化铰链损失函数的值来达到最小化理想损失函数的目的。       &lt;font size=3.5&gt;$Hinge$ $Loss$&lt;/font&gt; 与 &lt;font size=3.5&gt;$Sigmoid + cross entropy$&lt;/font&gt; 相比，区别在于：  当 &lt;font size=3.5&gt;$\\hat y^nf(x)$&lt;/font&gt; 的值大于 1 的时候，&lt;font size=3.5&gt;$Hinge$ $Loss$&lt;/font&gt; 将不再进行优化,而 &lt;font size=3.5&gt;$Sigmoid + cross entropy$&lt;/font&gt; 会继续对目标函数进行优化；  在实践中的过程中两者的表现相差无几，当遇到 &lt;font size=3.5&gt;$outlier$&lt;/font&gt; 的情况的时候，&lt;font size=3.5&gt;$Hinge$ $Loss$&lt;/font&gt; 的表现要更好，具有较强的鲁棒性。    3. 线性支持向量机（Linear SVM）         步骤一：线性支持向量机中的 &lt;font size=4&gt;$f(x)$&lt;/font&gt; 是线性的，可以表示为两个向量的内积的形式。   步骤二：支持向量机中的损失函数通常采用铰链损失函数,通常还会加上正则化的部分。   步骤三：由于损失函数中的铰链损失函数和正则化的部分都是凸函数，所以损失函数也是凸函数，可以通过梯度下降找到最优解。      忽略正则化的部分，使用梯度下降的方法最小化损失函数关键在于求解损失函数对权重 $w$ 的偏微分。  这里我们使用链式法则来求解，重点在于求解 &lt;font size=5&gt;$\\frac{\\partial l(f(x^n),\\hat y^n)}{\\partial f(x^n)}$&lt;/font&gt;：  当 &lt;font size=4&gt;$\\hat y^nf(x^n)$&lt;/font&gt; 小于 1 时，偏导值为 &lt;font size=4&gt;$-\\hat y^n$&lt;/font&gt; ;  当 &lt;font size=4&gt;$\\hat y^nf(x^n)$&lt;/font&gt; 大于 1 时，偏导值为 0。    图中红色方框等于$x^n_i$ , 将划红线的部分定义为$c^n(w)$（依赖于现在的参数w），红线后面的$x_i$ 应改为$x^n_i$。      我们将 &lt;font size=4&gt;$l(f(x^n),\\hat{y}^n)$&lt;/font&gt; 记作 $ε^n$：  上下两个红色方框里的内容是不等价的（上面可以推出下面，但是下面不能推出上面），但是加上“最小化损失函数 L”这个条件之后，二者就等价了。    下面红色方框里的式子就是我们常见的 SVM 的约束形式，$ε^n$ 称为松弛因子。  在满足上述约束条件的情况下，我们需要求解损失函数的最小值。这是一个二次规划问题，因此我们可以使用二次规划的方法求解支持向量机的问题。  针对以上两种不同形式的支持向量机，我们分别可以使用梯度下降和二次规划的方法来求解。   4. 核方法   核方法是SVM的第二大特点。核方法的主要思想是基于这样一个假设：  “在低维空间中不能线性分割的点集，通过转化为高维空间中的点集时，很有可能变为线性可分的”。          双重表征指的是：最小化损失函数的权重参数$w^∗$ 可以表示为数据点$x^n$ 的线性组合。    我们可以从梯度下降的角度来理解该性质：  假设 $w$ 初始化为零向量的，则得到的$w^∗$  可以看做是 $x^n$  的线性组合，其中的权重$c^n(w)$ 是损失函数$l(f(x^n),\\hat{y}^n)$ 对 $f(x^n)$ 的偏导数。  由于损失函数采用的是 Hinge Loss，很多的 $c^n(w)$ 可能为 0，从而 $α_n^∗$ 是稀疏的的，而那些具有非零 $α_n^∗$ 的数据点 $x^n$ 称为支持向量。    这样的好处是模型具有较好的鲁棒性：  不是支持向量的数据点，就算去掉也不会对结果有影响，outlier只要不是支持向量，就不会对结果有影响。  相比于使用交叉熵作为损失函数的逻辑回归模型，它在更新参数时的权重就不稀疏的，所以每笔数据都对结果有影响。       把 w 写成 $x^n$ 的线性组合，最大的好处是可以使用核技巧将函数 f(x) 用核函数表示：  根据 $w=X \\alpha$, $f(x)$ 可以写成 $f(x)=Σ_n$ $\\alpha_n (x^n⋅x)$ 的形式，  由于用的损失函数是 Hinge Loss，所以 $α_n$ 是稀疏的的，只需要计算支持向量与数据点x之间的内积即可。   我们把内积 $(x^n⋅x)$ 写作 $K(x^n,x)$ 的形式，将其称为核函数。       将损失函数可以改写为上图中的样子，我们不需要知道 $x$，只需要知道核函数 $K(x,z)$ 的值即可，这种方法就叫做核技巧。  核技巧不只可用于支持向量机，也可用于逻辑回归、线性回归等模型。  【图中”project”应改为”product”】       我们处理分类问题时可能会遇到一些线性不可分的情况，此时我们需要对数据特征做一些特征变换再进行分类，  而我们可以使用核函数来达到相同的效果，而且使用核函数来进行计算会比先进行特征变换再计算内积更快。       径向基函数可以用于衡量 x, z 的相似程度：x 和 z越接近，核函数的值就越大。  将核函数展开为泰勒级数的形式，可以看出该函数等价于最高维度为无穷多维向量的向量内积的多项式形式。  使用该径向基核函数（RBF Kernel）的效果等同于将数据特征转换到无穷多维的平面上再处理问题，但是使用该核函数容易出现过拟合的问题。       当我们使用 Sigmoid 核函数的时候，我们可以将支持向量机的模型看做只有一个隐藏层的神经网络。  其中神经元的个数就是支持向量个数，而权重就是对应的支持向量。  【图中$α^n,α^1,α^2$ 应改为 $α_n,α_1,α_2$ 】       在使用核技巧构造核函数之后，我们就不需要关注输入特征的具体形式，而只需要关注 x 和 z 的内积的结果。  这种做法在处理某些结构化的数据的时候比较方便，比如声音信号；  我们使用核方法进行处理不需要关注声音信号转换成向量的具体形式，只需关注它们代入核函数得到的结果即可。   核函数是用来描述变量间相似程度的，不是所有的 $K(x,z)$ 都可以拆成$ϕ(x)⋅ϕ(z)$。  核函数的必要条件：K是有效的核函数 ==&gt; 核函数矩阵K是对称半正定的；我们可以参考Mercer定理。   SVM related methods:       Support Vector Regression (SVR)            [Bishop, Chapter 7.1.4]           Ranking SVM            [Alpaydin, Chapter 13.11]           One-Class SVM            [Alpaydin, Chapter 13.11]              深度学习前几层可能就是在做特征转换，接着再一个线性分类。  在SVM同样如此，基于核函数同样能够进行特征转换，在新的特征空间中再用线性分类器进行分类。  区别在于深度学习中的“核函数”是更加强大的。    5. 总结  主要介绍了支持向量机方法的两大特点Hinge Loss和核方法（Kernel Method）。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/09/01.html",
+        "teaser":null},{
+        "title": "09-02 结构化学习",
+        
+        "excerpt":
+            "这节我们主要学习      结构化学习介绍   结构化学习的统一框架   结构化学习中需要解决的几个问题   1. 结构化学习      我们需要一个功能更加强大的函数$f$            输入和输出都是具有结构的对象       对象：序列，列表，树，边界框           &lt;font size=5&gt; $f:X \\rightarrow Y$ &lt;/font&gt;     $X$是一种对象的空间,$Y$是另一种对象的空间。   在之前的课程中，输入和输出都是向量。      语音是被：            X:语音信号(序列)$\\rightarrow$Y:文字（序列）           翻译：            X:普通话句子（序列）$\\rightarrow$Y:英文句子（序列）           句法分析：            X：句子$\\rightarrow$Y:解析树（树结构）           目标检测：            X:图像$\\rightarrow$Y:边界框           总结：            X：一段较长的文件$\\rightarrow$Y:概要（较短的段落）           搜索：            X:关键字$\\rightarrow$Y:搜索结果（网页列表）           2.统一框架    $F(x,y)$用来衡量两个对象$x$，$y$到底有多匹配；   在测试的时候，给定一个对象$x$，穷举所有的$y$，找到使$F(x,y)$最大的$y$   &lt;font size=3&gt; $f:X \\rightarrow Y$ &lt;/font&gt;中的$f$,是穷举的所有$y$中满足最大$F(x,y)$   这种对应关系的映射。   2.1 目标检测      任务描述            使用边界框突出显示图像中某个对象的位置       例如，Haruhi的探测器               输入为图像,输出为边界框；判断边界框的正确性。    测试时，穷举所有可能的边界框y，找到评分最高的&lt;font size=4&gt;$\\tilde y$&lt;/font&gt;   2.2 文本总结      任务描述            给出一段较长的文档       在文档中选择一些句子，并级联句子形成一小段话               测试时穷举所有的 y，找到使 F(x,y) 最大的 y   2.4 关键字搜索      任务描述            用户输入关键字 Q       系统返回网页列表              找出评价函数F(x,y),穷举所有的y找到最佳的&lt;font size=4&gt;$\\tilde y$&lt;/font&gt;      2.5 统一的框架    最终的目标就是找到使一起出现的概率最大的&lt;font size=3&gt;$\\tilde y$&lt;/font&gt;   我们把这里的 $F(x,y)$ 看做x，y 一起出现的概率；   将$F(x,y)$ 看做概率：      缺点：   并不是所有的模型都适合把$F(x,y)$ 看做概率        0-1 约束不是必需的       优点：   $F(x,y)$ 具有实际意义   &lt;font size=4&gt;https://cs.nyu.edu/home/index.html&lt;/font&gt;   3. 待解决的问题    要实现这个Framework，要解决三个问题。      评价：$F(x,y)$应该长什么样子            $F(x,y)$如何计算$x$和$y$的兼容性                 推理：如何解决“arg max”问题         训练：给出训练数据，找到$F(x,y)$        ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/09/02.html",
+        "teaser":null},{
+        "title": "09-03 结构化学习线性模型",
+        
+        "excerpt":
+            "这节我们主要学习      结构化线性模型的三个问题   1.结构化线性模型      1.1 问题1   $F(x,y)$ 长什么样子：      将$ F(x,y) $表示成上图的形式，$ \\phi_1 (x,y) $,$ \\phi_2 (x,y) $,$ \\phi_3 (x,y) $表示$ x,y $特征1,2,3的强度值；   $ F(x,y) $依旧是$ x,y $的函数，$ w_1,w_2,w_3 $通过学习数据得到    我们使用深度学习来抽取特征；在目标检测中，我们使用卷积神经网络来得到$\\phi (x,y)$            1.2 问题2   如何解决$arg$ $max$问题：    我们先假设问题2已经被解决   1.3 问题3   给出训练数据，如何学习$ F(x,y) $      $F(x,y)=w*\\phi(x,y)$,我们需要做的就是学习$w$    我们希望训练数据集中的$ w\\phi(x^r,\\hat y^r) $ 大于不正确的标签得到的值 $w\\phi(x^r, y^r)$   红色点表示训练数据得到的特征值，在图中由红色边界框表示。      如图，点符号和星星符号分别表示不同的数据点；      我们需要找一个$w$,使红色标记点的特征值与$w$点积的结果比对应的蓝色标记点的都大           do            循环每一个训练数据                    我们都要找到使$ w*\\phi(x^r,y) $最大的标签&lt;font size=3&gt;$ \\tilde y^r $&lt;/font&gt;                       if(求得的标签值与训练集数据给定的标签值不同)                    $w \\rightarrow w+\\phi(x^r,\\hat y^r)-\\phi(x^r,\\tilde y^r)$                           while($w$不再变化)   对于第一个训练数据点，因为初始化$w=0$,   所以我们随意选择一个$y$作为$\\tilde y^1$,然后更新$w$      接下来针对第二个训练数据进行更新$w$      经过一次循环之后，我们发现$\\hat y^1=\\tilde y^1$, $\\hat y^2=\\tilde y^2$   此时任务完成，不需要再进行更新。     ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/09/03.html",
+        "teaser":null},{
+        "title": "09-04 结构化学习支持向量机",
+        
+        "excerpt":
+            "这节我们主要学习      回顾一下结构化学习的模型   可分离的情况   不可分离的情况   结构化支持向量机   切割平面法   多分类支持向量机   1. 回顾   1.1 结构化学习      我们需要一个功能更强大的函数$f$            输入和输出都是具有结构的对象       对象：序列，列表，树，边界框$…$              1.2 统一框架    分为 Training 和 Testing 两个部分。   1.3 三个问题      $F(x,y)$ 长什么样子   怎样求解 arg max 问题   如何找到$F(x,y)$      1.4 实例任务    在本节课程中，我们使用目标检测的例子进行讲解；   但我们今天学习到的内容同样可以用作其他任务.   &lt;font size=4&gt;问题1：估算&lt;/font&gt;   假设 $F(x,y)$ 是线性的      &lt;font size=4&gt;问题2：推理&lt;/font&gt;    找到使 $F(x,y)$ 最大的 $\\tilde y$   求解 &lt;font size=4&gt;$\\tilde y$ &lt;/font&gt; 的方法      目标检测            分支定界算法       选择性搜索           序列标记            维特比算法                算法依赖于 $\\phi (x,y)$       遗传算法   &lt;font size=4&gt;问题3：训练&lt;/font&gt;    数据集对应的 $F(x,y)$ 应该是最大的   接下来我们忽略问题 1 和问题 2，直接关注于问题 3。   2. 可分离的情况   假设：可分离      权重向量 $\\hat w$ 存在,使得所有红色标记点的乘积的值大于其余蓝色点的乘积的值加上 $\\delta$（红色代表是正确的，蓝色代表是错误的）      2.1 结构感知器    当 $w$ 不再更新的时候，算法结束。   2.2 数学证明   在可分离的案例中，为了获得 $\\hat w$，最多需要更新 $(\\frac {R} {\\delta})^2$ 次   $\\delta：$边距；   $R:$ $\\phi(x,y)$ 和 $\\phi (x,y’)$ 之间的最大距离   当看见一个错误的时候，$w$ 进行更新    在可分离的案例中，我们不是一般性地设 $\\hat w$ 的长度为 1（若 $\\hat w$ 的长度不为 1，但是对其标准化之后，这依然是一个可分离的问题）      随着 $k$ 的增加，$\\hat w$ 和 $w^k$ 之间的夹角 &lt;font size=4&gt;$\\rho_k$&lt;/font&gt; 越来越小。   &lt;font size=4&gt;$cos\\rho_k= \\frac{\\hat w}{|\\hat w|}$&lt;/font&gt;    如图，分子 $\\hat w \\cdot w^k$ 的值随着 $k$ 的增大越来越大    分母，我们之前假设 $\\hat w$ 的长度为1，确定 $w^k$ 的长度即可。      夹角的余弦值为：    余弦值的下界会不断增加，但余弦值不会超过1；   所以$k$要小于等于$(\\frac {R} {\\delta})^2$，即最多需要更新$(\\frac {R} {\\delta})^2$次   如何让训练更快？    当边距越大的时候，训练越快   3. 不可分离的情况   当数据不能完全分离的时候，我们依旧可以判断某些权重比其他的权重更好。      定义一个损失 $C$ 来估计权重 $w$ 到底有多差，我们需要选择最小化损失 $C$ 的 $w$   损失的定义如下：    用所有可能y得到的最大值减去训练样本对应的值，得到最后的损失函数的值（都是大于等于 0 的）。   3.1 随机梯度下降   $C^n=max[w\\cdot \\phi (x^n,y)]-w\\cdot \\phi (x^n,\\hat y^n)$   由于存在 $max$ 函数，当 $w$ 在不同的区域的时候，$y$ 的取值是不一样的   计算梯度：    随机选取一个训练数据，确定 $y$ 在 $w$ 的哪个区域中，然后采用梯度下降法进行更新。   当 $\\eta$=1 的时候，我们实际上是在处理结构化感知器   3.2 考虑误差    之前，我们并没有考虑不正确的 $y$ 的差异性，实际上右边的情况，比左边的要好很多。   所以，我们需要考虑不正确的 $y$ 之间的好坏。      定义误差函数：   $\\Delta (\\hat y,y)$：y 和 $\\hat y$ 之间的误差（是大于 0 的）    当 $\\hat y$ 和 $y$ 之间完全没有重叠的时候，误差最大为 1；   当 $\\hat y$ 和 $y$ 之间重合的时候，误差为 0。       我们需要找到新的函数的最大值，因此我们需要设计一个较好的误差，让这个最大值能够解出来；   其余部分与改良前的算法没有什么区别。      最小化新的损失函数是最小化训练集上误差的上限    $C’$ 误差可能出现阶梯状的情况，影响梯度更新；我们使用新的损失函数 $C$ 来代替；         3.3 正则化   当训练集数据和测试集数据属于不同的分布的时候，$w$ 接近0可以消除 mismatch 的影响。    原始的损失函数可以让错误的答案与正确答案之间保持间距；   正则化能够让 $w$ 接近 0。      4. 结构化支持向量机   我们需要找到 $w$，使损失函数达到最小。      由于我们需要最小化损失函数，所以上式和下面的不等式相等（将 $w \\cdot \\phi(x^{n},\\hat y^{n})$ 移到等式左边）。      我们将 $C^n$ 称为松弛变量，使用 $\\epsilon$ 来表示。      对于任意的 $y$ 不等于 $\\hat y$,上述不等式均成立。       我们可能会遇到不存在 w 使 w 与 $\\phi (x^n,\\hat y^n)$ 的乘积满足 margin 的要求，   所以，可以使用松弛变量来减小不等式的约束。    不让不等式的约束无限减小，$\\epsilon$ 应该竟可能的小。    在满足不等式的情况下，我们希望 $\\epsilon$ 的和最小    我们在最小化损失函数同时，需要满足上面的约束条件。   $y$ 的取值有成千上万中可能，当限制条件这么多情况下，我们应该如何求解最小值？   5. 切割平面算法   我们需要在满足下面约束条件的情况下，求得损失函数的最小值。      根据不同的约束条件，我们可以将曲面分成不同的区域，求得对应区域的最小值。       不同的约束条件将参数空间分割成不同的部分。    尽管这里众多的约束条件，但是真真起作用的还是红色线条表示的部分。      元素被不断迭代地选入工作集    每次迭代之前，都会有一个工作集，计算 $w$，   然后选择合适的元素加入工作集，进行下一次迭代      将元素逐渐添加到工作集中    我们初始化工作集为空集，计算得到（二次规划问题）一个 $w$,    然后找到最不满足当前约束条件的元素加入到工作集中,不断迭代。      找到最不满足约束的元素   当$w$和$\\epsilon$确定之后，如何寻找最不满足约束条件的 $y$：                初始化每个训练集数据的工作集为空；       不断循环直到每个工作集不再改变：   在相应的工作集下，利用二次规划求解 $w$   对于每一个训练数据，找到最违反规则的 y        将该元素加入到相应的工作集进行更新       返回 $w$   6.多分类支持向量机   我们可以用结构化学习的框架来处理多分类问题：      评估：   如果有K类，那么我们有K个权重向量{$w^1,w^2,…,w^K$}         推理：    类的数量通常很小，所以我们可以枚举它们。      训练   由于约束条件比较少，我们直接穷举即可。    当两个类别差别较大时，我们可以将 $\\Delta$ 的值设置的较大      7. 深度神经网络与结构化支持向量机   前面我们学习的结构化模型都是线性的，功能不是很强大；      使用深度神经网络生成较为强大的模型，         将结构化支持向量机和深度神经网络一起训练         将结构化支持向量机用深度神经网络代替，变成更深的神经网络     ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/09/04.html",
+        "teaser":null},{
+        "title": "09-05 序列标记",
+        
+        "excerpt":
+            "这一节我们主要学习      序列标签   隐马尔科夫模型   条件随机场   结构感知器和结构化支持向量机   1. 序列标签   输入为一个序列，输出为另一个序列。不仅 RNN 可以解决这个问题，同时基于结构化学习也能解决这个问题。      1.1 任务——词性标注      用词性注释句子中的每个单词        对后续的句法分析和词义消歧等有用。      2. 隐马尔科夫模型      如何产生一个句子            第一步：根据语法，产生词性序列       第二步：根据字典，有给出的词性序列产生一个句子                                   如何计算 $P(x,y)=P(x)P(y       x)$?           计算过程如下：       第一步计算转换概率，第二步计算发射概率。      估算概率                                                            如何计算$P(V               PN),P(saw               V)$?                                               从训练数据中获得              使用训练样本中事件发生的频率来估计概率：      有了各个事件发生的概率之后，我们就可以求出可能性最大的 $y$      如果枚举所有的 $y$，计算的复杂度会非常的大；   这里我们使用维比特算法来求解可能性最大的 $y$            按照训练集的数据来看，$y_l$ 最可能应该是 $D$，但是 HMM 模型可能会自行“脑补“出 $V$.        优点：            当训练数据较少的时候，使用 HMM 模型比较好。           缺点：            HMM 模型可能产生样本中并未出现的情况；使用 CRF 模型可以解决该问题。       HMM 模型并不能保证数据集中数据点发生的概率是最大的           3. 条件随机场   3.1 CRF   $P(x,y)∝ exp(w \\cdot \\phi(x,y))$      $\\phi(x,y)$ 是特征向量   $w$ 是通过训练数据学习出来的权重向量   $exp(w \\cdot \\phi(x,y))$ 为正，有可能大于 1       将 $P(x,y)$ 两边同取 $log$ 变换    将 $\\sum logP(x_l|y_l)$ 表示成 $\\sum logP(t|s)*N{s,t}(x,y)$ 的形式      同理，对于 $logP(x,y)$ 可以得到如下的结果：      将上式表示成特征向量乘以权重向量的形式：    注意：    由于我们在训练的时候没有给$w$任何的限制，是有正有负的，我们将 $=$ 改为 $ ∝$（成正比）。   3.2 特征向量   $\\phi (x,y)$ 有两部分：      标签和单词之间的关系   该部分的维度可能比较大，但是非零的值比较少，较为稀疏         标签之间的关系   该部分的维度和标签的个数相关    ** 注：$\\phi (x,y)$ 可以定义为任意你想要的**   3.3 训练标准    我们需要增大我们观察到的事件的概率，减小未观察到的事件的概率。   3.4 梯度上升      3.5 训练        第一项表示（绿下划线）：如果单词被标签s标记在训练集中，那么就要增大 $w_{s,t}$   第二项表示（黄下划线）：如果单词被标签s标记不在训练集中，那么就要减小 $w_{s,t}$      随机梯度下降:   随机选择一个数据$(x^n,y^n)$，进行训练：      3.6 推理   用维特比算法求出最大的y。      3.6 CRF v.s. HMM      相比于 HMM，CRF 除了增大正确事件发生的概率外，同时减小了错误事件发生的概率（HMM 就没有减小）；   因此，CRF 通常可以产生更好的结果。       当$\\alpha$越小时，实验结果越差；   当$\\alpha &gt; \\frac {1}{2}$时，HMM的表现更好；   当$\\alpha &lt; \\frac{1}{2}$时，CRF的表现更好。   3.7 总结          4.结构感知器和支持向量机   4.1 结构感知器   结构感知机的模型如图所示，       不同的地方在于结构感知机减去的几率最大的 y 形成的 $\\phi$；   CRF减去的是所有可能的 y 形成的 $\\phi$ 乘上发生这个 y 的概率。   4.2 结构化支持向量机    在步骤三中，与结构感知器不同的是，结构化支持向量机需要考虑边距和误差，方法有：      梯度下降法   二次规划（切割平面法）             $\\Delta(\\hat y,y)$：y 与 $\\hat y$ 的偏差            结构化支持向量机的损失函数是误差函数的上界            理论上，误差函数可以设置为任何你喜欢的样子            在设置误差函数时，要保证能够 Problem $2.1$ 能够方便地解决。             Problem $2.1$ : $\\hat y^{n}$ = argmax[$\\Delta(\\hat y,y)+w \\cdot \\phi(x^{n},y)$]（可以用 Vitervi 算法解决）           不同方法的实验结果：           CRF，结构化支持向量机等的优点：            考虑整个序列       可以明确考虑标签依赖性       损失函数是误差的上界           RNN 的优点：            网络结构比较深           但是，RNN 的优点相比于 CRF，结构化支持向量机等的优点更好，所以 RNN 表现得过更好。         语音识别： CNN/LSTM/DNN + HMM    用贝叶斯公式求解概率 $P(x_l|y_l)$      语义标记：Bi-directional LSTM + CRF/Structured SVM    利用 RNN 模型得到特征向量，再用 CRF 进行标记。   5.总结    这些方法都能加上深度学习，从而有一个更好的表现  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/09/05.html",
+        "teaser":null},{
+        "title": "第9章 结构化学习",
+        
+        "excerpt":
+            "第9章 结构化学习     01 支持向量机   02 结构化学习介绍   03 结构化学习线性模型   04 结构化学习支持向量机   05 序列标记  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/09/features.html",
+        "teaser":null},{
+        "title": "10-01 循环神经网络1",
+        
+        "excerpt":
+            "这一节我们主要学习      RNN 网络的介绍   长短期记忆网络（LSTM）的介绍与详解   1.应用实例      我们假设订票系统听到用户说：“ i would like to arrive Taipei on November 2nd”，  你的系统有一些slot(有一个slot叫做Destination，一个slot叫做time of arrival)，  系统要自动知道这边的每一个词汇是属于哪一个slot，  比如Taipei属于Destination这个slot，November 2nd属于time of arrival这个slot。    我们将每一个单词用一个向量来表示。    向量的维度刚好是字典的大小，每一个维度与字典中的一个单词对应。  我们首先要对输入序列向量化，将每一个输入的单词用向量表示，  可以使用 One-of-N Encoding 或者是 Word hashing 等编码方法，输出预测槽位的概率分布。    当遇到不在字典中的单词时，需要为向量增加一个新维度，表示不在字典中的单词。   我们也可以使用单词哈希的方法来表示一个单词。   输入一个单词，输出该单词属于各个 slot 的可能性。      当碰到”离开台北”或者”前往台北”的情况时，我们就无法判断”台北”是目的地还是出发地；   所以我们需要网络拥有记忆功能,去解决input不同的词汇，output不同的问题。      如果今天我们的neural network是有记忆力的，  它记得它看过红色的Taipei之前它就已经看过arrive这个词汇；  它记得它看过绿色之前，它就已经看过leave这个词汇，它就可以根据上下文产生不同的output。  如果让我们的neural network是有记忆力的话，它就可以解决input不同的词汇，output不同的问题。    2.RNN    这种有记忆的neural network就叫做Recurrent Neural network(RNN)。  在RNN里面，每一次hidden layer的neuron产生output的时候，  这个output会被存到memory里去(用蓝色方块表示memory)。  那下一次当有input时，这些neuron不只是考虑input $x_1,x_2$，还会考虑存到memory里的值。  对它来说除了$x_1,x_2$以外，这些存在memory里的值$a_1,a_2$也会影响它的output。    2.1 实例    memory 中的初始值可以设为 0，所有权重都为 1，没有 bias，激活函数为线性激活函数。   得到下面的结果：   当我们改变输入序列的顺序时，会得到不同的结果。      2.2 RNN架构   将 RNN 运用到插槽填充的例子中，前一次输入会对本次的输出结果产生影响。   相同的网络结构会被使用多次，但每次 memory 中的内容不会完全相同。      例如：当”arrive” 变成 “leave” 时，会使得 memory 中的内容改变，从而影响下一次的的输出      那所以我们有了memory以后，刚才我们讲了输入同一个词汇，我们希望output不同的问题就有可能被解决。  比如说，同样是输入“Taipei”这个词汇，但是因为红色“Taipei”前接了“leave”，  绿色“Taipei”前接了“arrive”(因为“leave”和“arrive”的vector不一样，所以hidden layer的output会不同)，  所以存在memory里面的值会不同。现在虽然x2的值是一样的，  因为存在memory里面的值不同，所以hidden layer的output会不一样，  所以最后的output也就会不一样。这是Recurrent Neural Network的基本概念。    2.3 其他RNN      Recurrent Neural Networ的架构是可以任意设计的，比如说:  它当然是deep(刚才我们看到的Recurrent Neural Networ它只有一个hidden layer)，  当然它也可以是deep Recurrent Neural Networ。    比如说，我们把$x^t$丢进去之后，它可以通过一个hidden layer，  再通过第二个hidden layer，以此类推(通过很多的hidden layer)才得到最后的output。  每一个hidden layer的output都会被存在memory里面，在下一个时间点的时候，  每一个hidden layer会把前一个时间点存的值再读出来，以此类推最后得到output，这个process会一直持续下去。    2.4 Elman Network 和 Jordan Network    Jordan Network 的表现通常比 Elman Network 好：   Jordan Network 将上一次的输出结果作用于本次的输入，有明确的实际意义；   而 Elman Network 将隐藏层的结果作用下一次的输入，无法判断该输出会产生怎样的影响。   2.5 Bidirectional neural network(双向RNN)    Recurrent Neural Networ还可以是双向，什么意思呢？  我们刚才Recurrent Neural Networ你input一个句子的话，它就是从句首一直读到句尾。  假设句子里的每一个词汇我们都有$x^t$表示它。他就是先读$x^t$在读$x^{t+1}$在读$x^{t+2}$ 。  但是它的读取方向也可以是反过来的，它可以先读$x^{t+2}$，再读$x^{t+1}$，再读$x^{t}$。  你可以同时train一个正向的Recurrent Neural Network，又可以train一个逆向的Recurrent Neural Network，  然后把这两个Recurrent Neural Network的hidden layer拿出来，都接给一个output layer得到最后的$y^t$ 。  所以你把正向的network在input $x^t$ 的时候跟逆向的network在input $x^t$ 时，都丢到 output layer产生$y^t$，  然后产生$y^{t+1}$,$y^{t+2}$,以此类推。  用Bidirectional neural network的好处是，neural在产生output的时候，它看的范围是比较广的。  如果你只有正向的network，再产生$y^t$，$y^{t+1}$的时候，你的neural只看过$x^1$到$x^{t+1}$的input。  但是我们今天是Bidirectional neural network，在产生$y^{t+1}$的时候，  你的network不只是看过$x^1$,到$x^{t+1}$所有的input，它也看了从句尾到$x^{t+1}$的input。  那network就等于整个input的sequence。  假设你今天考虑的是slot filling的话，  你的network就等于看了整个sentence后，才决定每一个词汇的slot应该是什么。  这样会比看sentence的一半还要得到更好的performance。    3.长短时记忆网络（Long Short-term Memory，LSTM）    最大的特点是有三个门控制输入，输出和记忆的保存：输入门（input gate），遗忘门（forget gate），输出门（output gate）。    激活函数 $f$ 通常是sigmoid函数，   $c’=g(z)f(z_i)+cf(z_f)$;   其中$z_i$为输入门的信号，$z$为输入信号，$c$为memory中的值，$z_f$为忘记门的信号   $a=h(c’)f(z_0)$;$c’$为memory中此次的输出信号，$z_0$为忘记门的输入信号，$a$ 为该block最终的输出结果   3.1 LSTM 实例化    我们的network里面只有一个LSTM的cell，那我们的input都是三维的vector，output都是一维的output。  那这三维的vector跟output还有memory的关系是这样的。  假设第二个dimension $x_2$ 的值是1时，$x_1$的值就会被写到memory里，  假设$x_2$ 的值是-1时，就会reset the memory，假设$x_3$的值为1时，你才会把output打开才能看到输出。  $x_1,x_2,x_3$ 分别对应该 block 的输入值，输入门和忘记门的控制信号以及输出门的控制信号。    该序列的输出结果如图所示，      3.2 LSTM 实现原理   将神经网络中的神经元用 LSTM block 替换即可。      你可能会想这个跟我们的neural network有什么样的关系呢。  你可以这样想，在我们原来的neural network里面，我们会有很多的neural，  我们会把input乘以不同的weight当做不同neural的输入，  每一个neural都是一个function，输入一个值然后输出一个值。  但是如果是LSTM的话，其实你只要把LSTM那么memory的cell想成是一个neuron就好了。     LSTM因为需要四个input，而且四个input都是不一样，原来的一个neuron就只有一个input和output，  所以LSTM需要的参数量(假设你现在用的neural的数目跟LSTM是一样的)是一般neural network的四倍。  这个跟Recurrent Neural Network 的关系是什么，这个看起来好像不一样，所以我们要画另外一张图来表示。    3.3 LSTM 详解    将输入向量 $x$ 分别乘以四个转换矩阵，得到 4 个输入向量，对应 LSTM 中的四个输入。   假设我们现在有一整排的neuron(LSTM)，这些LSTM里面的memory都存了一个值，把所有的值接起来就变成了vector，  写为 $c^{t-1}$(一个值就代表一个dimension)。现在在时间点t，input一个vector $x^t$，  这个vector首先会乘上一matrix(一个linear transform变成一个vector z,z这个vector的dimension就代表了操控每一个LSTM的input(z这个dimension正好就是LSTM memory cell的数目)。  z的第一维就丢给第一个cell(以此类推)    这个$x^t$会乘上另外的一个transform得到$z^i$，然后这个$z^i$的dimension也跟cell的数目一样，  $z^i$ 的每一个dimension都会去操控input gate(forget gate 跟output gate也都是一样，这里就不在赘述)。  所以我们把$x^t$乘以四个不同的transform得到四个不同的vector，  四个vector的dimension跟cell的数目一样，这四个vector合起来就会去操控这些 memory cell运作。    对于输入向量，LSTM 仍然具有上述的性质。      一个memory cell就长这样，现在input分别就是$z,z^i,z^o,z^f$(都是vector)，  丢到cell里面的值其实是vector的一个dimension，  因为每一个cell input的dimension都是不一样的，  所以每一个cell input的值都会是不一样。  所以cell是可以共同一起被运算的,怎么共同一起被运算呢？  我们说，$z^i$通过activation function跟z相乘，  $z^f$通过activation function跟之前存在cell里面的值相乘，  然后将z跟$z^i$相乘的值加上$z^f$跟$c^{t-1}$相乘的值，  $z^o$通过activation function的结果output，跟之前相加的结果再相乘，最后就得到了output$y^t$。     之前那个相加以后的结果就是memory里面存放的值$c^t$，这个process反复的进行，  在下一个时间点input $x^{t+1}$，把 z 跟input gate相乘，把forget gate跟存在memory里面的值相乘，  然后将前面两个值再相加起来，在乘上output gate的值，然后得到下一个时间点的输出$y^{t+1}$    你可能认为说这很复杂了，但是这不是LSTM的最终形态，真正的LSTM,会把上一个时间的输出接进来，  当做下一个时间的input，也就说下一个时间点操控这些gate的值不是只看那个时间点的input $x^t$，  还看前一个时间点的output $h^t$。其实还不止这样，还会加一个东西叫做“peephole”，  这个peephole就是把存在memory cell里面的值也拉过来。  那操控LSTM四个gate的时候，你是同时考虑了$x^{t+1}$,$h^t$,$c^t$，  你把这三个vector并在一起乘上不同的transform得到四个不同的vector再去操控LSTM。    3.4 多层 LSTM      LSTM通常不会只有一层，若有五六层的话。  大概是这个样子。每一个第一次看这个的人，反映都会很难受。  现在还是 quite standard now，  当有一个人说我用RNN做了什么，你不要去问他为什么不用LSTM,因为他其实就是用了LSTM。  现在当你说，你在做RNN的时候，其实你指的就用LSTM。Keras支持三种RNN：‘’LSTM‘’,“GRU”,”SimpleRNN”    3.5 GRU      GRU是LSTM稍微简化的版本，它只有两个gate，  虽然少了一个gate，但是performance跟LSTM差不多(少了1/3的参数，也是比较不容易overfitting)。  如果你要用这堂课最开始讲的那种RNN，你要说是simple RNN才行。    ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/10/01.html",
+        "teaser":null},{
+        "title": "10-02 循环神经网络2",
+        
+        "excerpt":
+            "这一节我们主要学习      RNN原理   解决梯度消失或者梯度爆炸的方法   RNN 应用   Sequence to sequence   基于注意力模型   RNN与结构化学习的联系与区别   1. RNN原理   1.1 损失函数      RNN 的输出结果 $y^1,y^2,y^3,…$ 与参考结果 $\\hat y^1,\\hat y^2,\\hat y^3…$ 比较，   计算交叉熵函数，即损失函数；我们需要通过训练使损失函数最小。   1.2 学习过程   我们通过BPTT演算法来训练RNN网络的参数，使损失函数达到最小。      有了这个loss function以后，对于training，也是用梯度下降来做。  也就是说我们现在定义出了loss function(L)，我要update这个neural network里面的某个参数w，  就是计算对w的偏微分，偏微分计算出来以后，就用GD的方法去update里面的参数。  在讲feedforward neural network的时候，  我们说GD用在feedforward neural network里面你要用一个有效率的算法叫做Backpropagation。  那Recurrent Neural Network里面，为了要计算方便，所以也有开发一套算法是Backpropagation的进阶版，叫做BPTT。  它跟Backpropagation其实是很类似的，只是Recurrent Neural Network它是在high sequence上运作，  所以BPTT它要考虑时间上的information。    不幸地是：      基于RNN的训练是比较困难的   语言模型的真实实验结果：      一般而言，你在做training的时候，你会期待，你的learning curve是像蓝色这条线，  这边的纵轴是total loss，横轴是epoch的数目，你会希望说：  随着epoch的数目越来越多，随着参数不断的update，loss会慢慢的下降最后趋向收敛。  但是不幸的是你在训练Recurrent Neural Network的时候，你有时候会看到绿色这条线。  学习曲线产生剧烈的抖动，出现不平滑的情况。   1.3 error surface    误差曲面面要么非常平坦，要么异常陡峭。这样会造成什么样的问题呢？  假设你从橙色的点当做你的初始点，用GD开始调整你的参数(updata你的参数，可能会跳过一个悬崖，  这时候你的loss会突然爆长，loss会非常上下剧烈的震荡)。  有时候你可能会遇到更惨的状况，就是以正好你一脚踩到这个悬崖上，会发生这样的事情，  因为在悬崖上的gradient很大，之前的gradient会很小，所以你措手不及，  因为之前gradient很小，所以你可能把learning rate调的比较大。  很大的gradient乘上很大的learning rate结果参数就update很多，整个参数就飞出去了。    用工程的思想来解决就是采用clipping(当gradient大于某一个threshold的时候，不要让它超过那个threshold)，  当gradient大于15时，让gradient等于15结束。  因为gradient不会太大，所以你要做clipping的时候，就算是踩着这个悬崖上，也不飞出来，会飞到一个比较近的地方，  这样你还可以继续做你得RNN的training。     由图中的例子，我们可以看出：损失函数的梯度在同一个点附近可能有着巨大的差别，   有时候非常大，有时候非常小。   2.解决RNN梯度消失或者梯度爆炸问题   2.1 LSTM      有什么样的技巧可以告诉我们可以解决这个问题呢？  其实广泛被使用的技巧就是LSTM，LSTM可以让你的error surface不要那么崎岖。  它可以做到的事情是，它会把那些平坦的地方拿掉，解决gradient vanish的问题，不会解决gradient explode的问题。  有些地方还是非常的崎岖的(有些地方仍然是变化非常剧烈的，但是不会有特别平坦的地方)。    如果你要做LSTM时，大部分地方变化的很剧烈，所以当你做LSTM的时候，  你可以放心的把你的learning rate设置的小一点，保证在learning rate很小的情况下进行训练。    那为什么LSTM 可以解决梯度消失的问题呢，为什么可以避免gradient特别小呢？    RNN与LSTM在面对memory的时候，处理操作不一样；   RNN 里面每一个时间点，memory里面的值都会被覆盖掉；  而 LSTM 是把原来的memory里面的值乘以一个值与 input 的值之和放在cell中，即LSTM的memory input 是相加的。  所以今天它和RNN不同的是，如果今天你的weight可以影响到memory里面的值的话，一旦发生影响会永远都存在。  不像RNN在每个时间点的值都会被format掉，所以只要这个影响被format掉它就消失了。  但是在LSTM里面，一旦对memory造成影响，那影响一直会被留着。    现在有另外一个版本用gate操控memory cell，叫做Gates Recurrent Unit(GRU)，  LSTM有三个Gate，而GRU有两个gate，所以GRU需要的参数是比较少的。  因为它需要的参数量比较少，所以它在training的时候是比较鲁棒的。   如果你今天在train LSTM，你觉得overfitting的情况很严重，你可以试下GRU。  GRU的精神就是：旧的不去，新的不来。  它会把input gate跟forget gate联动起来，  也就是说当input gate打开的时候，forget gate会自动的关闭(format存在memory里面的值)，  当forget gate没有要format里面的值，input gate就会被关起来。  也就是说你要把memory里面的值清掉，才能把新的值放进来。    2.2 其他技巧      其实还有其他的technique是来handle gradient vanishing的问题。  比如说clockwise RNN或者说是Structurally Constrained Recurrent Network (SCRN)等等。    3. RNN 的应用   3.1 多对一序列      输入是矢量序列，但输出只是一个矢量      sentiment analysis所做的事就是给machine 看很多的文章，  然后machine要自动的说，哪些文章是正类，哪些文章是负类。  在这个过程中，RNN的输入是 character sequence，  然后Recurrent Neural Network把这个sequence读过一遍。  在最后一个时间点，把hidden layer拿出来，在通过几个transform，  然后你就可以得到最后的sentiment analysis  (这是一个分类的问题，但是因为input是sequence，所以用RNN来处理)       key term extraction意思就是说给machine看一个文章，machine要预测出这篇文章有哪些关键词汇。   3.2 多对多序列      输入和输出都是序列，但输出比输入短。    语音辨识中输入是一段语音信号，每一个 vector 是信号的非常小的一小段时间（例如0.1s）所以一段信号中会有很多 vector   都会输出相同的字 （如上图所示），用 trimming 的方法把重复的输出去掉，但是这样会出现无法区分“好棒”（褒义）和“好棒棒”（贬义）的问题。       需要把“好棒”跟“好棒棒”分开来，怎么办，我们有一招叫做“CTC”(这招很神妙)，它说：  我们在output时候，我们不只是output所有中文的character，我们还有output一个符号，叫做”null”“(没有任何东西)。  所以我今天input一段acoustic feature sequence,它的 output 是“好 null null 棒 null null null null”，  然后我就把“null”的部分拿掉，它就变成“好棒”。如果我们输入另外一个sequence，  它的output是“好 null null 棒 null 棒 null null”，然后把“null”拿掉，所以它的output就是“好棒棒”。  这样就可以解决叠字的问题了。       CTC的训练过程：    CTC在做training的时候，你手上的train data就会告诉你说，  这一串acoustic features对应到这一串character sequence，  但它不会告诉你说“好”是对应第几个character 到第几个character。  这该怎么办呢，穷举所有可能的alignments。  简单来说就是，我们不知道“好”对应到那几个character，“棒”对应到哪几个character。  假设我们所有的状况都是可能的。  可能第一个是“好 null 棒 null null null”，可能是“好 null null 棒 null null”，  也可能是“好 null null null 棒 null”。我们不知道哪个是对的，那假设全部都是对的。  在training的时候，全部都当做是正确的，然后一起train。       CTC 实例：      在做英文辨识的时候，你的RNN output target 就是character(英文的字母+空白)。  直接output字母，然后如果字和字之间有boundary，就自动有空白。    假设有一个例子，第一个frame是output h，第二个frame是output null，  第三个frame是output null，第四个frame是output I等等。  如果你看到output是这样子话，那最后把“null”的地方拿掉，那这句话的辨识结果就是“HIS FRIEND’S”。  你不需要告诉machine说：”HIS”是一个词汇，“FRIEND’s”是一个词汇,machine通过training data会自己学到这件事情。  传说 Google 的语音辨识系统已经全面换成CTC来做语音辨识。如果你用CTC来做语音辨识的话，  就算是有某一个词汇(比如是：英文中人名，地名)在training data中从来没有出现过，machine也是有机会把它辨识出来。    3.3 多对多（Sequence to sequence learning）      输入和输出长度之间没有关系限制。   输入英文词汇序列，输出中文词汇序列，二者的长度不一样。例如：machine learning 翻为：机器学习。   把输入 machine learning 用 RNN 读一遍，在最后一个时间点的 memory 里面就存了整个 input sequence 的信息。   最后输出第一个词“机”，然后把“机”作为下一个网络的输入，然后就会推出一系列的词汇。      问题点：不知道什么时候停下来      推文接龙：      解决办法：   增加一个“断”标志。      直接输入英文的声音信号，输出另一种语言的文字，   而不必先将语音信号转换成文字。      这篇的papre是这样做的，sequence to sequence learning我们原来是input   某种语言的文字翻译成另外一种语言的文字(假设做翻译的话)。  那我们有没有可能直接input某种语言的声音讯号，  output另外一种语言的文字呢？我们完全不做语音辨识。  比如说你要把英文翻译成中文，你就收集一大堆英文的句子，  看看它对应的中文翻译。你完全不要做语音辨识，  直接把英文的声音讯号丢到这个model里面去，   看它能不能output正确的中文。这一招居然是行得通的。  假设你今天要把台语转成英文，但是台语的语音辨识系统不好做，  因为台语根本就没有standard文字系统，所以这项技术可以成功的话，  未来你在训练台语转英文语音辨识系统的时候，你只需要收集台语的声音讯号跟它的英文翻译就可以刻了。  你就不需要台语语音辨识的结果，你也不需要知道台语的文字，也可以做这件事。       利用sequence to sequence的技术，甚至可以做到Beyond Sequence。这个技术也被用到syntactic parsing。  synthetic parsing这个意思就是说，让machine看一个句子，它要得到这个句子的结构树，得到一个树状的结构。  怎么让machine得到这样的结构呢？  过去你可能要用structured learning的技术能够解这个问题。  但是现在有了 sequence to sequence learning的技术以后，  你只要把这个树状图描述成一个sequence(具体看图中 john has a dog)。  所以今天是sequence to sequence learning 的话，  你就直接learn 一个sequence to sequence model。  它的output直接就是syntactic parsing tree。这个是可以train的起来的，非常的surprised    有兴趣的同学可以看下论文：  Oriol Vinyals, Lukasz Kaiser, Terry Koo, Slav Petrov, Ilya Sutskever, Geoffrey Hinton, Grammar as a Foreign Language, NIPS 2015   3.4 Document转成Vector    那我们要将一个document表示成一个vector的话，往往会用bag-of-word的方法，  用这个方法的时候，往往会忽略掉 word order information。  举例来说，有一个word sequence是“white blood cells destroying an infection”，  另外一个word sequence是：“an infection destroying white blood cells”，这两句话的意思完全是相反的。  但是我们用bag-of-word的方法来描述的话，他们的bag-of-word完全是一样的。它们里面有完全一摸一样的六个词汇，  因为词汇的order是不一样的，所以他们的意思一个变成positive，一个变成negative，他们的意思是很不一样的。    那我们可以用sequence to sequence Auto-encoder这种做法来考虑word sequence order的情况下  把一个document变成一个vector。    4. Sequence-to-sequence -Text      input一个word sequence，通过Recurrent Neural Network变成一个invalid vector，  然后把这个invalid vector当做decoder的输入，然后让这个decoder，找回一模一样的句子。  如果今天Recurrent Neural Network可以做到这件事情的话，  那Encoding这个vector就代表这个input sequence里面重要的information。  在trian Sequence-to-sequence Auto-encoder的时候，  不需要label data，你只需要收集大量的文章，然后直接train下去就好。    Sequence-to-sequence 还有另外一个版本叫skip thought，  如果用Sequence-to-sequence的，输入输出都是同一个句子，  如果用skip thought的话，输出的目标就会是下一个句子，  用sequence-to-sequence得到的结果通常容易表达，  如果要得到语义的意思的，那么skip thought会得到比较好的结果。       这个结构甚至可以是hierarchical,你可以每一个句子都先得到一个vector   (Mary was hungry得到一个vector，she didn’t find any food得到一个vector)，  然后把这些vector加起来，然后变成一个整个 document high label vector，  在让这整个vector去产生一串sentence vector，  在根据每一个sentence vector再去解回word sequence。  这是一个四层的LSTM(从word 变成sentence sequence ，  变成document lable，再解回sentence sequence，再解回word sequence)    5 Sequence-to-sequence -Speech    在语音上，它可以把一段audio segment变成一个fixed length vector。  比如说，左边有一段声音讯号，长长短短都不一样，那你把他们变成vector的话，  可能dog跟dogs比较接近，never和ever比较接近。我称之为audio auto vector。  一般的auto vector它是把word变成vector，这个是把一段声音讯号变成一个vector。       语音搜索：   将语音库中的语音信号全部转换为向量，输入信号也转换为向量，   在语音库中寻找最相似的向量，得到搜寻结果。      如何将音频段转化为向量？    通过 RNN Encoder 将音频信号进行训练，最后存到 memory 中的信息就是向量；    我们将 encoder 和 decoder 放在一起训练，希望最终的输出结果 $y_1,y_2,y_3,..$和$x_1,x_2,x_3,…$ 接近。      嵌入向量的可视化      我们在实验上得到一些有趣的结果，图上的每个点其实都是一段声音讯号，  你把声音讯号用刚才讲的 Sequence-to-sequence Auto-encoder技术变成平面上一个vector。  发现说：fear这个位置在左上角，near的位置在右下角，他们中间这样的关系(fame在左上角，name在右下角)。  你会发现说：把fear的开头f换成n，跟fame的开头f换成n，它们的word vector的变化方向是一样的。  现在这个技术还没有把语义加进去。    训练聊天机器人，模仿人类对话。    这个demo是用Sequence-to-sequence Auto-encoder来训练一个chat-bot(聊天机器人)。  怎么用sequence to sequence learning来train chat-bot呢？  你就收集很多的对话，比如说电影的台词，在电影中有一个台词是“How are you”，另外一个人接“I am fine”。  那就告诉machine说这个sequence to sequence learning  当它input是“How are you”的时候，这个model的output就要是“I am fine”。  你可以收集到这种data，然后就让machine去 train。  这里我们就收集了四万句和美国总统辩论的句子，然后让machine去学这个sequence to sequence这个model。    6.基于注意力的模型（RNN进阶版本）    RNN 的进阶版本，先给出了人类脑袋可以记忆很多东西，从今天的早餐，到 10 年前的夏天，还可以根据记忆进行归纳整理知识   机器也可以做类似的事情，大体结构如下图所示，输入经过 DNN 或 RNN（相当于 CPU），然后操控读写头，  读取相应位置的数据（整个过程类似电脑读取硬盘），不具体展开。  大家可以参考相关资料：                 Attention-Based Model李宏毅精讲。   当得到新的输入信号时，我们使用 DNN 或者 RNN 训练该数据，得到机器内存中相应位置的信息并输出。      其实machine也可以做到类似的事情，machine也可以有很大的记忆的容量。  它可以有很大的data base，在这个data base里面，每一个vector就代表了某种information被存在machine的记忆里面。    当你输入一个input的时候，这个input会被丢进一个中央处理器，这个中央处理器可能是一个DNN/RNN，  那这个中央处理器会操控一个Reading Head Controller，  这个Reading Head Controller会去决定这个reading head放的位置。  machine再从这个reading head 的位置去读取information，然后产生最后的output       这个model还有一个2.0的版本，它会去操控writing head controller。  这个writing head controller会去决定writing head 放的位置。  然后machine会去把它的information通过这个writing head写进它的data base里面。  所以，它不仅有读的功能，还可以discover出来的东西写入它的memory里面去。  这个就是大名鼎鼎的Neural Turing Machine。    6.1 阅读理解   将Text中的句子变成一个个句子，根据输入的队列，经过 RNN 或者 DNN 处理，找到最合适的答案。      结果：    &lt;font size=4&gt;https://github.com/fchollet/keras/blob/master/examples/babi_memnn.py   上图是在baby corpus上的结果，baby corpus是一个Q&amp;A的一个简单的测试。  我们需要做的事就是读过这五个句子，然后说：what color is Grey?，得到正确的答案，yes。  那你可以从machine attention的位置(也就是reading head 的位置)看出machine的思路。  图中蓝色代表了machine reading head 的位置，Hop1，Hop2，Hop3代表的是时间，  在第一个时间点，machine先把它的reading head放在“greg is a frog”，把这个information提取出来。  接下来提取“brian is a frog” information ，再提取“brian is yellow”information。  最后它得到结论说：greg 的颜色是yellow。这些事情是machine自动learn出来的。  也就是machine attention在哪个位置，这些通过neural network学到该怎么做，并不是去写程序，  你要先看这个句子，在看这个句子。这是machine自动去决定的。    6.2 视觉问题回答(Visual Question Answering)   判断胡子是什么构成的？      与阅读理解的问题类似，每一个向量代表图片中的某一部分的区域；   通过 RNN 的处理，找到最相似的部分。      这个Visual Question Answering该怎么做呢？  先让machine看一张图，然后通过CNN你可以把这张图的一小块region用一小块的vector来表示。  接下里，输入一个query，这个query被丢到中央处理器中，这个中央处理器去操控这个reading head controller，  这个reading head controller决定读取的位置(是跟现在输入的问题是有关系的，  这个读取的process可能要好几个步骤，machine会分好几次把information读到中央处理器，最后得到答案。    6.3 Speech Question Answering      让机器进行托福的听力测试      模型结构：      将问题进行语义分析，得到问题的语义；   将音频故事先进行语音识别转换为文字在进行语义分析；   将问题和文章故事做 “attention” 处理找到答案，找到答案之后还可以将答案和原文在比较找到最合适的答案。      实验结果：    这些是一些实验结果，这个实验结果是：random 正确率是25 percent。有两个方法要比25 percent要强的。    这五个方法都是naive的方法，也就是完全不管文章的内容，直接看问题跟选项就猜答案。  我们发现说，如果你选最短的那个选项，你就会得到35 percent的正确率。  如果分析四个选项的semantic，用sequence-to-sequence autoencoder，去把一个选项的semantic找出来，  然后再去看某个选项和另外三个选项的相似度，如果比较高的话，那就把该选项选出来。  和人的直觉是相反的，直觉应该是选一个语义和另外三个语义是不像的，但是别人已经计算到会这么做的了，  所以用了计中计，如果要选和其他选项语义比较相似的答案，反而比随便选得到正确答案的概率要高，  如果选最不像的那个选项，得到的答案就会接近随机，都是设计好的。      Memory Network 的正确率为 39.2%。     Attention-based Model 的正确率为 48.8%      参考资料：      循环神经网络的不合理有效性   &lt;font size=4&gt;http://karpathy.github.io/2015/05/21/rnn-effectiveness/      了解 LSTM 网络   &lt;font size=4&gt;http://colah.github.io/posts/2015-08-Understanding-LSTMs/   6.4 RNN与结构化学习的联系与区别      使用deep learning跟structure learning的技术有什么不同呢？  首先假如我们用的是unidirectional RNN/LSTM，当你在 decision的时候，你只看了sentence的一半，  而你是用structure learning的话，比如用Viterbi algrithm你考虑的是整个句子。  从这个结果来看，也许HMM，SVM等还是占到一些优势的。  但是这个优势并不是很明显，因为RNN和LSTM他们可以做Bidirectional ，  所以他们也可以考虑一整个句子的information。    在HMM/SVM里面，你可以explicitly的考虑label之间的关系    举例说，如果做inference的时候，再用Viterbi algrithm求解，  （假设每个label出现的时候都要出现五次）这个算法可以轻松做到，  因为可以修改机器在选择分数最高的时候，排除掉不符合constraint的那些结果，  但是如果是LSTM/RNN，直接下一个constraint进去是比较难的，  因为没办法让RNN连续吐出某个label五次才是正确的，  所以在这点上，structured learning似乎是有点优势的。  如果是RNN/LSTM，你的cost function跟你实际上要考虑的error往往是没有关系的，  当你做RNN/LSTM的时候，考虑的cost是每一个时间点的cross entropy(每一个时间的RNN的output cross entropy)，  它跟你的error不见得是直接相关的。但是你用structure learning的话，structure learning 的cost会影响你的error，  从这个角度来看，structured learning也是有一些优势的。  最重要的是，RNN/LSTM可以是deep，HMMM,SVM等它们其实也可以是deep，但是它们要想拿来做deep learning 是比较困难的。  在我们上一堂课讲的内容里面。它们都是linear，因为他们定义的evaluation函数是线性的。  如果不是线性的话也会很麻烦，因为只有是线性的我们才能套用上节课讲的那些方法来做inference。    最后来看，RNN/LSTM在deep这件事的表现其实会比较好，同时这件事也很重要，  如果只是线性的模型，function space就这么大，可以直接最小化一个错误的上界，  但是这样没什么，因为所有的结果都是坏的，所以相比之下，deep learning占到很大的优势。    7.Integerated Together      deep learning和structured learning结合起来。  input features 先通过RNN/LSTM，然后RNN/LSTM的output再做为HMM/svm的input。  用RNN/LSTM的output来定义HMM/structured SVM的evaluation function，  如此就可以同时享有deep learning的好处，也可以有structure learning的好处。       语音识别：CNN/LSTM/DNN + HMM         语义标记：Bi-directional LSTM + CRF/Structured SVM      先用Bi-directional LSTM做feature，然后把这些feature拿来在做CRF或者Structured SVM，  然后学习一个权重w，这个$\\phi(x,y)$的feature，要直接从Bidirectional LSTM的输出可以得到比较好的结果。    有人说structured learning是否现实？    structured learning需要解三个问题，其中input的问题往往很困难，  因为要穷举所有的y让其最大，解一个optimization的问题，  其实大部分状况都没有好的解决办法，只有少数有，其他都是不好的状况。  所以有人说structured learning应用并不广泛，但是未来未必是这样的。    其实GAN就是一种structured learning，  可以把discriminator看做是evaluation function（也就是problem 1）最后要解一个inference的问题，  我们要穷举我们未知的东西，看看哪个可以让我们的evaluation function最大。  这步往往比较困难，因为x的可能性太多了。  但其实这个可以就是generator，我们可以想成generator就是用所给的noise，输出一个update，  它输出的这个高斯模型，就是让discriminator分辨不出的高斯模型，  如果discriminator就是evaluation function的话，  那output的值就是让evaluation function的值很大的那个对应值，  所以这个generator就是在解这个问题，  其实generator的输出就是argmax的输出，可以把generator当做在解inference这个问题，然后就直接求problem 3。  structured learning过程和GAN模型generator不断产生让discriminator最大的那个值，  然后再去训练discriminator不断识别真实值，然后更新值的过程是异曲同工的。     GAN也可以是conditional的GAN，现在的任务是给定x，找出最有可能的y，想成语音辨识，x是声音讯号，y是辨识出来的文字，  如果是用conditional的概念，generator输入一个x，就会output一个y，discriminator是去检查y的pair是不是对的，  如果给他一个真正的x，y的pair，会得到一个比较高的分数，给一个generator输出的一个y配上输入的x，  所产生的一个假的pair，就会给他一个比较低的分数。    训练的过程就和原来的GAN就是一样的，这个已经成功运用在文字产生图片这个task上面。  这个task的input就是一句话，output就是一张图，  generator做的事就是输入一句话，然后产生一张图片，  而discriminator要做的事就是给他一张图片，要他判断这个x，y的pair是不是真的，  如果把 discriminator换成evaluation function，把generator换成解inference的problem，  其实conditional GAN和structured learning就是可以类比，或者说GAN就是训练structured learning的一种方法。       很多人都有类似的想法，比如GAN可以和Energy—based模型一起做。这里给出一些Reference。  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/10/02.html",
+        "teaser":null},{
+        "title": "10-03 集成学习",
+        
+        "excerpt":
+            "这节我们主要学习      集成学习介绍   Bagging   Boosting   Stacking   AdaBoost   1. 集成学习介绍   集成学习能够让你只对模型稍加修改就可以得到更好的结一个结果   集成学习的架构      获取一系列的分类器            $f_1(x),f_2(x),f_3(x),…$           将这些分类以某种合适的方式聚在一起    相当于打组团打 boss 一样需要合理的人员配置，例如坦克，辅助和输出。三者形成互补状态，达到整体强度最高。   2. Bagging 方法   2.1 方差与偏差      复杂的模型将有较大的方差;我们将所有的模型平均，   得到新模型 $f^*$ ,新的模型可能和正确答案很接近。      2.2 Bagging 的优点   对原始数据集进行采样，得到新的不同的数据子集，   再对这些新的数据集进行训练，得到不同的模型。       上图表示了用自己采样的数据进行Bagging的过程。  在原来的N笔训练数据中进行采样，过程就是每次从N笔训练数据中取N‘（通常N=N’）  建立很多个dataset，这个过程抽取到的可能会有重复的数据，  但是每次抽取的是随机形成的dataset。每个dataset都有N’笔data，  但是每个dataset的数据都是不一样的，  接下来就是用一个复杂的模型对四个dataset都进行学习得到四个function，  接下来在testing的时候，就把这testing data放到这四个function里面，  再把得出来的结果做平均（回归）或者投票（分类），  通常来说表现（variance比较小）都比之前的好，这样就不容易产生过拟合。   做Bagging的情况：模型比较复杂，容易产生过拟合。  （容易产生过拟合的模型：决策树）目的：降低方差    3 决策树   用决策树来解决分类问题：      实验：二元分类问题      实验条件：单一决策树    随着决策树深度的增加，分类的标准越来越多，边界值也越来越明显，实验结果越来越好。   4 随机森林      决策树：            易于实现训练数据错误率为 0%       如果树的每一个分支对应一组训练数据的话，正确率将达 100%           随机森林：            仅仅重新采样训练数据是不够的       随机限制每个拆分中使用的特征/问题           袋装验证：            使用不同的模型去测试数据集，袋装误差能够很好的预测测试集误差              实验结果：      5 Boosting        条件和目标：            如果机器学习算法可以在训练数据上生成错误率小于 50% 的分类器，       增强后，错误率可以降低到 0%           boosting 的框架：            获取第一个分类器 $f_1(x)$       找到另外一个函数 $f_2(x)$ 来改良 $f_1(x)$                    我们希望 $f_1(x)$ 和 $f_2(x)$ 互补                       得到第二个分类器 $f_2(x)$       $…$ 最后,合并所有分类器                分类器按顺序被学习       在不同的训练集上进行训练   怎样拥有不同的训练集            重新采样训练数据以形成新的数据集       重新加权训练数据以形成新的数据集       在实现过程中,只需要更改变损失（目标）函数            例如，系数$u^2$越大，则更新参数时就会更加考虑拟合该数据（$x^2$，$y^2$）。   6 AdaBoost  6.1 介绍 AdaBoost      思想：在$f_1(x)$失效的数据集上训练$f_2(x)$   如何找到使$f_1(x)$失效的数据集呢？    原始数据集经过训练后，经过 $f_1(x)$ 时错误率很容易就可以达到小于 0.5，  为该数据集分配新的权重 $\\mu^n_2$，使错误率达到 0.5。  错误率在 0.5 时，直观上可以感受到 $f_1(x)$ 与随机分类的效果没多大差别，  此时利用该权重训练得到的新的 $f_2(x)$，此时 $f_1(x),f_2(x)$ 就会形成互补。    为训练集数据重新分配权重：    如果该数据分类错误，将权重乘以 $d_1$；若分类正确，权重除以 $d_1$。（由于要增加错误所造成的权重，$d_1$ 取值会大于1）      求解 $d_1$ 的过程：         直观上的结果是预测与结果一致的新的权重之和与预测错误的权重相等各占 0.5，  当然可以可以令错误率等于 0.5，进行反解表达式得到更新公式。   6.2 AdaBoost 算法   对于给定的训练集，通过 T 次循环，计算出 T 个分类器。      如何将它们聚合起来？    当该模型的错误率越小时，我们给该模型分配的权重越大。（表示我们更偏向于相信该模型的结果）   6.3 Toy 实例   分类器的训练过程：   我们需要使用弱分类器。   由第一幅图可知，第一次分类有 7 个正确，左边两个蓝色的类别和右边五个红色的类别，  然后更新权重，使右边蓝色的错误分类放大为 1.53，可得 7*0.65 约等于 3*1.53，即错误率约等于 0.5，  此为第一次更新，然后重复更新权重和分类方法。         最终整个模型的准确率为 100%      6.4 AdaBoost证明推导    当T越大，迭代次数越多时，$H(x)$ 在训练集上的错误率越来越小   模型最终的错误率有一个上界，始终 $\\leq$ $\\sum_n exp(-\\hat y^n g(x^n))$       $Z_t$ 为训练集数据的权重的总和；经过一系列的数学推导，得到 $Z_{T+1}$ 的表达式；   联立训练集错误率的表达式，得到   Error Rate $\\leq \\sum_n exp(-\\hat y^n g(x^n))$ = $\\frac{1}{N}Z_{T+1}$    由上图可以得出，$Z_T$ 随着 $T$ 的增大不断减小，   所以，当 $T$ 增大时，错误率的上界不断减小，错误率大概率跟着不断减小。   6.5 AdaBoost的神秘现象   当T增大到一定程度时，会发现训练集误差率已经降为 0 不发生改变，但是   测试集的误差率还是会一直减小。    定义间隔 Margin = $\\hat y g(x)$;当迭代次数较多时，间隔会增大，使得模型在   测试集上的表现更好。（当训练集的错误率为0时，$\\hat y g(x)$ 始终同号，即始终大于 0）      6.6 AdaBoost + 决策树 做初音的实例    当树的深度一定时，迭代的次数越多错误率越低，模型的效果越好。   7. Gradient Boosting   建立模型的一般步骤：   初始化一个模型，不断的迭代不断的优化，使目标函数最小化，得到最后的模型      Gradient Boosting是Boosting的更泛化的一个版本。 具体步骤：      初始化一个$g_{0}(x)=0$,    进行很多次的迭代，找到一组$f_t(x)$和$\\alpha_t$来共同改进$g_{t-1}(x)$    $g_{t-1}(x)$就是之前得到所有的f(x)和$\\alpha$乘积的和    把找到的一组$f_t(x)$和$\\alpha_t$（与$g_{t-1}(x)$互补）加上原来的$g_{t-1}(x)$得到新的$g_{t}(x)$，这样$g_{t}(x)$就比原来的$g_{t-1}(x)$更好    最后再得到T个迭代的H(x) 这里的cost function是$L(g)=\\sum\\limits_{n}l(\\hat{y}^n,g(x^n))$,    其中ll是$\\hat{y}^n$ 和$g(x^n)$的差异（loss function，这个函数可以直接选择，可以是交叉熵，也可以是均方误差）    这里定义成了$exp(-\\hat{y}^ng(x^n))$     接下来我们要最小化损失函数，我们就需要用梯度下降来更新每个g(x)     我们希望用梯度下降求得部分和用 AdaBoost 求得部分的方向越一致越好。    在最大化的过程中，我们求得的 $f_t(x^n)$ 和用 AdaBoost 求得 $f_t(x^n)$ 是一致的。   在求出 $f_t(x^n)$ 之后，我们希望求得一个 $\\alpha_t$ 使得损失函数最小      这里找出来的$f_t(x)$，其实也就是AdaBoost找出来的$f_t(x)$,  所以在AdaBoost的时候，找一个弱的分类器$f_t(x)$，就相当于用梯度下降更新损失，值得损失会变小。   由于求$f_t(x)$是很不容易才找到的，所以我们这里就会给$f_t(x)$配一个最好的$\\alpha_t$，把$f_t(x)$的价值发挥到最大。    对于$\\alpha_t$就很像学习率，但是这里有点不一样，我们是固定$f_t(x)$，  穷举所有的$\\alpha_t$找到一个$\\alpha_t$使得$g_{t}(x)$的损失更小   实际中就是求解一个最优化问题，找出一个$\\alpha_t$，让$L(g)$最小。     巧合的是找出来的$\\alpha_t$就是$\\alpha_t=ln\\sqrt{(1-\\epsilon_t)/\\epsilon_t}$  AdaBoost其实可以想成在做梯度下降，只是这个梯度是一个函数，  然后有一个很好的方法来决定学习率的这样一个问题。  Gradient Boosting有一个好的就是我们可以任意更改目标函数。  这样就可以创造出很多新的方法。        8. Stacking   在集成多个模型之后，我们需要再添加一个最终的分类器，   为每一个模型分配一个合适的权重。    我们将训练集的数据分为两个部分，一部分用于训练各个模型，   另一部分用于训练最后的分类器，两部分数据没有重叠。      上图中，把一笔数据x输入到四个不同的模型中，然后每个模型输出一个y，然后用投票法决定出最好的（对于分类问题）  但是有个问题就是并不是所有系统都是好的，有些系统会比较差，  但是如果采用之前的设置低权重的方法又会伤害小毛的自尊心，  这样我们就提出一种新的方法：   把得到的y当做新的特征输入到一个最终的分类器中，然后再决定最终的结果。  对于这个最终的分类器，应当采用比较简单的函数（比如说逻辑回归），不需要再采用很复杂的函数，因为输入的y已经训练过了。   在做stacking的时候我们需要把训练数据集再分成两部分，一部分拿来学习最开始的那些模型，另外一部分的训练数据集拿来学习最终的分类器。  原因是有些前面的分类器只是单纯去拟合training data，  比如小明的代码可能是乱写的，他的分类器就是很差的，他做的只是单纯输出原来训练数据集的标签，  但是根本没有训练。如果还用一模一样的训练数据去训练最终分类器，这个分类器就会考虑小明系统的功能。  所以我们必须要用另外一部分的数据来训练最终的分类器，然后最终的分类器就会给之前的模型不同的权重。   ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/10/03.html",
+        "teaser":null},{
+        "title": "10-04 深度强化学习浅析",
+        
+        "excerpt":
+            "这一节我们主要学习     深度强化学习的基础知识及其应用场景   用基于策略的方法（Policy-based）学习一个做事的 Actor   用基于价值的方法（Value-based）学习一个批评的 Critic(下学期内容)   将 Actor 与 Critic 结合得到当前最强的方法 A3C（下学期内容）   1.深度强化学习      David Sivler 说 人工智能（AI）= 强化学习（RL）+ 深度学习（DL）   15年 Google 在 nature 发表 深度强化学习玩 Atari 游戏的论文   16年著名的 Alpha Go 痛扁人类   1.1 强化学习应用场景    有个傻傻的机器人小白（ Agent ）去闯荡世界（ Environment ），世界是非常开放的，将自己的状态（ State ）毫不吝啬地给小白呈现 ，  而小白也会做出一些懵懵懂懂的探索动作（ Action ），这时候世界就会告诉小白你的所作所为是好的还是不好的（ Reward ）。  小白看到一杯水（ State ），懵懂的小白一下子将它打翻了（ Action ），则他会收到负面反馈（ Reword ）。由于环境是连续的，  紧接着小白面前的就是一杯被打翻的水（ State ），于是试着把水擦干净（ Action ），得到了正面反馈（ Reward ）。       于是，小白要做的就是，根据前面收获的正面和负面反馈，去学习哪些能时正面反馈最大化的行为。   1.2 监督学习与增强学习    在下围棋的过程中，环境为你的对手，机器观察棋盘上的落子情况，   根据对手的落子，机器做出不同的动作。    问题的难点在于，不是每次落子都能够得到有效的 reward，需要结束一盘棋局才能得到 reward，大多数情况下，reward 的值为 0。   监督学习根据棋谱来进行学习。   强化学习是让两个 agent 进行大量的相互对弈，依据经验来进行学习。        Supervised   就是告诉机器说看到什么样的态势就落在指定的位置。  Supervised不足的地方就是具体态势下落在哪个地方是最好的，其实人也不知道，因此不太容易做Supervised。  用Supervised就是machine从老师那学，老师说下哪就下哪。     Reinforcement  就是让机器找一个对手不断下下，赢了就获得正的reward，没有人告诉它之前哪几步下法是好的，  它要自己去试，去学习。Reinforcement 是从过去的经验去学习，没有老师告诉它什么是好的，什么是不好的，machine要自己想办法，  其实在做Reinforcement 这个task里面，machine需要大量的training，可以两个machine互相下。    Alpha Go 结合了两种方法，先进行监督学习，获得较好的表现之后再进行强化学习。   1.3 聊天机器人   Reinforcement Learning 也可以被用在Learning a chat-bot。    chat-bot 是seq2seq，input 就是一句话，output 就是机器的回答。    如果采用Supervised ，就是告诉机器有人跟你说“hello”，你就回答“hi”。  如果有人跟你说“bye bye”，你就要说“good bye”。    如果是Reinforcement Learning 就是让机器胡乱去跟人讲话，讲讲，人就生气了，  machine就知道一句话可能讲得不太好。不过没人告诉它哪一句话讲得不好，它要自己去发掘这件事情。       使用强化学习的一种方法是让 Agent 和人对话，Agent 会随机回答，最终可能得到很不好的结果，机器再根据 reward 来调整。      在进行强化学习时，机器要进行大量的对话，一般采取的方法是，      让两个机器人互相交谈（有时会产生良好的对话，有时会产生不良影响）。         通过这种方法，我们可以生成很多对话   使用一些预定义的规则来评估对话的优点    两个chat-bot互相对话，对话之后有人要告诉它们它们讲得好还是不好。  在围棋里比较简单，输赢是比较明确的，对话的话就比较麻烦，  你可以让两个machine进行无数轮互相对话，  问题是你不知道它们这聊天聊得好还是不好，这是一个待解决问题。  现有的方式是制定几条规则，如果讲得好就给它positive reward ，  讲得不好就给它negative reward，好不好由人主观决定，  然后machine就从它的reward中去学说它要怎么讲才是好。  后续可能会有人用GAN的方式去学chat-bot。通过discriminator判断是否像人对话，  两个agent就会想骗过discriminator，即用discriminator自动认出给reward的方式。   Reinforcement Learning 有很多应用，尤其是人也不知道怎么做的场景非常适合。    1.4 交互式搜索    让machine学会做Interactive retrieval，  意思就是说有一个搜寻系统，能够跟user进行信息确认的方式，  从而搜寻到user所需要的信息。  直接返回user所需信息，它会得到一个positive reward，然后每问一个问题，都会得到一个negative reward。    Reinforcement Learning 还有很多应用，比如开个直升机，开个无人车呀，  也有通过deepmind帮助谷歌节电，也有文本生成等。  现在Reinforcement Learning最常用的场景是电玩。  现在有现成的environment，比如Gym,Universe。  让machine 用Reinforcement Learning来玩游戏，  跟人一样，它看到的东西就是一幅画面，就是pixel，然后看到画面，  它要做什么事情它自己决定，并不是写程序告诉它说你看到这个东西要做什么。需要它自己去学出来。     机器像人类一样学习如何玩游戏，           机器观察游戏画面            机器学习采取合适的动作            太空入侵者游戏        游戏得分为 reward；当所有的外星人被杀光或者飞船被毁游戏结束。    动作$a_1$：左移, reward为 0；当执行完动作 $a_1 $之后，外星人也进行了一些移动；   但这种变化与机器采取的动作是没有关系的，有时候环境的变化是纯粹随机的。   动作 $a_2$：开火，reward 为 5。   经过多轮的循环之后，游戏结束（飞船被摧毁）；这一过程被称为一个   episode，我们的学习目标是，在每一轮的 episode 中，最大化累积的 reward。      1.5 强化学习的难点           奖励延迟                       在太空入侵的游戏中，仅仅开火这一个动作能够获得奖励，尽管开火前的移动也很重要                        在下围棋时，牺牲短期的好处以获得长足的利益可能才是更好的选择                        机器的操作会影响其接受的后续数据              机器要能够探索他没有做过的行为           2. 强化学习的方法   Reinforcement Learning 的方法主要分为Policy-based的方法和 Valued-based 的方法。  先有Valued-based的方法，再有Policy-based的方法。  在Policy-based的方法里面，会learn一个负责做事的Actor，  在Valued-based的方法会learn一个不做事的Critic，专门批评不做事的人。  我们要把Actor和Critic加起来叫做Actor+Critic的方法。    2.1 用基于策略的方法（Policy-based Approach）学习一个 Actor       先来看看怎么学一个Actor:  所谓的Actor是什么呢?我们之前讲过，Machine Learning 就是找一个Function，   Reinforcement Learning也是Machine Learning 的一种，所以要做的事情也是找Function。  这个Function就是所谓的魔术发现，Actor就是一个Function。  这个Function的input就是Machine看到的observation，它的output就是Machine要采取的Action。  我们要透过reward来帮我们找这个best Function。    找个这个Function有三个步骤：   第一个步骤就是决定你的Function长什么样子，假设你的Function是一个Neural Network，就是一个deep learning。    如果Neural Network作为一个Actor，这个Neural Network的输入就是observation，  可以通过一个vector或者一个matrix 来描述。  output就是你现在可以采取的action。  举个例子，Neural Network作为一个Actor，inpiut是一张image，  output就是你现在有几个可以采取的action，output就有几个dimension。  假设我们在玩Space invader，output就是可能采取的action左移、右移和开火，  这样output就有三个dimension分别代表了左移、右移和开火。     神经网络的输入为机器的 observation，即像素点组成的向量或矩阵，输出对应机器每一个动作的发生概率。   相比于传统的查找表，神经网络有泛化的功能，不用穷举所有输入的情况   第二步骤就是，我们要决定一个Actor的好坏。  在Supervised learning中，我们是怎样决定一个Function的好坏呢？  举个Training Example例子来说，我们把图片扔进去，看它的结果和target是否像，  如果越像的话这个Function就会越好，  我们会一个loss，然后计算每个example的loss，我们要找一个参数去minimize这个参数。     在分类问题中，我们使用交叉熵作为损失函数，我们需要找到最佳的参数 $\\theta^*$ 使损失函数最小。    在强化学习中，我们使用总奖励的期望值 $\\bar R_{\\theta}$ ，来评估一个 Actor $\\pi_{\\theta}(s)$ 的好坏    我们使用 $\\pi_{\\theta}(s)$ 进行 N 次游戏，用 $R_{\\theta}$ 的平均值来代替期望 $\\bar R_{\\theta}$   怎么选择最好的function，其实就是用我们的Gradient Ascent。我们已经找到目标了，就是最大化这个$\\bar{R}_\\theta$   然后用梯度下降的方法找到最佳的 Actor：           问题描述：                                  $\\theta^* = arg max \\bar R_{\\theta}$     $\\bar R_{\\theta}$ = $\\sum_{\\tau} R(\\tau)P(\\tau           \\theta)$                                  梯度下降：      因为我们只能改变 $\\theta$ 来改变 Actor,所以只对 $\\theta$ 求导。    这里我们同样需要使用样本的概率来代替 $P(\\tau|\\theta)$                                      $P(\\tau           \\theta)$ 的计算：                           其中有些概率项和 Actor 无关，有些与 Actor 有关                                         计算$\\nabla$ $\\log{P(\\tau           \\theta)}$：                           忽略掉与 $\\theta$ 无关的部分      最终的计算结果：    当 R 为正时，调整 $\\theta$ 的值，来增大某一个动作发生的概率。   当 R 为负时，调整 $\\theta$ 的值，来减小某一个动作发生的概率。    我们使用累计的 reward 而不是及时的奖励。              1.当 $R_{\\theta}$ 一直为正时，并不会影响那些 reward 值较大的动作；   因为最后神经网络要经过 softmax 来输出每个动作的概率，那些 reward 较小   的动作，发生的概率也会相应减小。            2.在采样的过程中，我们可能会遇到某一个 action 不被采样的情况，这时我们需要添加  一个 baseline，只有 reward 超过 baseline 的动作发生的概率才会增加。这样某些动作  不被采样的概率将会减小。              2.2 用基于价值的方法（Value-based Approach）学习一个 Critic   Critic就是Learn一个Neural Network，这个Neural Network不做事，然后Actor可以从这个Critic中获得，这就是Q-learning。   Critic就是learn一个function，这个function可以告诉你说现在看到某一个observation的时候，这个observation有有多好这样。        根据actor π 评估critic function   这个function是用Neural Network表示      state value function $V^\\pi(s)$   这个累加的reward是通过观察多个observation    那么如何估计 $V^\\pi(s)$ 呢？可以采用Monte-Carlo based approach。      State-action value function $Q^π(s,a)$   这个累加的reward是通过观察observation和take的action     2.3 Actor-Critic       该部分在李宏毅课程的第二个学期中介绍：https://www.bilibili.com/video/av35757082/?p=33  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/10/04.html",
+        "teaser":null},{
+        "title": "第10章 RNN与集成学习",
+        
+        "excerpt":
+            "第10章 RNN与集成学习     01 循环神经网络1   02 循环神经网络2   03 集成学习   04 深度强化学习浅析  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/10/features.html",
+        "teaser":null},{
+        "title": "11-01 机器学习的下一步",
+        
+        "excerpt":
+            "这一节我们主要学习   在实际中应用机器学习技术，需要面对和解决的难题：     异常检测   可解释型 AI   对抗攻击   终生学习   元学习   小（零）样本学习   强化学习   网络压缩   无监督域适应   1. 异常检测 Anomaly Detection      机器能不能知道“我不知道”？    例如，对于一个将动物图片进行分类的模型，如果输入一张动漫人物的图片，模型是否会输出“我不知道”。    2. 可解释AI Explainable AI      机器能否说出为什么“我知道”？   3. 对抗攻击 Adversarial Attack      如何防止机器发生错觉？   4. 终身学习 Life-long Learning      人是终身学习的，但今天我们一般只让一个模型学习一个任务，这导致：  （1）模型的数量无限增长，  （2）之前学到的技能对之后的学习没有帮助。    终身学习(Life-long Learning) 研究如何解决同一模型  在学习不同任务时存在的存在灾难性遗忘(catastrophic forgetting)问题。    5. 元学习 Meta-Learning      学习如何学习。  写出一个程序，这个程序能够写出具有学习能力程序。    6. 小样本学习 Few-shot Learning、零次学习 Zero-shot learning      根据很少的样本进行学习。   7. 强化学习 Reinforcement Learning      强化学习真的能用吗？  参考资料：http://web.standford.edu/class/psych209/Readings/LakeEtAIBBS.pdf   8. 网络压缩 Network Compression      把大的神经网络缩小，或者把神经网络的参数二元化。   9. 无监督域适应 Unsupervised Domain Adaptation      应对训练数据和测试数据的分布不同  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/11/01.html",
+        "teaser":null},{
+        "title": "第11章 总结与展望",
+        
+        "excerpt":
+            "第11章 总结与展望  01 机器学习的下一步  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/11/features.html",
+        "teaser":null},{
+        "title": "目录声明",
+        
+        "excerpt":
+            "台大李宏毅教授机器学习课程指引   中文世界中最好的机器学习课程！ 李宏毅老师的机器学习和深度学习系列课程，是中文世界中最好！课程中有深入浅出的讲解和幽默生动的比喻。关键一切都是中文的！&lt;/br&gt;   一、课程目录及主要内容：   第1章 机器学习介绍  01 机器学习导论      人工智能发展史   人工智能、机器学习、深度学习关系   生物的本能与机器的本能   什么是机器学习？   机器学习路线   02 我们为什么需要去学习机器学习      AI 训练师   第2章 回归模型  01 回归模型案例      线性回归模型的应用场景   线性回归模型的原理和实现流程   梯度下降法   过拟合产生的原因以及解决方法   正则化   02 梯度下降法实战(Python)      机器学习常见的 Python 包   梯度下降法代码实现   03 误差分析      误差的来源   偏差   方差   过拟合、欠拟合与误差的关系   交叉验证   04 梯度下降法      梯度下降法流程   调整学习率之Adagrad法   随机梯度下降法的原理及优缺点   特征放缩   05 梯度下降法      游戏理解梯度下降法，如何找到局部最低点或者全局最低点   06 梯度下降法      理解梯度下降法更新参数时，loss 出现不降反增的情况   07 作业介绍   第3章 分类模型   01 分类      分类模型   最大似然估计   概率分布、先验概率、后验概率及条件概率   02 逻辑回归      逻辑回归模型   逻辑回归与平方误差   判别模型与生成模型   多元分类   逻辑回归的优缺点   03 作业介绍   第4章 深度学习  01 介绍深度学习      深度学习的发展历史以及流程   神经网络   全连接前馈网络   损失函数   反向传播   02.反向传播      梯度下降法   链式法则   前向传播   反向传播   03.基于Keras实现的深度学习的Hwllo World      Keras 简介   用 Keras 实现手写数字识别模型   小批量梯度下降（Mini-batch Gradient Descent）   04 Keras2.0 实现手写数字识别   05 Keras demo1   06.DNN训练技巧      激活函数（activation function）   自适应学习率（Adaptive Learning Rate）   早停法（Early Stopping）   正则化（Regularization）   Dropout   07.Keras demo   08.Fizz Buzz in Tensorflow   第5章 卷积神经网络   01. 卷积神经网络      介绍卷积神经网络（CNN）   卷积神经网络主要内容   在Keras中实现CNN   理解CNN实际在做什么   CNN的一些应用   02.深度学习的原因      胖+短的网络 VS. 瘦+高的网络   神经网络模块化思想   端到端学习   深层网络在处理复杂问题中的作用   第6章 半监督学习  01.半监督学习      生成模型中的半监督学习   低密度分离   平滑性假设   更好的表达   第7章 无监督学习  01 线性降维      无监督学习的分类   聚类   分布式表征   降维   PCA 主成分分析   矩阵分解   02 词嵌入      为什么要使用词嵌入   为什么词嵌入是无监督学习   基于统计   基于预测   词嵌入的特点   词嵌入的主要应用   03 邻域嵌套      流形学习   局部线性嵌入   拉普拉斯特征映射   T-distributed Stochastic Neighbor Embedding (t-SNE)   04 深度自动编码      介绍 Auto-encoder   深度自动编码   深度自动编码实例化   05 生成器1      生成模型   像素循环神经网络   变分自编码器   06 生成器2      为什么使用VAE   高斯混合模型   VAE的问题   生成对抗网络   第8章 迁移学习   01.迁移学习      介绍迁移学习   模型微调   多任务学习   领域对抗训练   Zero-shot Learning   第9章 结构化学习  01.支持向量机      支持向量机的介绍   Hinge Loss   线性支持向量机   核方法   02.结构化学习      结构化学习介绍   结构化学习的统一框架   结构化学习中需要解决的几个问题   03.结构化线性模型   04.结构化支持向量机      结构化学习模型   可分离的情况   不可分离的情况   结构化支持向量机   切割平面法   多分类支持向量机   05.序列标记      序列标签   隐马尔科夫模型   条件随机场   结构感知器和结构化支持向量机   第10章 RNN与集成学习  01.循环神经网络1      应用实例：插槽填充   RNN 网络的介绍   长短期记忆网络（LSTM）的介绍与详解   02.循环神经网络2      RNN原理   解决梯度消失或者梯度爆炸的方法   RNN 应用   Sequence to sequence   基于注意力模型   RNN与结构化学习的联系与区别   03.集成学习      集成学习的介绍   Bagging   Boosting   Stacking   04.深度强化学习      深度强化学习的概念和几个应用场景   用基于策略的方法（Policy-based）学习一个做事的 Actor   用基于价值的方法（Value-based）学习一个批评的 Critic(下学期内容)   将 Actor 与 Critic 结合得到当前最强的方法 A3C（下学期内容）   第11章 总结与展望  01.机器学习的下一步      异常检测   可解释型 AI   对抗攻击   终生学习   元学习   小（零）样本学习   强化学习   网络压缩   无监督域适应   二.课程参考资料声明   本份课程资料主要是基于2017年台湾大学老师李宏毅老师的机器学习课程资料      视频网址：https://www.bilibili.com/video/av10590361/?p=1   课程资料：http://speech.ee.ntu.edu.tw/~tlkagk/courses.html   在整理资料的过程中，参考的资料有：      博客：https://blog.csdn.net/dukuku5038/article/details/82253966   博客：https://blog.csdn.net/xzy_thu/article/details/67640512   资料：https://github.com/maplezzz/NTU_ML2017_Hung-yi-Lee_HW   资料：https://github.com/dafish-ai/NTU-Machine-learning   此外，该资料还参考机器学习、深度学习相关的论文书籍等，在这就不一一列举。   如果有侵权行为，请联系我们。   考虑编著们水平有限，资料中难免有错误或者解释不清之处，欢迎大家批评指正和进一步的补充。相关建议或者学习心得可以放在：  ",
+        "categories": [],
+        "tags": [],
+        "url": "http://0.0.0.0:4000/intro.html",
+        "teaser":null},]
+</script>
+              <nav class="c-page__nav">
+  
+
+  
+</nav>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>
